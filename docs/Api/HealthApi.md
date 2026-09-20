@@ -1,6 +1,6 @@
 # LLMPulse\HealthApi
 
-API health check
+Health check that validates an API key and, optionally, access to a project.
 
 All URIs are relative to https://api.llmpulse.ai/api/v1, except if the operation defines another base path.
 

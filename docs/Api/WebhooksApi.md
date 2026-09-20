@@ -1,6 +1,6 @@
 # LLMPulse\WebhooksApi
 
-Outbound webhook subscriptions: signed HTTP POST notifications for project events (new mentions, citations, executions, negative sentiment, completed reports). Scale plan and above.
+Outbound event notifications: subscribe an HTTPS URL to project events and receive HMAC-signed deliveries with no polling. Scale plan and above.
 
 All URIs are relative to https://api.llmpulse.ai/api/v1, except if the operation defines another base path.
 

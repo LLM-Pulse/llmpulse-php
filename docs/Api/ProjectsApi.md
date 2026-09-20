@@ -1,6 +1,6 @@
 # LLMPulse\ProjectsApi
 
-
+A project is one tracked brand. List and read projects, see which AI models and locales have data, create a project in one call, or drive the multi-step draft wizard.
 
 All URIs are relative to https://api.llmpulse.ai/api/v1, except if the operation defines another base path.
 
@@ -9,7 +9,12 @@ All URIs are relative to https://api.llmpulse.ai/api/v1, except if the operation
 | [**createProject()**](ProjectsApi.md#createProject) | **POST** /projects | Create a project (fast mode) |
 | [**createProjectDraft()**](ProjectsApi.md#createProjectDraft) | **POST** /project_drafts | Start a project draft (wizard step 1) |
 | [**finalizeProjectDraft()**](ProjectsApi.md#finalizeProjectDraft) | **POST** /project_drafts/{id}/finalize | Finalize a draft into a real project |
+| [**getProjectDetails()**](ProjectsApi.md#getProjectDetails) | **GET** /dimensions/projects/{id} | Project details |
 | [**getProjectDraft()**](ProjectsApi.md#getProjectDraft) | **GET** /project_drafts/{id} | Read a project draft |
+| [**listLocales()**](ProjectsApi.md#listLocales) | **GET** /dimensions/locales | List locales with data |
+| [**listModels()**](ProjectsApi.md#listModels) | **GET** /dimensions/models | List models with data |
+| [**listProjects()**](ProjectsApi.md#listProjects) | **GET** /dimensions/projects | List projects |
+| [**updateProject()**](ProjectsApi.md#updateProject) | **PATCH** /projects/{id} | Update a project profile (Brand Book) |
 | [**updateProjectDraft()**](ProjectsApi.md#updateProjectDraft) | **PATCH** /project_drafts/{id} | Submit a wizard step |
 
 
@@ -193,6 +198,66 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getProjectDetails()`
+
+```php
+getProjectDetails($id): \LLMPulse\Model\ProjectDetails
+```
+
+Project details
+
+Detailed info for one project: matching_names, industry, business model, primary products, target audience, brand voice, locale, app store IDs, stats (incl. prompts_by_brand_kind counts) and data_coverage (models, countries and languages with data).
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: BearerAuth
+$config = LLMPulse\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new LLMPulse\Api\ProjectsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int
+
+try {
+    $result = $apiInstance->getProjectDetails($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProjectsApi->getProjectDetails: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**|  | |
+
+### Return type
+
+[**\LLMPulse\Model\ProjectDetails**](../Model/ProjectDetails.md)
+
+### Authorization
+
+[BearerAuth](../../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getProjectDraft()`
 
 ```php
@@ -246,6 +311,241 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `listLocales()`
+
+```php
+listLocales($project_id)
+```
+
+List locales with data
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: BearerAuth
+$config = LLMPulse\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new LLMPulse\Api\ProjectsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$project_id = 56; // int | Project ID
+
+try {
+    $apiInstance->listLocales($project_id);
+} catch (Exception $e) {
+    echo 'Exception when calling ProjectsApi->listLocales: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **project_id** | **int**| Project ID | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `listModels()`
+
+```php
+listModels($project_id)
+```
+
+List models with data
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: BearerAuth
+$config = LLMPulse\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new LLMPulse\Api\ProjectsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$project_id = 56; // int | Project ID
+
+try {
+    $apiInstance->listModels($project_id);
+} catch (Exception $e) {
+    echo 'Exception when calling ProjectsApi->listModels: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **project_id** | **int**| Project ID | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `listProjects()`
+
+```php
+listProjects($output): \LLMPulse\Model\ListProjects200Response
+```
+
+List projects
+
+All projects accessible with your API key.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: BearerAuth
+$config = LLMPulse\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new LLMPulse\Api\ProjectsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$output = 'output_example'; // string | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
+
+try {
+    $result = $apiInstance->listProjects($output);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProjectsApi->listProjects: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **output** | **string**| Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. &#39;flat&#39; returns the same metadata plus &#39;columns&#39; and &#39;rows&#39;; &#39;csv&#39; returns those rows as text/csv. Errors are always returned as JSON. | [optional] |
+
+### Return type
+
+[**\LLMPulse\Model\ListProjects200Response**](../Model/ListProjects200Response.md)
+
+### Authorization
+
+[BearerAuth](../../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateProject()`
+
+```php
+updateProject($id, $update_project_request)
+```
+
+Update a project profile (Brand Book)
+
+Updates the project profile, the same fields as Project Settings: brand_name, description, industry, business_model (plus business_model_other when it is OTHER), target_audience, brand_voice, goals, primary_products, matching_names. Send only the fields to change; unknown fields are rejected. All seven Brand Book fields feed every GEO Writer task and prompt suggestions; only industry, description, and target_audience help Recommendations. A matching_names change re-runs mention/citation matching over the project history in the background (rematching=true); further edits are rejected while that runs. Requires a `read_write` scope API key.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: BearerAuth
+$config = LLMPulse\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new LLMPulse\Api\ProjectsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int
+$update_project_request = new \LLMPulse\Model\UpdateProjectRequest(); // \LLMPulse\Model\UpdateProjectRequest
+
+try {
+    $apiInstance->updateProject($id, $update_project_request);
+} catch (Exception $e) {
+    echo 'Exception when calling ProjectsApi->updateProject: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**|  | |
+| **update_project_request** | [**\LLMPulse\Model\UpdateProjectRequest**](../Model/UpdateProjectRequest.md)|  | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

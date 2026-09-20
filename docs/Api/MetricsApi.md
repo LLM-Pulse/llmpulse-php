@@ -1,162 +1,17 @@
 # LLMPulse\MetricsApi
 
-Aggregated time-series, summary, Share of Voice, top sources and agent-traffic metrics
+Aggregated visibility, share of voice, citation and position data for the project and its competitors: time series, period summary, per-prompt summary, Share of Voice and top cited sources.
 
 All URIs are relative to https://api.llmpulse.ai/api/v1, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getAgentTraffic()**](MetricsApi.md#getAgentTraffic) | **GET** /metrics/agent_traffic | AI bot crawler traffic (Scale+, Beta) |
-| [**getAiTraffic()**](MetricsApi.md#getAiTraffic) | **GET** /metrics/ai_traffic | AI referral traffic (Scale+) |
 | [**getPromptSummary()**](MetricsApi.md#getPromptSummary) | **GET** /metrics/prompt_summary | Per-prompt metrics summary |
 | [**getShareOfVoice()**](MetricsApi.md#getShareOfVoice) | **GET** /metrics/sov | Share of Voice |
 | [**getSummary()**](MetricsApi.md#getSummary) | **GET** /metrics/summary | Aggregated metrics summary |
 | [**getTimeseries()**](MetricsApi.md#getTimeseries) | **GET** /metrics/timeseries | Time-series metrics |
 | [**getTopSources()**](MetricsApi.md#getTopSources) | **GET** /metrics/top_sources | Top cited sources |
 
-
-## `getAgentTraffic()`
-
-```php
-getAgentTraffic($project_id, $range, $from, $to, $bot, $company, $group_by, $granularity): \LLMPulse\Model\AgentTrafficResponse
-```
-
-AI bot crawler traffic (Scale+, Beta)
-
-Aggregated AI bot traffic hitting the project's origin server (GPTBot, PerplexityBot, ClaudeBot, OAI-SearchBot, Google-Extended, etc.). Sourced from Cloudflare or CSV uploads. Requires the Scale plan; lower tiers receive ERR_PLAN_REQUIRED.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure Bearer authorization: BearerAuth
-$config = LLMPulse\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new LLMPulse\Api\MetricsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$project_id = 56; // int | Project ID
-$range = 56; // int | Number of days to look back (alternative to from/to)
-$from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
-$to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
-$bot = 'bot_example'; // string | Filter by bot slug (e.g. gptbot, claudebot, perplexitybot)
-$company = 'company_example'; // string | Filter by company (e.g. openai, anthropic, google)
-$group_by = 'bot'; // string
-$granularity = 'granularity_example'; // string
-
-try {
-    $result = $apiInstance->getAgentTraffic($project_id, $range, $from, $to, $bot, $company, $group_by, $granularity);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling MetricsApi->getAgentTraffic: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **project_id** | **int**| Project ID | |
-| **range** | **int**| Number of days to look back (alternative to from/to) | [optional] |
-| **from** | **\DateTime**|  | [optional] |
-| **to** | **\DateTime**|  | [optional] |
-| **bot** | **string**| Filter by bot slug (e.g. gptbot, claudebot, perplexitybot) | [optional] |
-| **company** | **string**| Filter by company (e.g. openai, anthropic, google) | [optional] |
-| **group_by** | **string**|  | [optional] [default to &#39;bot&#39;] |
-| **granularity** | **string**|  | [optional] |
-
-### Return type
-
-[**\LLMPulse\Model\AgentTrafficResponse**](../Model/AgentTrafficResponse.md)
-
-### Authorization
-
-[BearerAuth](../../README.md#BearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getAiTraffic()`
-
-```php
-getAiTraffic($project_id, $range, $from, $to, $source, $granularity)
-```
-
-AI referral traffic (Scale+)
-
-AI referral traffic for a project: human visits arriving from AI assistants (ChatGPT, Perplexity, Gemini, Claude, etc.), measured from the connected web analytics provider (Google Analytics 4, Adobe Analytics, PostHog, Plausible or Piano). Returns per-source users, sessions and conversions with totals and a conversion rate. Requires a connected provider and the Scale plan; otherwise returns ERR_AI_TRAFFIC_NOT_CONNECTED or ERR_PLAN_REQUIRED.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure Bearer authorization: BearerAuth
-$config = LLMPulse\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new LLMPulse\Api\MetricsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$project_id = 56; // int | Project ID
-$range = 56; // int | Number of days to look back (alternative to from/to)
-$from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
-$to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
-$source = 'source_example'; // string | Filter by a single AI source slug (e.g. chatgpt, perplexity, gemini, claude)
-$granularity = 'granularity_example'; // string
-
-try {
-    $apiInstance->getAiTraffic($project_id, $range, $from, $to, $source, $granularity);
-} catch (Exception $e) {
-    echo 'Exception when calling MetricsApi->getAiTraffic: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **project_id** | **int**| Project ID | |
-| **range** | **int**| Number of days to look back (alternative to from/to) | [optional] |
-| **from** | **\DateTime**|  | [optional] |
-| **to** | **\DateTime**|  | [optional] |
-| **source** | **string**| Filter by a single AI source slug (e.g. chatgpt, perplexity, gemini, claude) | [optional] |
-| **granularity** | **string**|  | [optional] |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[BearerAuth](../../README.md#BearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
 
 ## `getPromptSummary()`
 
@@ -188,14 +43,14 @@ $apiInstance = new LLMPulse\Api\MetricsApi(
 $project_id = 56; // int | Project ID
 $range = 56; // int | Number of days to look back (alternative to from/to)
 $from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
-$to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
+$to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
 $breakdown = 'breakdown_example'; // string | Add per-(prompt, model) rows to the output
 $model = 'model_example'; // string | Filter by AI model. Models the API key's user has not enabled are silently dropped.
-$collection_id = 56; // int
-$country_code = 'country_code_example'; // string | ISO country code (e.g. US, GB, DE)
-$language_code = 'language_code_example'; // string | ISO language code (e.g. en, es, de)
+$collection_id = new \LLMPulse\Model\\LLMPulse\Model\GetTimeseriesCollectionIdParameter(); // \LLMPulse\Model\GetTimeseriesCollectionIdParameter | One collection/tag ID or a comma-separated list of IDs
+$country_code = 'country_code_example'; // string | One ISO country code or a comma-separated list (e.g. US,GB,DE)
+$language_code = 'language_code_example'; // string | One ISO language code or a comma-separated list (e.g. en,es,de)
 $prompt = 56; // int | Filter by prompt ID
-$prompt_type = 'prompt_type_example'; // string | Filter by prompt type (search intent)
+$prompt_type = 'prompt_type_example'; // string | One prompt type or a comma-separated list: informational, navigational, commercial, transactional
 $brand_kind = 'brand_kind_example'; // string | Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default.
 $sort = 'responses'; // string
 $sort_dir = 'desc'; // string
@@ -218,14 +73,14 @@ try {
 | **project_id** | **int**| Project ID | |
 | **range** | **int**| Number of days to look back (alternative to from/to) | [optional] |
 | **from** | **\DateTime**|  | [optional] |
-| **to** | **\DateTime**|  | [optional] |
+| **to** | **\DateTime**| End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
 | **breakdown** | **string**| Add per-(prompt, model) rows to the output | [optional] |
 | **model** | **string**| Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. | [optional] |
-| **collection_id** | **int**|  | [optional] |
-| **country_code** | **string**| ISO country code (e.g. US, GB, DE) | [optional] |
-| **language_code** | **string**| ISO language code (e.g. en, es, de) | [optional] |
+| **collection_id** | [**\LLMPulse\Model\GetTimeseriesCollectionIdParameter**](../Model/.md)| One collection/tag ID or a comma-separated list of IDs | [optional] |
+| **country_code** | **string**| One ISO country code or a comma-separated list (e.g. US,GB,DE) | [optional] |
+| **language_code** | **string**| One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |
 | **prompt** | **int**| Filter by prompt ID | [optional] |
-| **prompt_type** | **string**| Filter by prompt type (search intent) | [optional] |
+| **prompt_type** | **string**| One prompt type or a comma-separated list: informational, navigational, commercial, transactional | [optional] |
 | **brand_kind** | **string**| Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. | [optional] |
 | **sort** | **string**|  | [optional] [default to &#39;responses&#39;] |
 | **sort_dir** | **string**|  | [optional] [default to &#39;desc&#39;] |
@@ -280,13 +135,13 @@ $apiInstance = new LLMPulse\Api\MetricsApi(
 $project_id = 56; // int | Project ID
 $range = 56; // int | Number of days to look back (alternative to from/to)
 $from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
-$to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
+$to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
 $granularity = 'granularity_example'; // string
 $competitors = 'competitors_example'; // string | Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM)
 $model = 'model_example'; // string | Filter by AI model. Models the API key's user has not enabled are silently dropped.
-$collection_id = 56; // int
+$collection_id = new \LLMPulse\Model\\LLMPulse\Model\GetTimeseriesCollectionIdParameter(); // \LLMPulse\Model\GetTimeseriesCollectionIdParameter | One collection/tag ID or a comma-separated list of IDs
 $prompt = 56; // int | Filter by prompt ID
-$prompt_type = 'prompt_type_example'; // string | Filter by prompt type (search intent)
+$prompt_type = 'prompt_type_example'; // string | One prompt type or a comma-separated list: informational, navigational, commercial, transactional
 $brand_kind = 'brand_kind_example'; // string | Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default.
 $output = 'output_example'; // string | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
 $view = 'over_time'; // string | Which Share of Voice projection to flatten. Only valid together with 'output'. 'over_time' (default) is one row per date and actor, 'current' the ranked snapshot, 'breakdown' the Top 4 plus Others.
@@ -306,13 +161,13 @@ try {
 | **project_id** | **int**| Project ID | |
 | **range** | **int**| Number of days to look back (alternative to from/to) | [optional] |
 | **from** | **\DateTime**|  | [optional] |
-| **to** | **\DateTime**|  | [optional] |
+| **to** | **\DateTime**| End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
 | **granularity** | **string**|  | [optional] |
 | **competitors** | **string**| Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM) | [optional] |
 | **model** | **string**| Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. | [optional] |
-| **collection_id** | **int**|  | [optional] |
+| **collection_id** | [**\LLMPulse\Model\GetTimeseriesCollectionIdParameter**](../Model/.md)| One collection/tag ID or a comma-separated list of IDs | [optional] |
 | **prompt** | **int**| Filter by prompt ID | [optional] |
-| **prompt_type** | **string**| Filter by prompt type (search intent) | [optional] |
+| **prompt_type** | **string**| One prompt type or a comma-separated list: informational, navigational, commercial, transactional | [optional] |
 | **brand_kind** | **string**| Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. | [optional] |
 | **output** | **string**| Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. &#39;flat&#39; returns the same metadata plus &#39;columns&#39; and &#39;rows&#39;; &#39;csv&#39; returns those rows as text/csv. Errors are always returned as JSON. | [optional] |
 | **view** | **string**| Which Share of Voice projection to flatten. Only valid together with &#39;output&#39;. &#39;over_time&#39; (default) is one row per date and actor, &#39;current&#39; the ranked snapshot, &#39;breakdown&#39; the Top 4 plus Others. | [optional] [default to &#39;over_time&#39;] |
@@ -366,12 +221,12 @@ $metrics = 'metrics_example'; // string | Comma-separated list of metrics: menti
 $granularity = 'granularity_example'; // string
 $range = 56; // int | Number of days to look back (alternative to from/to)
 $from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
-$to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
+$to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
 $competitors = 'competitors_example'; // string | Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM)
 $model = 'model_example'; // string | Filter by AI model. Models the API key's user has not enabled are silently dropped.
-$collection_id = 56; // int
+$collection_id = new \LLMPulse\Model\\LLMPulse\Model\GetTimeseriesCollectionIdParameter(); // \LLMPulse\Model\GetTimeseriesCollectionIdParameter | One collection/tag ID or a comma-separated list of IDs
 $prompt = 56; // int | Filter by prompt ID
-$prompt_type = 'prompt_type_example'; // string | Filter by prompt type (search intent)
+$prompt_type = 'prompt_type_example'; // string | One prompt type or a comma-separated list: informational, navigational, commercial, transactional
 $brand_kind = 'brand_kind_example'; // string | Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default.
 $output = 'output_example'; // string | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
 
@@ -392,12 +247,12 @@ try {
 | **granularity** | **string**|  | [optional] |
 | **range** | **int**| Number of days to look back (alternative to from/to) | [optional] |
 | **from** | **\DateTime**|  | [optional] |
-| **to** | **\DateTime**|  | [optional] |
+| **to** | **\DateTime**| End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
 | **competitors** | **string**| Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM) | [optional] |
 | **model** | **string**| Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. | [optional] |
-| **collection_id** | **int**|  | [optional] |
+| **collection_id** | [**\LLMPulse\Model\GetTimeseriesCollectionIdParameter**](../Model/.md)| One collection/tag ID or a comma-separated list of IDs | [optional] |
 | **prompt** | **int**| Filter by prompt ID | [optional] |
-| **prompt_type** | **string**| Filter by prompt type (search intent) | [optional] |
+| **prompt_type** | **string**| One prompt type or a comma-separated list: informational, navigational, commercial, transactional | [optional] |
 | **brand_kind** | **string**| Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. | [optional] |
 | **output** | **string**| Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. &#39;flat&#39; returns the same metadata plus &#39;columns&#39; and &#39;rows&#39;; &#39;csv&#39; returns those rows as text/csv. Errors are always returned as JSON. | [optional] |
 
@@ -450,14 +305,14 @@ $metrics = 'metrics_example'; // string | Comma-separated list of metrics: menti
 $granularity = 'granularity_example'; // string
 $range = 56; // int | Number of days to look back (alternative to from/to)
 $from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
-$to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
+$to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
 $competitors = 'competitors_example'; // string | Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM)
 $model = 'model_example'; // string | Filter by AI model. Models the API key's user has not enabled are silently dropped.
-$collection_id = 56; // int
-$country_code = 'country_code_example'; // string | ISO country code (e.g. US, GB, DE)
-$language_code = 'language_code_example'; // string | ISO language code (e.g. en, es, de)
+$collection_id = new \LLMPulse\Model\\LLMPulse\Model\GetTimeseriesCollectionIdParameter(); // \LLMPulse\Model\GetTimeseriesCollectionIdParameter | One collection/tag ID or a comma-separated list of IDs
+$country_code = 'country_code_example'; // string | One ISO country code or a comma-separated list (e.g. US,GB,DE)
+$language_code = 'language_code_example'; // string | One ISO language code or a comma-separated list (e.g. en,es,de)
 $prompt = 56; // int | Filter by prompt ID
-$prompt_type = 'prompt_type_example'; // string | Filter by prompt type (search intent)
+$prompt_type = 'prompt_type_example'; // string | One prompt type or a comma-separated list: informational, navigational, commercial, transactional
 $brand_kind = 'brand_kind_example'; // string | Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default.
 $include_project = true; // bool
 $output = 'output_example'; // string | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
@@ -479,14 +334,14 @@ try {
 | **granularity** | **string**|  | [optional] |
 | **range** | **int**| Number of days to look back (alternative to from/to) | [optional] |
 | **from** | **\DateTime**|  | [optional] |
-| **to** | **\DateTime**|  | [optional] |
+| **to** | **\DateTime**| End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
 | **competitors** | **string**| Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM) | [optional] |
 | **model** | **string**| Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. | [optional] |
-| **collection_id** | **int**|  | [optional] |
-| **country_code** | **string**| ISO country code (e.g. US, GB, DE) | [optional] |
-| **language_code** | **string**| ISO language code (e.g. en, es, de) | [optional] |
+| **collection_id** | [**\LLMPulse\Model\GetTimeseriesCollectionIdParameter**](../Model/.md)| One collection/tag ID or a comma-separated list of IDs | [optional] |
+| **country_code** | **string**| One ISO country code or a comma-separated list (e.g. US,GB,DE) | [optional] |
+| **language_code** | **string**| One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |
 | **prompt** | **int**| Filter by prompt ID | [optional] |
-| **prompt_type** | **string**| Filter by prompt type (search intent) | [optional] |
+| **prompt_type** | **string**| One prompt type or a comma-separated list: informational, navigational, commercial, transactional | [optional] |
 | **brand_kind** | **string**| Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. | [optional] |
 | **include_project** | **bool**|  | [optional] [default to true] |
 | **output** | **string**| Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. &#39;flat&#39; returns the same metadata plus &#39;columns&#39; and &#39;rows&#39;; &#39;csv&#39; returns those rows as text/csv. Errors are always returned as JSON. | [optional] |
@@ -538,13 +393,13 @@ $apiInstance = new LLMPulse\Api\MetricsApi(
 $project_id = 56; // int | Project ID
 $range = 56; // int | Number of days to look back (alternative to from/to)
 $from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
-$to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
+$to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
 $model = 'model_example'; // string | Filter by AI model. Models the API key's user has not enabled are silently dropped.
-$collection_id = 56; // int
-$country_code = 'country_code_example'; // string | ISO country code (e.g. US, GB, DE)
-$language_code = 'language_code_example'; // string | ISO language code (e.g. en, es, de)
+$collection_id = new \LLMPulse\Model\\LLMPulse\Model\GetTimeseriesCollectionIdParameter(); // \LLMPulse\Model\GetTimeseriesCollectionIdParameter | One collection/tag ID or a comma-separated list of IDs
+$country_code = 'country_code_example'; // string | One ISO country code or a comma-separated list (e.g. US,GB,DE)
+$language_code = 'language_code_example'; // string | One ISO language code or a comma-separated list (e.g. en,es,de)
 $prompt = 56; // int | Filter by prompt ID
-$prompt_type = 'prompt_type_example'; // string | Filter by prompt type (search intent)
+$prompt_type = 'prompt_type_example'; // string | One prompt type or a comma-separated list: informational, navigational, commercial, transactional
 $brand_kind = 'brand_kind_example'; // string | Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default.
 $sort = 'total_responses'; // string
 $query = 'query_example'; // string | Filter domains by case-insensitive partial match
@@ -567,13 +422,13 @@ try {
 | **project_id** | **int**| Project ID | |
 | **range** | **int**| Number of days to look back (alternative to from/to) | [optional] |
 | **from** | **\DateTime**|  | [optional] |
-| **to** | **\DateTime**|  | [optional] |
+| **to** | **\DateTime**| End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
 | **model** | **string**| Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. | [optional] |
-| **collection_id** | **int**|  | [optional] |
-| **country_code** | **string**| ISO country code (e.g. US, GB, DE) | [optional] |
-| **language_code** | **string**| ISO language code (e.g. en, es, de) | [optional] |
+| **collection_id** | [**\LLMPulse\Model\GetTimeseriesCollectionIdParameter**](../Model/.md)| One collection/tag ID or a comma-separated list of IDs | [optional] |
+| **country_code** | **string**| One ISO country code or a comma-separated list (e.g. US,GB,DE) | [optional] |
+| **language_code** | **string**| One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |
 | **prompt** | **int**| Filter by prompt ID | [optional] |
-| **prompt_type** | **string**| Filter by prompt type (search intent) | [optional] |
+| **prompt_type** | **string**| One prompt type or a comma-separated list: informational, navigational, commercial, transactional | [optional] |
 | **brand_kind** | **string**| Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. | [optional] |
 | **sort** | **string**|  | [optional] [default to &#39;total_responses&#39;] |
 | **query** | **string**| Filter domains by case-insensitive partial match | [optional] |

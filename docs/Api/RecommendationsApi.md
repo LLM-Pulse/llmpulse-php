@@ -1,6 +1,6 @@
 # LLMPulse\RecommendationsApi
 
-Recommendation runs (the same data that powers the in-app Recommendations experience)
+Recommendation runs that power the in-app Recommendations page, plus the endpoint that launches a new one.
 
 All URIs are relative to https://api.llmpulse.ai/api/v1, except if the operation defines another base path.
 

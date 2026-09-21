@@ -705,7 +705,7 @@ class PromptsApi
      * @param  int|null $page page (optional, default to 1)
      * @param  int|null $per_page per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
@@ -735,7 +735,7 @@ class PromptsApi
      * @param  int|null $page (optional, default to 1)
      * @param  int|null $per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
@@ -797,7 +797,7 @@ class PromptsApi
      * @param  int|null $page (optional, default to 1)
      * @param  int|null $per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
@@ -831,7 +831,7 @@ class PromptsApi
      * @param  int|null $page (optional, default to 1)
      * @param  int|null $per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
@@ -881,7 +881,7 @@ class PromptsApi
      * @param  int|null $page (optional, default to 1)
      * @param  int|null $per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
@@ -918,7 +918,10 @@ class PromptsApi
         }
         
 
-
+        if ($collection_id !== null && !preg_match("/^\\d+(,\\d+)*$/", $collection_id)) {
+            throw new \InvalidArgumentException("invalid value for \"collection_id\" when calling PromptsApi.listPromptExecutions, must conform to the pattern /^\\d+(,\\d+)*$/.");
+        }
+        
 
 
 
@@ -976,7 +979,7 @@ class PromptsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $collection_id,
             'collection_id', // param base name
-            'int|string', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -1132,7 +1135,7 @@ class PromptsApi
      * @param  int|null $page page (optional, default to 1)
      * @param  int|null $per_page per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  string|null $prompt_type One prompt type or a comma-separated list: informational, navigational, commercial, transactional (optional)
@@ -1160,7 +1163,7 @@ class PromptsApi
      * @param  int|null $page (optional, default to 1)
      * @param  int|null $per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  string|null $prompt_type One prompt type or a comma-separated list: informational, navigational, commercial, transactional (optional)
@@ -1220,7 +1223,7 @@ class PromptsApi
      * @param  int|null $page (optional, default to 1)
      * @param  int|null $per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  string|null $prompt_type One prompt type or a comma-separated list: informational, navigational, commercial, transactional (optional)
@@ -1252,7 +1255,7 @@ class PromptsApi
      * @param  int|null $page (optional, default to 1)
      * @param  int|null $per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  string|null $prompt_type One prompt type or a comma-separated list: informational, navigational, commercial, transactional (optional)
@@ -1300,7 +1303,7 @@ class PromptsApi
      * @param  int|null $page (optional, default to 1)
      * @param  int|null $per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  string|null $prompt_type One prompt type or a comma-separated list: informational, navigational, commercial, transactional (optional)
@@ -1335,7 +1338,10 @@ class PromptsApi
         }
         
 
-
+        if ($collection_id !== null && !preg_match("/^\\d+(,\\d+)*$/", $collection_id)) {
+            throw new \InvalidArgumentException("invalid value for \"collection_id\" when calling PromptsApi.listPrompts, must conform to the pattern /^\\d+(,\\d+)*$/.");
+        }
+        
 
 
 
@@ -1391,7 +1397,7 @@ class PromptsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $collection_id,
             'collection_id', // param base name
-            'int|string', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -1533,7 +1539,7 @@ class PromptsApi
      * @param  string|null $direction direction (optional, default to 'desc')
      * @param  string|null $query Case-insensitive substring filter on the sub-query text (optional)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
@@ -1567,7 +1573,7 @@ class PromptsApi
      * @param  string|null $direction (optional, default to 'desc')
      * @param  string|null $query Case-insensitive substring filter on the sub-query text (optional)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
@@ -1641,7 +1647,7 @@ class PromptsApi
      * @param  string|null $direction (optional, default to 'desc')
      * @param  string|null $query Case-insensitive substring filter on the sub-query text (optional)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
@@ -1679,7 +1685,7 @@ class PromptsApi
      * @param  string|null $direction (optional, default to 'desc')
      * @param  string|null $query Case-insensitive substring filter on the sub-query text (optional)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
@@ -1733,7 +1739,7 @@ class PromptsApi
      * @param  string|null $direction (optional, default to 'desc')
      * @param  string|null $query Case-insensitive substring filter on the sub-query text (optional)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
@@ -1774,7 +1780,10 @@ class PromptsApi
 
 
 
-
+        if ($collection_id !== null && !preg_match("/^\\d+(,\\d+)*$/", $collection_id)) {
+            throw new \InvalidArgumentException("invalid value for \"collection_id\" when calling PromptsApi.listQueryFanOuts, must conform to the pattern /^\\d+(,\\d+)*$/.");
+        }
+        
 
 
 
@@ -1868,7 +1877,7 @@ class PromptsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $collection_id,
             'collection_id', // param base name
-            'int|string', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             false // required

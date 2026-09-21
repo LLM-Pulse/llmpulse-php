@@ -46,7 +46,7 @@ $order = 'order_example'; // string | Sort field; the allowed set depends on vie
 $direction = 'direction_example'; // string | Sort direction for view=advertisers. Defaults to desc, except avg_position and domain which default to asc.
 $query = 'query_example'; // string | Case-insensitive substring filter on the ad title, domain or snippet
 $model = 'model_example'; // string | Filter by AI model. Models the API key's user has not enabled are silently dropped.
-$collection_id = new \LLMPulse\Model\\LLMPulse\Model\GetTimeseriesCollectionIdParameter(); // \LLMPulse\Model\GetTimeseriesCollectionIdParameter | One collection/tag ID or a comma-separated list of IDs
+$collection_id = 12,34; // string | One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
 $country_code = 'country_code_example'; // string | One ISO country code or a comma-separated list (e.g. US,GB,DE)
 $language_code = 'language_code_example'; // string | One ISO language code or a comma-separated list (e.g. en,es,de)
 $prompt = 56; // int | Filter by prompt ID
@@ -77,7 +77,7 @@ try {
 | **direction** | **string**| Sort direction for view&#x3D;advertisers. Defaults to desc, except avg_position and domain which default to asc. | [optional] |
 | **query** | **string**| Case-insensitive substring filter on the ad title, domain or snippet | [optional] |
 | **model** | **string**| Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. | [optional] |
-| **collection_id** | [**\LLMPulse\Model\GetTimeseriesCollectionIdParameter**](../Model/.md)| One collection/tag ID or a comma-separated list of IDs | [optional] |
+| **collection_id** | **string**| One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. | [optional] |
 | **country_code** | **string**| One ISO country code or a comma-separated list (e.g. US,GB,DE) | [optional] |
 | **language_code** | **string**| One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |
 | **prompt** | **int**| Filter by prompt ID | [optional] |
@@ -141,7 +141,7 @@ $order = 'order_example'; // string | Sort field; the allowed set depends on vie
 $direction = 'desc'; // string
 $query = 'query_example'; // string | Case-insensitive substring filter on the product title
 $model = 'model_example'; // string | Filter by AI model. Models the API key's user has not enabled are silently dropped.
-$collection_id = new \LLMPulse\Model\\LLMPulse\Model\GetTimeseriesCollectionIdParameter(); // \LLMPulse\Model\GetTimeseriesCollectionIdParameter | One collection/tag ID or a comma-separated list of IDs
+$collection_id = 12,34; // string | One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
 $country_code = 'country_code_example'; // string | One ISO country code or a comma-separated list (e.g. US,GB,DE)
 $language_code = 'language_code_example'; // string | One ISO language code or a comma-separated list (e.g. en,es,de)
 $prompt = 56; // int | Filter by prompt ID
@@ -172,7 +172,7 @@ try {
 | **direction** | **string**|  | [optional] [default to &#39;desc&#39;] |
 | **query** | **string**| Case-insensitive substring filter on the product title | [optional] |
 | **model** | **string**| Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. | [optional] |
-| **collection_id** | [**\LLMPulse\Model\GetTimeseriesCollectionIdParameter**](../Model/.md)| One collection/tag ID or a comma-separated list of IDs | [optional] |
+| **collection_id** | **string**| One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. | [optional] |
 | **country_code** | **string**| One ISO country code or a comma-separated list (e.g. US,GB,DE) | [optional] |
 | **language_code** | **string**| One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |
 | **prompt** | **int**| Filter by prompt ID | [optional] |

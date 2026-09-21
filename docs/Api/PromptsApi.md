@@ -163,7 +163,7 @@ $project_id = 56; // int | Project ID
 $page = 1; // int
 $per_page = 20; // int
 $model = 'model_example'; // string | Filter by AI model. Models the API key's user has not enabled are silently dropped.
-$collection_id = new \LLMPulse\Model\\LLMPulse\Model\GetTimeseriesCollectionIdParameter(); // \LLMPulse\Model\GetTimeseriesCollectionIdParameter | One collection/tag ID or a comma-separated list of IDs
+$collection_id = 12,34; // string | One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
 $country_code = 'country_code_example'; // string | One ISO country code or a comma-separated list (e.g. US,GB,DE)
 $language_code = 'language_code_example'; // string | One ISO language code or a comma-separated list (e.g. en,es,de)
 $prompt = 56; // int | Filter by prompt ID
@@ -189,7 +189,7 @@ try {
 | **page** | **int**|  | [optional] [default to 1] |
 | **per_page** | **int**|  | [optional] [default to 20] |
 | **model** | **string**| Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. | [optional] |
-| **collection_id** | [**\LLMPulse\Model\GetTimeseriesCollectionIdParameter**](../Model/.md)| One collection/tag ID or a comma-separated list of IDs | [optional] |
+| **collection_id** | **string**| One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. | [optional] |
 | **country_code** | **string**| One ISO country code or a comma-separated list (e.g. US,GB,DE) | [optional] |
 | **language_code** | **string**| One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |
 | **prompt** | **int**| Filter by prompt ID | [optional] |
@@ -246,7 +246,7 @@ $project_id = 56; // int | Project ID
 $page = 1; // int
 $per_page = 20; // int
 $model = 'model_example'; // string | Filter by AI model. Models the API key's user has not enabled are silently dropped.
-$collection_id = new \LLMPulse\Model\\LLMPulse\Model\GetTimeseriesCollectionIdParameter(); // \LLMPulse\Model\GetTimeseriesCollectionIdParameter | One collection/tag ID or a comma-separated list of IDs
+$collection_id = 12,34; // string | One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
 $country_code = 'country_code_example'; // string | One ISO country code or a comma-separated list (e.g. US,GB,DE)
 $language_code = 'language_code_example'; // string | One ISO language code or a comma-separated list (e.g. en,es,de)
 $prompt_type = 'prompt_type_example'; // string | One prompt type or a comma-separated list: informational, navigational, commercial, transactional
@@ -270,7 +270,7 @@ try {
 | **page** | **int**|  | [optional] [default to 1] |
 | **per_page** | **int**|  | [optional] [default to 20] |
 | **model** | **string**| Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. | [optional] |
-| **collection_id** | [**\LLMPulse\Model\GetTimeseriesCollectionIdParameter**](../Model/.md)| One collection/tag ID or a comma-separated list of IDs | [optional] |
+| **collection_id** | **string**| One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. | [optional] |
 | **country_code** | **string**| One ISO country code or a comma-separated list (e.g. US,GB,DE) | [optional] |
 | **language_code** | **string**| One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |
 | **prompt_type** | **string**| One prompt type or a comma-separated list: informational, navigational, commercial, transactional | [optional] |
@@ -331,7 +331,7 @@ $order = 'order_example'; // string | Sort field; the allowed set depends on vie
 $direction = 'desc'; // string
 $query = 'query_example'; // string | Case-insensitive substring filter on the sub-query text
 $model = 'model_example'; // string | Filter by AI model. Models the API key's user has not enabled are silently dropped.
-$collection_id = new \LLMPulse\Model\\LLMPulse\Model\GetTimeseriesCollectionIdParameter(); // \LLMPulse\Model\GetTimeseriesCollectionIdParameter | One collection/tag ID or a comma-separated list of IDs
+$collection_id = 12,34; // string | One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
 $country_code = 'country_code_example'; // string | One ISO country code or a comma-separated list (e.g. US,GB,DE)
 $language_code = 'language_code_example'; // string | One ISO language code or a comma-separated list (e.g. en,es,de)
 $prompt = 56; // int | Filter by prompt ID
@@ -361,7 +361,7 @@ try {
 | **direction** | **string**|  | [optional] [default to &#39;desc&#39;] |
 | **query** | **string**| Case-insensitive substring filter on the sub-query text | [optional] |
 | **model** | **string**| Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. | [optional] |
-| **collection_id** | [**\LLMPulse\Model\GetTimeseriesCollectionIdParameter**](../Model/.md)| One collection/tag ID or a comma-separated list of IDs | [optional] |
+| **collection_id** | **string**| One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. | [optional] |
 | **country_code** | **string**| One ISO country code or a comma-separated list (e.g. US,GB,DE) | [optional] |
 | **language_code** | **string**| One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |
 | **prompt** | **int**| Filter by prompt ID | [optional] |

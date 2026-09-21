@@ -45,7 +45,7 @@ $view = 'view_example'; // string | Row shape; the allowed set depends on provid
 $store = 'google_play'; // string | provider=mobile_apps only
 $owned = True; // bool | Return only rows belonging to the account's own connected profile
 $model = 'model_example'; // string | Filter by AI model. Models the API key's user has not enabled are silently dropped.
-$collection_id = new \LLMPulse\Model\\LLMPulse\Model\GetTimeseriesCollectionIdParameter(); // \LLMPulse\Model\GetTimeseriesCollectionIdParameter | One collection/tag ID or a comma-separated list of IDs
+$collection_id = 12,34; // string | One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
 $country_code = 'country_code_example'; // string | One ISO country code or a comma-separated list (e.g. US,GB,DE)
 $language_code = 'language_code_example'; // string | One ISO language code or a comma-separated list (e.g. en,es,de)
 $brand_kind = 'brand_kind_example'; // string | Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default.
@@ -73,7 +73,7 @@ try {
 | **store** | **string**| provider&#x3D;mobile_apps only | [optional] [default to &#39;google_play&#39;] |
 | **owned** | **bool**| Return only rows belonging to the account&#39;s own connected profile | [optional] |
 | **model** | **string**| Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. | [optional] |
-| **collection_id** | [**\LLMPulse\Model\GetTimeseriesCollectionIdParameter**](../Model/.md)| One collection/tag ID or a comma-separated list of IDs | [optional] |
+| **collection_id** | **string**| One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. | [optional] |
 | **country_code** | **string**| One ISO country code or a comma-separated list (e.g. US,GB,DE) | [optional] |
 | **language_code** | **string**| One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |
 | **brand_kind** | **string**| Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. | [optional] |
@@ -138,7 +138,7 @@ $brand = 'brand_example'; // string | Filter to citations whose scraped Reddit c
 $order = 'order_example'; // string | Sort field; the allowed set depends on view
 $direction = 'desc'; // string
 $model = 'model_example'; // string | Filter by AI model. Models the API key's user has not enabled are silently dropped.
-$collection_id = new \LLMPulse\Model\\LLMPulse\Model\GetTimeseriesCollectionIdParameter(); // \LLMPulse\Model\GetTimeseriesCollectionIdParameter | One collection/tag ID or a comma-separated list of IDs
+$collection_id = 12,34; // string | One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
 $country_code = 'country_code_example'; // string | One ISO country code or a comma-separated list (e.g. US,GB,DE)
 $language_code = 'language_code_example'; // string | One ISO language code or a comma-separated list (e.g. en,es,de)
 $brand_kind = 'brand_kind_example'; // string | Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default.
@@ -170,7 +170,7 @@ try {
 | **order** | **string**| Sort field; the allowed set depends on view | [optional] |
 | **direction** | **string**|  | [optional] [default to &#39;desc&#39;] |
 | **model** | **string**| Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. | [optional] |
-| **collection_id** | [**\LLMPulse\Model\GetTimeseriesCollectionIdParameter**](../Model/.md)| One collection/tag ID or a comma-separated list of IDs | [optional] |
+| **collection_id** | **string**| One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. | [optional] |
 | **country_code** | **string**| One ISO country code or a comma-separated list (e.g. US,GB,DE) | [optional] |
 | **language_code** | **string**| One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |
 | **brand_kind** | **string**| Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. | [optional] |

@@ -149,7 +149,7 @@ class MetricsApi
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
      * @param  string|null $breakdown Add per-(prompt, model) rows to the output (optional)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
@@ -183,7 +183,7 @@ class MetricsApi
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
      * @param  string|null $breakdown Add per-(prompt, model) rows to the output (optional)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
@@ -298,7 +298,7 @@ class MetricsApi
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
      * @param  string|null $breakdown Add per-(prompt, model) rows to the output (optional)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
@@ -335,7 +335,7 @@ class MetricsApi
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
      * @param  string|null $breakdown Add per-(prompt, model) rows to the output (optional)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
@@ -401,7 +401,7 @@ class MetricsApi
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
      * @param  string|null $breakdown Add per-(prompt, model) rows to the output (optional)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
@@ -432,7 +432,10 @@ class MetricsApi
 
 
 
-
+        if ($collection_id !== null && !preg_match("/^\\d+(,\\d+)*$/", $collection_id)) {
+            throw new \InvalidArgumentException("invalid value for \"collection_id\" when calling MetricsApi.getPromptSummary, must conform to the pattern /^\\d+(,\\d+)*$/.");
+        }
+        
 
 
 
@@ -518,7 +521,7 @@ class MetricsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $collection_id,
             'collection_id', // param base name
-            'int|string', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -686,7 +689,7 @@ class MetricsApi
      * @param  string|null $granularity granularity (optional)
      * @param  string|null $competitors Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM) (optional)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
      * @param  string|null $prompt_type One prompt type or a comma-separated list: informational, navigational, commercial, transactional (optional)
      * @param  string|null $brand_kind Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. (optional)
@@ -716,7 +719,7 @@ class MetricsApi
      * @param  string|null $granularity (optional)
      * @param  string|null $competitors Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM) (optional)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
      * @param  string|null $prompt_type One prompt type or a comma-separated list: informational, navigational, commercial, transactional (optional)
      * @param  string|null $brand_kind Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. (optional)
@@ -813,7 +816,7 @@ class MetricsApi
      * @param  string|null $granularity (optional)
      * @param  string|null $competitors Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM) (optional)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
      * @param  string|null $prompt_type One prompt type or a comma-separated list: informational, navigational, commercial, transactional (optional)
      * @param  string|null $brand_kind Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. (optional)
@@ -846,7 +849,7 @@ class MetricsApi
      * @param  string|null $granularity (optional)
      * @param  string|null $competitors Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM) (optional)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
      * @param  string|null $prompt_type One prompt type or a comma-separated list: informational, navigational, commercial, transactional (optional)
      * @param  string|null $brand_kind Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. (optional)
@@ -908,7 +911,7 @@ class MetricsApi
      * @param  string|null $granularity (optional)
      * @param  string|null $competitors Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM) (optional)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
      * @param  string|null $prompt_type One prompt type or a comma-separated list: informational, navigational, commercial, transactional (optional)
      * @param  string|null $brand_kind Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. (optional)
@@ -935,7 +938,10 @@ class MetricsApi
 
 
 
-
+        if ($collection_id !== null && !preg_match("/^\\d+(,\\d+)*$/", $collection_id)) {
+            throw new \InvalidArgumentException("invalid value for \"collection_id\" when calling MetricsApi.getShareOfVoice, must conform to the pattern /^\\d+(,\\d+)*$/.");
+        }
+        
 
 
 
@@ -1016,7 +1022,7 @@ class MetricsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $collection_id,
             'collection_id', // param base name
-            'int|string', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -1140,7 +1146,7 @@ class MetricsApi
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
      * @param  string|null $competitors Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM) (optional)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
      * @param  string|null $prompt_type One prompt type or a comma-separated list: informational, navigational, commercial, transactional (optional)
      * @param  string|null $brand_kind Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. (optional)
@@ -1170,7 +1176,7 @@ class MetricsApi
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
      * @param  string|null $competitors Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM) (optional)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
      * @param  string|null $prompt_type One prompt type or a comma-separated list: informational, navigational, commercial, transactional (optional)
      * @param  string|null $brand_kind Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. (optional)
@@ -1295,7 +1301,7 @@ class MetricsApi
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
      * @param  string|null $competitors Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM) (optional)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
      * @param  string|null $prompt_type One prompt type or a comma-separated list: informational, navigational, commercial, transactional (optional)
      * @param  string|null $brand_kind Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. (optional)
@@ -1328,7 +1334,7 @@ class MetricsApi
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
      * @param  string|null $competitors Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM) (optional)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
      * @param  string|null $prompt_type One prompt type or a comma-separated list: informational, navigational, commercial, transactional (optional)
      * @param  string|null $brand_kind Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. (optional)
@@ -1390,7 +1396,7 @@ class MetricsApi
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
      * @param  string|null $competitors Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM) (optional)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
      * @param  string|null $prompt_type One prompt type or a comma-separated list: informational, navigational, commercial, transactional (optional)
      * @param  string|null $brand_kind Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. (optional)
@@ -1417,7 +1423,10 @@ class MetricsApi
 
 
 
-
+        if ($collection_id !== null && !preg_match("/^\\d+(,\\d+)*$/", $collection_id)) {
+            throw new \InvalidArgumentException("invalid value for \"collection_id\" when calling MetricsApi.getSummary, must conform to the pattern /^\\d+(,\\d+)*$/.");
+        }
+        
 
 
 
@@ -1506,7 +1515,7 @@ class MetricsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $collection_id,
             'collection_id', // param base name
-            'int|string', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -1621,7 +1630,7 @@ class MetricsApi
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
      * @param  string|null $competitors Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM) (optional)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
@@ -1654,7 +1663,7 @@ class MetricsApi
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
      * @param  string|null $competitors Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM) (optional)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
@@ -1796,7 +1805,7 @@ class MetricsApi
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
      * @param  string|null $competitors Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM) (optional)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
@@ -1832,7 +1841,7 @@ class MetricsApi
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
      * @param  string|null $competitors Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM) (optional)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
@@ -1897,7 +1906,7 @@ class MetricsApi
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
      * @param  string|null $competitors Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM) (optional)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
@@ -1927,7 +1936,10 @@ class MetricsApi
 
 
 
-
+        if ($collection_id !== null && !preg_match("/^\\d+(,\\d+)*$/", $collection_id)) {
+            throw new \InvalidArgumentException("invalid value for \"collection_id\" when calling MetricsApi.getTimeseries, must conform to the pattern /^\\d+(,\\d+)*$/.");
+        }
+        
 
 
 
@@ -2019,7 +2031,7 @@ class MetricsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $collection_id,
             'collection_id', // param base name
-            'int|string', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -2158,7 +2170,7 @@ class MetricsApi
      * @param  \DateTime|null $from from (optional)
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
@@ -2191,7 +2203,7 @@ class MetricsApi
      * @param  \DateTime|null $from (optional)
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
@@ -2291,7 +2303,7 @@ class MetricsApi
      * @param  \DateTime|null $from (optional)
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
@@ -2327,7 +2339,7 @@ class MetricsApi
      * @param  \DateTime|null $from (optional)
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
@@ -2392,7 +2404,7 @@ class MetricsApi
      * @param  \DateTime|null $from (optional)
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
@@ -2422,7 +2434,10 @@ class MetricsApi
 
 
 
-
+        if ($collection_id !== null && !preg_match("/^\\d+(,\\d+)*$/", $collection_id)) {
+            throw new \InvalidArgumentException("invalid value for \"collection_id\" when calling MetricsApi.getTopSources, must conform to the pattern /^\\d+(,\\d+)*$/.");
+        }
+        
 
 
 
@@ -2499,7 +2514,7 @@ class MetricsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $collection_id,
             'collection_id', // param base name
-            'int|string', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             false // required

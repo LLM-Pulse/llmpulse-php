@@ -142,7 +142,7 @@ class OwnedMediaCommunitiesApi
      * @param  string|null $store provider&#x3D;mobile_apps only (optional, default to 'google_play')
      * @param  bool|null $owned Return only rows belonging to the account&#39;s own connected profile (optional)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  string|null $brand_kind Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. (optional)
@@ -174,7 +174,7 @@ class OwnedMediaCommunitiesApi
      * @param  string|null $store provider&#x3D;mobile_apps only (optional, default to 'google_play')
      * @param  bool|null $owned Return only rows belonging to the account&#39;s own connected profile (optional)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  string|null $brand_kind Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. (optional)
@@ -246,7 +246,7 @@ class OwnedMediaCommunitiesApi
      * @param  string|null $store provider&#x3D;mobile_apps only (optional, default to 'google_play')
      * @param  bool|null $owned Return only rows belonging to the account&#39;s own connected profile (optional)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  string|null $brand_kind Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. (optional)
@@ -282,7 +282,7 @@ class OwnedMediaCommunitiesApi
      * @param  string|null $store provider&#x3D;mobile_apps only (optional, default to 'google_play')
      * @param  bool|null $owned Return only rows belonging to the account&#39;s own connected profile (optional)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  string|null $brand_kind Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. (optional)
@@ -334,7 +334,7 @@ class OwnedMediaCommunitiesApi
      * @param  string|null $store provider&#x3D;mobile_apps only (optional, default to 'google_play')
      * @param  bool|null $owned Return only rows belonging to the account&#39;s own connected profile (optional)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  string|null $brand_kind Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. (optional)
@@ -379,7 +379,10 @@ class OwnedMediaCommunitiesApi
 
 
 
-
+        if ($collection_id !== null && !preg_match("/^\\d+(,\\d+)*$/", $collection_id)) {
+            throw new \InvalidArgumentException("invalid value for \"collection_id\" when calling OwnedMediaCommunitiesApi.listOwnedMedia, must conform to the pattern /^\\d+(,\\d+)*$/.");
+        }
+        
 
 
 
@@ -471,7 +474,7 @@ class OwnedMediaCommunitiesApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $collection_id,
             'collection_id', // param base name
-            'int|string', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -617,7 +620,7 @@ class OwnedMediaCommunitiesApi
      * @param  string|null $order Sort field; the allowed set depends on view (optional)
      * @param  string|null $direction direction (optional, default to 'desc')
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  string|null $brand_kind Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. (optional)
@@ -653,7 +656,7 @@ class OwnedMediaCommunitiesApi
      * @param  string|null $order Sort field; the allowed set depends on view (optional)
      * @param  string|null $direction (optional, default to 'desc')
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  string|null $brand_kind Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. (optional)
@@ -729,7 +732,7 @@ class OwnedMediaCommunitiesApi
      * @param  string|null $order Sort field; the allowed set depends on view (optional)
      * @param  string|null $direction (optional, default to 'desc')
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  string|null $brand_kind Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. (optional)
@@ -769,7 +772,7 @@ class OwnedMediaCommunitiesApi
      * @param  string|null $order Sort field; the allowed set depends on view (optional)
      * @param  string|null $direction (optional, default to 'desc')
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  string|null $brand_kind Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. (optional)
@@ -825,7 +828,7 @@ class OwnedMediaCommunitiesApi
      * @param  string|null $order Sort field; the allowed set depends on view (optional)
      * @param  string|null $direction (optional, default to 'desc')
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  string|null $brand_kind Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. (optional)
@@ -868,7 +871,10 @@ class OwnedMediaCommunitiesApi
 
 
 
-
+        if ($collection_id !== null && !preg_match("/^\\d+(,\\d+)*$/", $collection_id)) {
+            throw new \InvalidArgumentException("invalid value for \"collection_id\" when calling OwnedMediaCommunitiesApi.listRedditCitations, must conform to the pattern /^\\d+(,\\d+)*$/.");
+        }
+        
 
 
 
@@ -996,7 +1002,7 @@ class OwnedMediaCommunitiesApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $collection_id,
             'collection_id', // param base name
-            'int|string', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             false // required

@@ -151,7 +151,7 @@ class MentionsCitationsApi
      * @param  int|null $page page (optional, default to 1)
      * @param  int|null $per_page per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
      * @param  \DateTime|null $from from (optional)
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
@@ -177,7 +177,7 @@ class MentionsCitationsApi
      * @param  int|null $page (optional, default to 1)
      * @param  int|null $per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
      * @param  \DateTime|null $from (optional)
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
@@ -235,7 +235,7 @@ class MentionsCitationsApi
      * @param  int|null $page (optional, default to 1)
      * @param  int|null $per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
      * @param  \DateTime|null $from (optional)
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
@@ -265,7 +265,7 @@ class MentionsCitationsApi
      * @param  int|null $page (optional, default to 1)
      * @param  int|null $per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
      * @param  \DateTime|null $from (optional)
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
@@ -311,7 +311,7 @@ class MentionsCitationsApi
      * @param  int|null $page (optional, default to 1)
      * @param  int|null $per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
      * @param  \DateTime|null $from (optional)
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
@@ -344,7 +344,10 @@ class MentionsCitationsApi
         }
         
 
-
+        if ($collection_id !== null && !preg_match("/^\\d+(,\\d+)*$/", $collection_id)) {
+            throw new \InvalidArgumentException("invalid value for \"collection_id\" when calling MentionsCitationsApi.listAllCitations, must conform to the pattern /^\\d+(,\\d+)*$/.");
+        }
+        
 
 
 
@@ -406,7 +409,7 @@ class MentionsCitationsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $collection_id,
             'collection_id', // param base name
-            'int|string', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -518,7 +521,7 @@ class MentionsCitationsApi
      * @param  int|null $page page (optional, default to 1)
      * @param  int|null $per_page per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
      * @param  \DateTime|null $from from (optional)
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
@@ -544,7 +547,7 @@ class MentionsCitationsApi
      * @param  int|null $page (optional, default to 1)
      * @param  int|null $per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
      * @param  \DateTime|null $from (optional)
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
@@ -602,7 +605,7 @@ class MentionsCitationsApi
      * @param  int|null $page (optional, default to 1)
      * @param  int|null $per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
      * @param  \DateTime|null $from (optional)
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
@@ -632,7 +635,7 @@ class MentionsCitationsApi
      * @param  int|null $page (optional, default to 1)
      * @param  int|null $per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
      * @param  \DateTime|null $from (optional)
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
@@ -678,7 +681,7 @@ class MentionsCitationsApi
      * @param  int|null $page (optional, default to 1)
      * @param  int|null $per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
      * @param  \DateTime|null $from (optional)
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
@@ -711,7 +714,10 @@ class MentionsCitationsApi
         }
         
 
-
+        if ($collection_id !== null && !preg_match("/^\\d+(,\\d+)*$/", $collection_id)) {
+            throw new \InvalidArgumentException("invalid value for \"collection_id\" when calling MentionsCitationsApi.listAllMentions, must conform to the pattern /^\\d+(,\\d+)*$/.");
+        }
+        
 
 
 
@@ -773,7 +779,7 @@ class MentionsCitationsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $collection_id,
             'collection_id', // param base name
-            'int|string', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -884,7 +890,7 @@ class MentionsCitationsApi
      * @param  int|null $page page (optional, default to 1)
      * @param  int|null $per_page per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
@@ -911,7 +917,7 @@ class MentionsCitationsApi
      * @param  int|null $page (optional, default to 1)
      * @param  int|null $per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
@@ -970,7 +976,7 @@ class MentionsCitationsApi
      * @param  int|null $page (optional, default to 1)
      * @param  int|null $per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
@@ -1001,7 +1007,7 @@ class MentionsCitationsApi
      * @param  int|null $page (optional, default to 1)
      * @param  int|null $per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
@@ -1048,7 +1054,7 @@ class MentionsCitationsApi
      * @param  int|null $page (optional, default to 1)
      * @param  int|null $per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
@@ -1082,7 +1088,10 @@ class MentionsCitationsApi
         }
         
 
-
+        if ($collection_id !== null && !preg_match("/^\\d+(,\\d+)*$/", $collection_id)) {
+            throw new \InvalidArgumentException("invalid value for \"collection_id\" when calling MentionsCitationsApi.listCitations, must conform to the pattern /^\\d+(,\\d+)*$/.");
+        }
+        
 
 
 
@@ -1137,7 +1146,7 @@ class MentionsCitationsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $collection_id,
             'collection_id', // param base name
-            'int|string', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -1267,7 +1276,7 @@ class MentionsCitationsApi
      * @param  int|null $page page (optional, default to 1)
      * @param  int|null $per_page per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
      * @param  \DateTime|null $from from (optional)
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
@@ -1293,7 +1302,7 @@ class MentionsCitationsApi
      * @param  int|null $page (optional, default to 1)
      * @param  int|null $per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
      * @param  \DateTime|null $from (optional)
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
@@ -1351,7 +1360,7 @@ class MentionsCitationsApi
      * @param  int|null $page (optional, default to 1)
      * @param  int|null $per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
      * @param  \DateTime|null $from (optional)
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
@@ -1381,7 +1390,7 @@ class MentionsCitationsApi
      * @param  int|null $page (optional, default to 1)
      * @param  int|null $per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
      * @param  \DateTime|null $from (optional)
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
@@ -1427,7 +1436,7 @@ class MentionsCitationsApi
      * @param  int|null $page (optional, default to 1)
      * @param  int|null $per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
      * @param  \DateTime|null $from (optional)
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
@@ -1460,7 +1469,10 @@ class MentionsCitationsApi
         }
         
 
-
+        if ($collection_id !== null && !preg_match("/^\\d+(,\\d+)*$/", $collection_id)) {
+            throw new \InvalidArgumentException("invalid value for \"collection_id\" when calling MentionsCitationsApi.listCompetitorCitations, must conform to the pattern /^\\d+(,\\d+)*$/.");
+        }
+        
 
 
 
@@ -1522,7 +1534,7 @@ class MentionsCitationsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $collection_id,
             'collection_id', // param base name
-            'int|string', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -1634,7 +1646,7 @@ class MentionsCitationsApi
      * @param  int|null $page page (optional, default to 1)
      * @param  int|null $per_page per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
      * @param  \DateTime|null $from from (optional)
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
@@ -1660,7 +1672,7 @@ class MentionsCitationsApi
      * @param  int|null $page (optional, default to 1)
      * @param  int|null $per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
      * @param  \DateTime|null $from (optional)
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
@@ -1718,7 +1730,7 @@ class MentionsCitationsApi
      * @param  int|null $page (optional, default to 1)
      * @param  int|null $per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
      * @param  \DateTime|null $from (optional)
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
@@ -1748,7 +1760,7 @@ class MentionsCitationsApi
      * @param  int|null $page (optional, default to 1)
      * @param  int|null $per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
      * @param  \DateTime|null $from (optional)
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
@@ -1794,7 +1806,7 @@ class MentionsCitationsApi
      * @param  int|null $page (optional, default to 1)
      * @param  int|null $per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
      * @param  \DateTime|null $from (optional)
      * @param  \DateTime|null $to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. (optional)
@@ -1827,7 +1839,10 @@ class MentionsCitationsApi
         }
         
 
-
+        if ($collection_id !== null && !preg_match("/^\\d+(,\\d+)*$/", $collection_id)) {
+            throw new \InvalidArgumentException("invalid value for \"collection_id\" when calling MentionsCitationsApi.listCompetitorMentions, must conform to the pattern /^\\d+(,\\d+)*$/.");
+        }
+        
 
 
 
@@ -1889,7 +1904,7 @@ class MentionsCitationsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $collection_id,
             'collection_id', // param base name
-            'int|string', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -2000,7 +2015,7 @@ class MentionsCitationsApi
      * @param  int|null $page page (optional, default to 1)
      * @param  int|null $per_page per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
@@ -2027,7 +2042,7 @@ class MentionsCitationsApi
      * @param  int|null $page (optional, default to 1)
      * @param  int|null $per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
@@ -2086,7 +2101,7 @@ class MentionsCitationsApi
      * @param  int|null $page (optional, default to 1)
      * @param  int|null $per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
@@ -2117,7 +2132,7 @@ class MentionsCitationsApi
      * @param  int|null $page (optional, default to 1)
      * @param  int|null $per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
@@ -2164,7 +2179,7 @@ class MentionsCitationsApi
      * @param  int|null $page (optional, default to 1)
      * @param  int|null $per_page (optional, default to 20)
      * @param  string|null $model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. (optional)
-     * @param  \LLMPulse\Model\GetTimeseriesCollectionIdParameter|null $collection_id One collection/tag ID or a comma-separated list of IDs (optional)
+     * @param  string|null $collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. (optional)
      * @param  string|null $country_code One ISO country code or a comma-separated list (e.g. US,GB,DE) (optional)
      * @param  string|null $language_code One ISO language code or a comma-separated list (e.g. en,es,de) (optional)
      * @param  int|null $prompt Filter by prompt ID (optional)
@@ -2198,7 +2213,10 @@ class MentionsCitationsApi
         }
         
 
-
+        if ($collection_id !== null && !preg_match("/^\\d+(,\\d+)*$/", $collection_id)) {
+            throw new \InvalidArgumentException("invalid value for \"collection_id\" when calling MentionsCitationsApi.listMentions, must conform to the pattern /^\\d+(,\\d+)*$/.");
+        }
+        
 
 
 
@@ -2253,7 +2271,7 @@ class MentionsCitationsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $collection_id,
             'collection_id', // param base name
-            'int|string', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             false // required

@@ -52,7 +52,6 @@ docs/Model/GetAccount200Response.md
 docs/Model/GetAccount200ResponseLimits.md
 docs/Model/GetAccount200ResponseRateLimits.md
 docs/Model/GetAccount200ResponseSubscription.md
-docs/Model/GetTimeseriesCollectionIdParameter.md
 docs/Model/IntelligenceTask.md
 docs/Model/IntelligenceTaskCreateRequest.md
 docs/Model/IntelligenceTaskUpdateRequest.md
@@ -153,7 +152,6 @@ lib/Model/GetAccount200Response.php
 lib/Model/GetAccount200ResponseLimits.php
 lib/Model/GetAccount200ResponseRateLimits.php
 lib/Model/GetAccount200ResponseSubscription.php
-lib/Model/GetTimeseriesCollectionIdParameter.php
 lib/Model/IntelligenceTask.php
 lib/Model/IntelligenceTaskCreateRequest.php
 lib/Model/IntelligenceTaskUpdateRequest.php

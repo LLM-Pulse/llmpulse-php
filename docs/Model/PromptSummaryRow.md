@@ -15,5 +15,6 @@ Name | Type | Description | Notes
 **citation_rate** | **float** |  | [optional]
 **avg_mention_position** | **float** |  | [optional]
 **avg_position** | **float** |  | [optional]
+**app_url** | **string** | Opens this prompt in the app. The link names its project, so it opens there for any user with access to that project | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

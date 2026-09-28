@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **plan** | **string** | Plan key (starter, growth, scale, ...) | [optional]
+**plan_name** | **string** | Display name of the plan to show people (e.g. Scale++ for the scaleplusplus key) | [optional]
 **tracking_frequency** | **string** | How often prompts run (weekly, daily, monthly, ...) | [optional]
 **role** | **string** | Whether the key belongs to the account owner or a team member | [optional]
 **subscription** | [**\LLMPulse\Model\GetAccount200ResponseSubscription**](GetAccount200ResponseSubscription.md) |  | [optional]

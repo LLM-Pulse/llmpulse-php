@@ -1,6 +1,6 @@
 <?php
 /**
- * ProjectCreateResponseEmailSubscription
+ * ProjectCreateResponseSameDomainProjectsInner
  *
  * PHP version 8.1
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \LLMPulse\ObjectSerializer;
 
 /**
- * ProjectCreateResponseEmailSubscription Class Doc Comment
+ * ProjectCreateResponseSameDomainProjectsInner Class Doc Comment
  *
  * @category Class
  * @package  LLMPulse
@@ -41,7 +41,7 @@ use \LLMPulse\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAccess, \JsonSerializable
+class ProjectCreateResponseSameDomainProjectsInner implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
      *
      * @var string
      */
-    protected static $openAPIModelName = 'ProjectCreateResponse_email_subscription';
+    protected static $openAPIModelName = 'ProjectCreateResponse_same_domain_projects_inner';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,10 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $openAPITypes = [
-        'weekly_email_subscribed' => 'bool'
+        'id' => 'int',
+        'name' => 'string',
+        'country_code' => 'string',
+        'language_code' => 'string'
     ];
 
     /**
@@ -69,7 +72,10 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'weekly_email_subscribed' => null
+        'id' => null,
+        'name' => null,
+        'country_code' => null,
+        'language_code' => null
     ];
 
     /**
@@ -78,7 +84,10 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'weekly_email_subscribed' => false
+        'id' => false,
+        'name' => false,
+        'country_code' => false,
+        'language_code' => false
     ];
 
     /**
@@ -167,7 +176,10 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'weekly_email_subscribed' => 'weekly_email_subscribed'
+        'id' => 'id',
+        'name' => 'name',
+        'country_code' => 'country_code',
+        'language_code' => 'language_code'
     ];
 
     /**
@@ -176,7 +188,10 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'weekly_email_subscribed' => 'setWeeklyEmailSubscribed'
+        'id' => 'setId',
+        'name' => 'setName',
+        'country_code' => 'setCountryCode',
+        'language_code' => 'setLanguageCode'
     ];
 
     /**
@@ -185,7 +200,10 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'weekly_email_subscribed' => 'getWeeklyEmailSubscribed'
+        'id' => 'getId',
+        'name' => 'getName',
+        'country_code' => 'getCountryCode',
+        'language_code' => 'getLanguageCode'
     ];
 
     /**
@@ -245,7 +263,10 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('weekly_email_subscribed', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('country_code', $data ?? [], null);
+        $this->setIfExists('language_code', $data ?? [], null);
     }
 
     /**
@@ -291,28 +312,109 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
 
 
     /**
-     * Gets weekly_email_subscribed
+     * Gets id
      *
-     * @return bool|null
+     * @return int|null
      */
-    public function getWeeklyEmailSubscribed()
+    public function getId()
     {
-        return $this->container['weekly_email_subscribed'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets weekly_email_subscribed
+     * Sets id
      *
-     * @param bool|null $weekly_email_subscribed weekly_email_subscribed
+     * @param int|null $id id
      *
      * @return self
      */
-    public function setWeeklyEmailSubscribed($weekly_email_subscribed)
+    public function setId($id)
     {
-        if (is_null($weekly_email_subscribed)) {
-            throw new \InvalidArgumentException('non-nullable weekly_email_subscribed cannot be null');
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-        $this->container['weekly_email_subscribed'] = $weekly_email_subscribed;
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name name
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        }
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets country_code
+     *
+     * @return string|null
+     */
+    public function getCountryCode()
+    {
+        return $this->container['country_code'];
+    }
+
+    /**
+     * Sets country_code
+     *
+     * @param string|null $country_code country_code
+     *
+     * @return self
+     */
+    public function setCountryCode($country_code)
+    {
+        if (is_null($country_code)) {
+            throw new \InvalidArgumentException('non-nullable country_code cannot be null');
+        }
+        $this->container['country_code'] = $country_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets language_code
+     *
+     * @return string|null
+     */
+    public function getLanguageCode()
+    {
+        return $this->container['language_code'];
+    }
+
+    /**
+     * Sets language_code
+     *
+     * @param string|null $language_code language_code
+     *
+     * @return self
+     */
+    public function setLanguageCode($language_code)
+    {
+        if (is_null($language_code)) {
+            throw new \InvalidArgumentException('non-nullable language_code cannot be null');
+        }
+        $this->container['language_code'] = $language_code;
 
         return $this;
     }

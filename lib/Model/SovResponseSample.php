@@ -1,6 +1,6 @@
 <?php
 /**
- * ProjectCreateResponseEmailSubscription
+ * SovResponseSample
  *
  * PHP version 8.1
  *
@@ -33,15 +33,16 @@ use \ArrayAccess;
 use \LLMPulse\ObjectSerializer;
 
 /**
- * ProjectCreateResponseEmailSubscription Class Doc Comment
+ * SovResponseSample Class Doc Comment
  *
  * @category Class
+ * @description The period the current shares were computed on (the last one with mentions), same shape as a periods item; null when the window has no mentions.
  * @package  LLMPulse
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAccess, \JsonSerializable
+class SovResponseSample implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +51,7 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
      *
      * @var string
      */
-    protected static $openAPIModelName = 'ProjectCreateResponse_email_subscription';
+    protected static $openAPIModelName = 'SovResponse_sample';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +59,11 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $openAPITypes = [
-        'weekly_email_subscribed' => 'bool'
+        'date' => '\DateTime',
+        'mentions' => 'int',
+        'partial' => 'bool',
+        'confidence' => 'string',
+        'margin_of_error' => 'float'
     ];
 
     /**
@@ -69,7 +74,11 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'weekly_email_subscribed' => null
+        'date' => 'date',
+        'mentions' => null,
+        'partial' => null,
+        'confidence' => null,
+        'margin_of_error' => null
     ];
 
     /**
@@ -78,7 +87,11 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'weekly_email_subscribed' => false
+        'date' => false,
+        'mentions' => false,
+        'partial' => false,
+        'confidence' => false,
+        'margin_of_error' => true
     ];
 
     /**
@@ -167,7 +180,11 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'weekly_email_subscribed' => 'weekly_email_subscribed'
+        'date' => 'date',
+        'mentions' => 'mentions',
+        'partial' => 'partial',
+        'confidence' => 'confidence',
+        'margin_of_error' => 'margin_of_error'
     ];
 
     /**
@@ -176,7 +193,11 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'weekly_email_subscribed' => 'setWeeklyEmailSubscribed'
+        'date' => 'setDate',
+        'mentions' => 'setMentions',
+        'partial' => 'setPartial',
+        'confidence' => 'setConfidence',
+        'margin_of_error' => 'setMarginOfError'
     ];
 
     /**
@@ -185,7 +206,11 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'weekly_email_subscribed' => 'getWeeklyEmailSubscribed'
+        'date' => 'getDate',
+        'mentions' => 'getMentions',
+        'partial' => 'getPartial',
+        'confidence' => 'getConfidence',
+        'margin_of_error' => 'getMarginOfError'
     ];
 
     /**
@@ -245,7 +270,11 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('weekly_email_subscribed', $data ?? [], null);
+        $this->setIfExists('date', $data ?? [], null);
+        $this->setIfExists('mentions', $data ?? [], null);
+        $this->setIfExists('partial', $data ?? [], null);
+        $this->setIfExists('confidence', $data ?? [], null);
+        $this->setIfExists('margin_of_error', $data ?? [], null);
     }
 
     /**
@@ -291,28 +320,143 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
 
 
     /**
-     * Gets weekly_email_subscribed
+     * Gets date
      *
-     * @return bool|null
+     * @return \DateTime|null
      */
-    public function getWeeklyEmailSubscribed()
+    public function getDate()
     {
-        return $this->container['weekly_email_subscribed'];
+        return $this->container['date'];
     }
 
     /**
-     * Sets weekly_email_subscribed
+     * Sets date
      *
-     * @param bool|null $weekly_email_subscribed weekly_email_subscribed
+     * @param \DateTime|null $date date
      *
      * @return self
      */
-    public function setWeeklyEmailSubscribed($weekly_email_subscribed)
+    public function setDate($date)
     {
-        if (is_null($weekly_email_subscribed)) {
-            throw new \InvalidArgumentException('non-nullable weekly_email_subscribed cannot be null');
+        if (is_null($date)) {
+            throw new \InvalidArgumentException('non-nullable date cannot be null');
         }
-        $this->container['weekly_email_subscribed'] = $weekly_email_subscribed;
+        $this->container['date'] = $date;
+
+        return $this;
+    }
+
+    /**
+     * Gets mentions
+     *
+     * @return int|null
+     */
+    public function getMentions()
+    {
+        return $this->container['mentions'];
+    }
+
+    /**
+     * Sets mentions
+     *
+     * @param int|null $mentions mentions
+     *
+     * @return self
+     */
+    public function setMentions($mentions)
+    {
+        if (is_null($mentions)) {
+            throw new \InvalidArgumentException('non-nullable mentions cannot be null');
+        }
+        $this->container['mentions'] = $mentions;
+
+        return $this;
+    }
+
+    /**
+     * Gets partial
+     *
+     * @return bool|null
+     */
+    public function getPartial()
+    {
+        return $this->container['partial'];
+    }
+
+    /**
+     * Sets partial
+     *
+     * @param bool|null $partial partial
+     *
+     * @return self
+     */
+    public function setPartial($partial)
+    {
+        if (is_null($partial)) {
+            throw new \InvalidArgumentException('non-nullable partial cannot be null');
+        }
+        $this->container['partial'] = $partial;
+
+        return $this;
+    }
+
+    /**
+     * Gets confidence
+     *
+     * @return string|null
+     */
+    public function getConfidence()
+    {
+        return $this->container['confidence'];
+    }
+
+    /**
+     * Sets confidence
+     *
+     * @param string|null $confidence confidence
+     *
+     * @return self
+     */
+    public function setConfidence($confidence)
+    {
+        if (is_null($confidence)) {
+            throw new \InvalidArgumentException('non-nullable confidence cannot be null');
+        }
+        $this->container['confidence'] = $confidence;
+
+        return $this;
+    }
+
+    /**
+     * Gets margin_of_error
+     *
+     * @return float|null
+     */
+    public function getMarginOfError()
+    {
+        return $this->container['margin_of_error'];
+    }
+
+    /**
+     * Sets margin_of_error
+     *
+     * @param float|null $margin_of_error margin_of_error
+     *
+     * @return self
+     */
+    public function setMarginOfError($margin_of_error)
+    {
+        if (is_null($margin_of_error)) {
+            array_push($this->openAPINullablesSetToNull, 'margin_of_error');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('margin_of_error', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['margin_of_error'] = $margin_of_error;
 
         return $this;
     }

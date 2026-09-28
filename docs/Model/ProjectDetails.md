@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **url** | **string** |  | [optional]
 **description** | **string** |  | [optional]
 **matching_names** | **string[]** |  | [optional]
-**industry** | **string** |  | [optional]
+**industry** | **mixed** | Industry as stored: one key as a string (e.g. SAAS), or an array of key strings when the project was created with a list or the in-app multi-select. Deliberately untyped so generated clients decode either shape | [optional]
 **business_model** | **string** |  | [optional]
 **business_model_other** | **string** | Set only when business_model is OTHER | [optional]
 **primary_products** | **string[]** |  | [optional]

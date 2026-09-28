@@ -5,7 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **project_id** | **int** |  | [optional]
-**periods** | [**\LLMPulse\Model\SovResponsePeriodsInner[]**](SovResponsePeriodsInner.md) | Per-bucket sample size and completeness: mentions is the total the shares were computed on (1-3 mentions produce the 100/50/33.33 low-sample patterns); partial marks buckets still collecting data or clipped by the requested window. | [optional]
+**periods** | [**\LLMPulse\Model\SovResponsePeriodsInner[]**](SovResponsePeriodsInner.md) | Per-bucket sample size and completeness: mentions is the total the shares were computed on (1-3 mentions produce the 100/50/33.33 low-sample patterns); partial marks buckets still collecting data or clipped by the requested window; confidence and margin_of_error read the sample size. | [optional]
+**sample** | [**\LLMPulse\Model\SovResponseSample**](SovResponseSample.md) |  | [optional]
 **over_time** | [**\LLMPulse\Model\SovResponseOverTimeInner[]**](SovResponseOverTimeInner.md) |  | [optional]
 **current** | [**\LLMPulse\Model\SovResponseCurrentInner[]**](SovResponseCurrentInner.md) |  | [optional]
 **breakdown** | [**\LLMPulse\Model\SovResponseBreakdownInner[]**](SovResponseBreakdownInner.md) |  | [optional]

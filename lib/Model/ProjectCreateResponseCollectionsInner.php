@@ -1,6 +1,6 @@
 <?php
 /**
- * ProjectCreateResponseEmailSubscription
+ * ProjectCreateResponseCollectionsInner
  *
  * PHP version 8.1
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \LLMPulse\ObjectSerializer;
 
 /**
- * ProjectCreateResponseEmailSubscription Class Doc Comment
+ * ProjectCreateResponseCollectionsInner Class Doc Comment
  *
  * @category Class
  * @package  LLMPulse
@@ -41,7 +41,7 @@ use \LLMPulse\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAccess, \JsonSerializable
+class ProjectCreateResponseCollectionsInner implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
      *
      * @var string
      */
-    protected static $openAPIModelName = 'ProjectCreateResponse_email_subscription';
+    protected static $openAPIModelName = 'ProjectCreateResponse_collections_inner';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,9 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $openAPITypes = [
-        'weekly_email_subscribed' => 'bool'
+        'id' => 'int',
+        'name' => 'string',
+        'prompts_attached' => 'int'
     ];
 
     /**
@@ -69,7 +71,9 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'weekly_email_subscribed' => null
+        'id' => null,
+        'name' => null,
+        'prompts_attached' => null
     ];
 
     /**
@@ -78,7 +82,9 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'weekly_email_subscribed' => false
+        'id' => false,
+        'name' => false,
+        'prompts_attached' => false
     ];
 
     /**
@@ -167,7 +173,9 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'weekly_email_subscribed' => 'weekly_email_subscribed'
+        'id' => 'id',
+        'name' => 'name',
+        'prompts_attached' => 'prompts_attached'
     ];
 
     /**
@@ -176,7 +184,9 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'weekly_email_subscribed' => 'setWeeklyEmailSubscribed'
+        'id' => 'setId',
+        'name' => 'setName',
+        'prompts_attached' => 'setPromptsAttached'
     ];
 
     /**
@@ -185,7 +195,9 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'weekly_email_subscribed' => 'getWeeklyEmailSubscribed'
+        'id' => 'getId',
+        'name' => 'getName',
+        'prompts_attached' => 'getPromptsAttached'
     ];
 
     /**
@@ -245,7 +257,9 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('weekly_email_subscribed', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('prompts_attached', $data ?? [], null);
     }
 
     /**
@@ -291,28 +305,82 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
 
 
     /**
-     * Gets weekly_email_subscribed
+     * Gets id
      *
-     * @return bool|null
+     * @return int|null
      */
-    public function getWeeklyEmailSubscribed()
+    public function getId()
     {
-        return $this->container['weekly_email_subscribed'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets weekly_email_subscribed
+     * Sets id
      *
-     * @param bool|null $weekly_email_subscribed weekly_email_subscribed
+     * @param int|null $id id
      *
      * @return self
      */
-    public function setWeeklyEmailSubscribed($weekly_email_subscribed)
+    public function setId($id)
     {
-        if (is_null($weekly_email_subscribed)) {
-            throw new \InvalidArgumentException('non-nullable weekly_email_subscribed cannot be null');
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-        $this->container['weekly_email_subscribed'] = $weekly_email_subscribed;
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name name
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        }
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets prompts_attached
+     *
+     * @return int|null
+     */
+    public function getPromptsAttached()
+    {
+        return $this->container['prompts_attached'];
+    }
+
+    /**
+     * Sets prompts_attached
+     *
+     * @param int|null $prompts_attached prompts_attached
+     *
+     * @return self
+     */
+    public function setPromptsAttached($prompts_attached)
+    {
+        if (is_null($prompts_attached)) {
+            throw new \InvalidArgumentException('non-nullable prompts_attached cannot be null');
+        }
+        $this->container['prompts_attached'] = $prompts_attached;
 
         return $this;
     }

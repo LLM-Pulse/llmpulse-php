@@ -1,6 +1,6 @@
 <?php
 /**
- * ProjectCreateResponseEmailSubscription
+ * ProjectCreateRequestCollectionsInner
  *
  * PHP version 8.1
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \LLMPulse\ObjectSerializer;
 
 /**
- * ProjectCreateResponseEmailSubscription Class Doc Comment
+ * ProjectCreateRequestCollectionsInner Class Doc Comment
  *
  * @category Class
  * @package  LLMPulse
@@ -41,7 +41,7 @@ use \LLMPulse\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAccess, \JsonSerializable
+class ProjectCreateRequestCollectionsInner implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
      *
      * @var string
      */
-    protected static $openAPIModelName = 'ProjectCreateResponse_email_subscription';
+    protected static $openAPIModelName = 'ProjectCreateRequest_collections_inner';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,8 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $openAPITypes = [
-        'weekly_email_subscribed' => 'bool'
+        'name' => 'string',
+        'prompts' => 'string[]'
     ];
 
     /**
@@ -69,7 +70,8 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'weekly_email_subscribed' => null
+        'name' => null,
+        'prompts' => null
     ];
 
     /**
@@ -78,7 +80,8 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'weekly_email_subscribed' => false
+        'name' => false,
+        'prompts' => false
     ];
 
     /**
@@ -167,7 +170,8 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'weekly_email_subscribed' => 'weekly_email_subscribed'
+        'name' => 'name',
+        'prompts' => 'prompts'
     ];
 
     /**
@@ -176,7 +180,8 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'weekly_email_subscribed' => 'setWeeklyEmailSubscribed'
+        'name' => 'setName',
+        'prompts' => 'setPrompts'
     ];
 
     /**
@@ -185,7 +190,8 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'weekly_email_subscribed' => 'getWeeklyEmailSubscribed'
+        'name' => 'getName',
+        'prompts' => 'getPrompts'
     ];
 
     /**
@@ -245,7 +251,8 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('weekly_email_subscribed', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('prompts', $data ?? [], null);
     }
 
     /**
@@ -275,6 +282,13 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
     {
         $invalidProperties = [];
 
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ((mb_strlen($this->container['name']) > 100)) {
+            $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 100.";
+        }
+
         return $invalidProperties;
     }
 
@@ -291,28 +305,59 @@ class ProjectCreateResponseEmailSubscription implements ModelInterface, ArrayAcc
 
 
     /**
-     * Gets weekly_email_subscribed
+     * Gets name
      *
-     * @return bool|null
+     * @return string
      */
-    public function getWeeklyEmailSubscribed()
+    public function getName()
     {
-        return $this->container['weekly_email_subscribed'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets weekly_email_subscribed
+     * Sets name
      *
-     * @param bool|null $weekly_email_subscribed weekly_email_subscribed
+     * @param string $name name
      *
      * @return self
      */
-    public function setWeeklyEmailSubscribed($weekly_email_subscribed)
+    public function setName($name)
     {
-        if (is_null($weekly_email_subscribed)) {
-            throw new \InvalidArgumentException('non-nullable weekly_email_subscribed cannot be null');
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-        $this->container['weekly_email_subscribed'] = $weekly_email_subscribed;
+        if ((mb_strlen($name) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $name when calling ProjectCreateRequestCollectionsInner., must be smaller than or equal to 100.');
+        }
+
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets prompts
+     *
+     * @return string[]|null
+     */
+    public function getPrompts()
+    {
+        return $this->container['prompts'];
+    }
+
+    /**
+     * Sets prompts
+     *
+     * @param string[]|null $prompts prompts
+     *
+     * @return self
+     */
+    public function setPrompts($prompts)
+    {
+        if (is_null($prompts)) {
+            throw new \InvalidArgumentException('non-nullable prompts cannot be null');
+        }
+        $this->container['prompts'] = $prompts;
 
         return $this;
     }

@@ -6,8 +6,8 @@ All URIs are relative to https://api.llmpulse.ai/api/v1, except if the operation
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**listSentimentCategories()**](SentimentsApi.md#listSentimentCategories) | **GET** /dimensions/sentiments | List sentiment categories |
-| [**listSentimentRecords()**](SentimentsApi.md#listSentimentRecords) | **GET** /sentiments | List sentiment records |
+| [**listSentimentCategories()**](SentimentsApi.md#listSentimentCategories) | **GET** /dimensions/sentiments | List sentiment categories (Growth plan or above) |
+| [**listSentimentRecords()**](SentimentsApi.md#listSentimentRecords) | **GET** /sentiments | List sentiment records (Growth plan or above) |
 
 
 ## `listSentimentCategories()`
@@ -16,9 +16,9 @@ All URIs are relative to https://api.llmpulse.ai/api/v1, except if the operation
 listSentimentCategories($project_id, $output)
 ```
 
-List sentiment categories
+List sentiment categories (Growth plan or above)
 
-Sentiment metric keys + labels + colors. For records, use /sentiments.
+Sentiment metric keys + labels + colors. For records, use /sentiments. Requires the Growth plan; lower tiers receive ERR_PLAN_REQUIRED.
 
 ### Example
 
@@ -65,7 +65,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -77,7 +77,9 @@ void (empty response body)
 listSentimentRecords($project_id, $competitor_id, $brand_only, $analysis, $model, $collection_id, $country_code, $language_code, $from, $to, $page, $per_page)
 ```
 
-List sentiment records
+List sentiment records (Growth plan or above)
+
+Requires the Growth plan; lower tiers receive ERR_PLAN_REQUIRED.
 
 ### Example
 

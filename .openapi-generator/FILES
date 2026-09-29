@@ -61,6 +61,8 @@ docs/Model/ListCompetitors200Response.md
 docs/Model/ListProjects200Response.md
 docs/Model/ListWebhooks200Response.md
 docs/Model/ListWebhooks200ResponseDataInner.md
+docs/Model/LlmsTxtTechnicalGeoReport.md
+docs/Model/LlmsTxtTechnicalGeoReportResultData.md
 docs/Model/Ping200Response.md
 docs/Model/Project.md
 docs/Model/ProjectCreateRequest.md
@@ -93,6 +95,10 @@ docs/Model/SovResponseSample.md
 docs/Model/SummaryResponse.md
 docs/Model/SummaryResponseAllOfPositionDistribution.md
 docs/Model/SummaryResponseAllOfSummaryValueInner.md
+docs/Model/TechnicalGeoReportContentRevertRequest.md
+docs/Model/TechnicalGeoReportContentUpdateRequest.md
+docs/Model/TechnicalGeoReportContentUpdateRequestEdits.md
+docs/Model/TechnicalGeoReportContentUpdateResponse.md
 docs/Model/TimeseriesPoint.md
 docs/Model/TimeseriesResponse.md
 docs/Model/TimeseriesSeries.md
@@ -165,6 +171,8 @@ lib/Model/ListCompetitors200Response.php
 lib/Model/ListProjects200Response.php
 lib/Model/ListWebhooks200Response.php
 lib/Model/ListWebhooks200ResponseDataInner.php
+lib/Model/LlmsTxtTechnicalGeoReport.php
+lib/Model/LlmsTxtTechnicalGeoReportResultData.php
 lib/Model/ModelInterface.php
 lib/Model/Ping200Response.php
 lib/Model/Project.php
@@ -198,6 +206,10 @@ lib/Model/SovResponseSample.php
 lib/Model/SummaryResponse.php
 lib/Model/SummaryResponseAllOfPositionDistribution.php
 lib/Model/SummaryResponseAllOfSummaryValueInner.php
+lib/Model/TechnicalGeoReportContentRevertRequest.php
+lib/Model/TechnicalGeoReportContentUpdateRequest.php
+lib/Model/TechnicalGeoReportContentUpdateRequestEdits.php
+lib/Model/TechnicalGeoReportContentUpdateResponse.php
 lib/Model/TimeseriesPoint.php
 lib/Model/TimeseriesResponse.php
 lib/Model/TimeseriesSeries.php

@@ -1,6 +1,6 @@
 <?php
 /**
- * SampleWebhookPayloads200Response
+ * LocalBusinessesResponse
  *
  * PHP version 8.1
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \LLMPulse\ObjectSerializer;
 
 /**
- * SampleWebhookPayloads200Response Class Doc Comment
+ * LocalBusinessesResponse Class Doc Comment
  *
  * @category Class
  * @package  LLMPulse
@@ -41,7 +41,7 @@ use \LLMPulse\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SampleWebhookPayloads200Response implements ModelInterface, ArrayAccess, \JsonSerializable
+class LocalBusinessesResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SampleWebhookPayloads200Response implements ModelInterface, ArrayAccess, \
      *
      * @var string
      */
-    protected static $openAPIModelName = 'sampleWebhookPayloads_200_response';
+    protected static $openAPIModelName = 'LocalBusinessesResponse';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,12 @@ class SampleWebhookPayloads200Response implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $openAPITypes = [
-        'event_type' => 'string',
-        'data' => '\LLMPulse\Model\SampleWebhookPayloads200ResponseDataInner[]',
+        'project_id' => 'int',
+        'page' => 'int',
+        'per_page' => 'int',
+        'total' => 'int',
+        'totals' => '\LLMPulse\Model\LocalBusinessesTotals',
+        'data' => '\LLMPulse\Model\LocalBusiness[]',
         'request_id' => 'string'
     ];
 
@@ -71,7 +75,11 @@ class SampleWebhookPayloads200Response implements ModelInterface, ArrayAccess, \
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'event_type' => null,
+        'project_id' => null,
+        'page' => null,
+        'per_page' => null,
+        'total' => null,
+        'totals' => null,
         'data' => null,
         'request_id' => null
     ];
@@ -82,7 +90,11 @@ class SampleWebhookPayloads200Response implements ModelInterface, ArrayAccess, \
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'event_type' => false,
+        'project_id' => false,
+        'page' => false,
+        'per_page' => false,
+        'total' => false,
+        'totals' => false,
         'data' => false,
         'request_id' => false
     ];
@@ -173,7 +185,11 @@ class SampleWebhookPayloads200Response implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $attributeMap = [
-        'event_type' => 'event_type',
+        'project_id' => 'project_id',
+        'page' => 'page',
+        'per_page' => 'per_page',
+        'total' => 'total',
+        'totals' => 'totals',
         'data' => 'data',
         'request_id' => 'request_id'
     ];
@@ -184,7 +200,11 @@ class SampleWebhookPayloads200Response implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $setters = [
-        'event_type' => 'setEventType',
+        'project_id' => 'setProjectId',
+        'page' => 'setPage',
+        'per_page' => 'setPerPage',
+        'total' => 'setTotal',
+        'totals' => 'setTotals',
         'data' => 'setData',
         'request_id' => 'setRequestId'
     ];
@@ -195,7 +215,11 @@ class SampleWebhookPayloads200Response implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $getters = [
-        'event_type' => 'getEventType',
+        'project_id' => 'getProjectId',
+        'page' => 'getPage',
+        'per_page' => 'getPerPage',
+        'total' => 'getTotal',
+        'totals' => 'getTotals',
         'data' => 'getData',
         'request_id' => 'getRequestId'
     ];
@@ -257,7 +281,11 @@ class SampleWebhookPayloads200Response implements ModelInterface, ArrayAccess, \
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('event_type', $data ?? [], null);
+        $this->setIfExists('project_id', $data ?? [], null);
+        $this->setIfExists('page', $data ?? [], null);
+        $this->setIfExists('per_page', $data ?? [], null);
+        $this->setIfExists('total', $data ?? [], null);
+        $this->setIfExists('totals', $data ?? [], null);
         $this->setIfExists('data', $data ?? [], null);
         $this->setIfExists('request_id', $data ?? [], null);
     }
@@ -305,28 +333,136 @@ class SampleWebhookPayloads200Response implements ModelInterface, ArrayAccess, \
 
 
     /**
-     * Gets event_type
+     * Gets project_id
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getEventType()
+    public function getProjectId()
     {
-        return $this->container['event_type'];
+        return $this->container['project_id'];
     }
 
     /**
-     * Sets event_type
+     * Sets project_id
      *
-     * @param string|null $event_type event_type
+     * @param int|null $project_id project_id
      *
      * @return self
      */
-    public function setEventType($event_type)
+    public function setProjectId($project_id)
     {
-        if (is_null($event_type)) {
-            throw new \InvalidArgumentException('non-nullable event_type cannot be null');
+        if (is_null($project_id)) {
+            throw new \InvalidArgumentException('non-nullable project_id cannot be null');
         }
-        $this->container['event_type'] = $event_type;
+        $this->container['project_id'] = $project_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets page
+     *
+     * @return int|null
+     */
+    public function getPage()
+    {
+        return $this->container['page'];
+    }
+
+    /**
+     * Sets page
+     *
+     * @param int|null $page page
+     *
+     * @return self
+     */
+    public function setPage($page)
+    {
+        if (is_null($page)) {
+            throw new \InvalidArgumentException('non-nullable page cannot be null');
+        }
+        $this->container['page'] = $page;
+
+        return $this;
+    }
+
+    /**
+     * Gets per_page
+     *
+     * @return int|null
+     */
+    public function getPerPage()
+    {
+        return $this->container['per_page'];
+    }
+
+    /**
+     * Sets per_page
+     *
+     * @param int|null $per_page per_page
+     *
+     * @return self
+     */
+    public function setPerPage($per_page)
+    {
+        if (is_null($per_page)) {
+            throw new \InvalidArgumentException('non-nullable per_page cannot be null');
+        }
+        $this->container['per_page'] = $per_page;
+
+        return $this;
+    }
+
+    /**
+     * Gets total
+     *
+     * @return int|null
+     */
+    public function getTotal()
+    {
+        return $this->container['total'];
+    }
+
+    /**
+     * Sets total
+     *
+     * @param int|null $total total
+     *
+     * @return self
+     */
+    public function setTotal($total)
+    {
+        if (is_null($total)) {
+            throw new \InvalidArgumentException('non-nullable total cannot be null');
+        }
+        $this->container['total'] = $total;
+
+        return $this;
+    }
+
+    /**
+     * Gets totals
+     *
+     * @return \LLMPulse\Model\LocalBusinessesTotals|null
+     */
+    public function getTotals()
+    {
+        return $this->container['totals'];
+    }
+
+    /**
+     * Sets totals
+     *
+     * @param \LLMPulse\Model\LocalBusinessesTotals|null $totals totals
+     *
+     * @return self
+     */
+    public function setTotals($totals)
+    {
+        if (is_null($totals)) {
+            throw new \InvalidArgumentException('non-nullable totals cannot be null');
+        }
+        $this->container['totals'] = $totals;
 
         return $this;
     }
@@ -334,7 +470,7 @@ class SampleWebhookPayloads200Response implements ModelInterface, ArrayAccess, \
     /**
      * Gets data
      *
-     * @return \LLMPulse\Model\SampleWebhookPayloads200ResponseDataInner[]|null
+     * @return \LLMPulse\Model\LocalBusiness[]|null
      */
     public function getData()
     {
@@ -344,7 +480,7 @@ class SampleWebhookPayloads200Response implements ModelInterface, ArrayAccess, \
     /**
      * Sets data
      *
-     * @param \LLMPulse\Model\SampleWebhookPayloads200ResponseDataInner[]|null $data data
+     * @param \LLMPulse\Model\LocalBusiness[]|null $data data
      *
      * @return self
      */

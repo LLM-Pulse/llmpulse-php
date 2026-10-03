@@ -7,6 +7,7 @@ All URIs are relative to https://api.llmpulse.ai/api/v1, except if the operation
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**listAds()**](ShoppingAdsApi.md#listAds) | **GET** /dimensions/ads | List AI ad placements |
+| [**listLocalBusinesses()**](ShoppingAdsApi.md#listLocalBusinesses) | **GET** /dimensions/local_businesses | List local businesses |
 | [**listShopping()**](ShoppingAdsApi.md#listShopping) | **GET** /dimensions/shopping | List shopping results |
 
 
@@ -91,6 +92,100 @@ try {
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[BearerAuth](../../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `listLocalBusinesses()`
+
+```php
+listLocalBusinesses($project_id, $page, $per_page, $owned, $order, $direction, $query, $model, $collection_id, $country_code, $language_code, $prompt, $prompt_type, $brand_kind, $range, $from, $to, $output): \LLMPulse\Model\LocalBusinessesResponse
+```
+
+List local businesses
+
+Local businesses (shops, restaurants, services) listed inside AI answers, one row per business: its name at its address, so two locations of a chain are two rows. Each row carries its appearance count, the number of prompts that listed it, its average rating and average position in the list, its review count, and whether it is yours or a tracked competitor. Every response also carries a totals block matching the KPI cards in the app. Local business lists come from a subset of models and only for prompts with local intent. Available on every plan.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: BearerAuth
+$config = LLMPulse\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new LLMPulse\Api\ShoppingAdsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$project_id = 56; // int | Project ID
+$page = 1; // int
+$per_page = 20; // int
+$owned = True; // bool | Return only listings identified as the tracked brand's own locations. The totals block stays account-wide.
+$order = 'appearances'; // string | Sort field
+$direction = 'desc'; // string
+$query = 'query_example'; // string | Case-insensitive substring filter on the business name or address
+$model = 'model_example'; // string | Filter by AI model. Models the API key's user has not enabled are silently dropped.
+$collection_id = 12,34; // string | One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
+$country_code = 'country_code_example'; // string | One ISO country code or a comma-separated list (e.g. US,GB,DE)
+$language_code = 'language_code_example'; // string | One ISO language code or a comma-separated list (e.g. en,es,de)
+$prompt = 56; // int | Filter by prompt ID
+$prompt_type = 'prompt_type_example'; // string | One prompt type or a comma-separated list: informational, navigational, commercial, transactional
+$brand_kind = 'brand_kind_example'; // string | Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default.
+$range = 56; // int | Number of days to look back (alternative to from/to)
+$from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
+$to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
+$output = 'output_example'; // string | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
+
+try {
+    $result = $apiInstance->listLocalBusinesses($project_id, $page, $per_page, $owned, $order, $direction, $query, $model, $collection_id, $country_code, $language_code, $prompt, $prompt_type, $brand_kind, $range, $from, $to, $output);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ShoppingAdsApi->listLocalBusinesses: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **project_id** | **int**| Project ID | |
+| **page** | **int**|  | [optional] [default to 1] |
+| **per_page** | **int**|  | [optional] [default to 20] |
+| **owned** | **bool**| Return only listings identified as the tracked brand&#39;s own locations. The totals block stays account-wide. | [optional] |
+| **order** | **string**| Sort field | [optional] [default to &#39;appearances&#39;] |
+| **direction** | **string**|  | [optional] [default to &#39;desc&#39;] |
+| **query** | **string**| Case-insensitive substring filter on the business name or address | [optional] |
+| **model** | **string**| Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. | [optional] |
+| **collection_id** | **string**| One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. | [optional] |
+| **country_code** | **string**| One ISO country code or a comma-separated list (e.g. US,GB,DE) | [optional] |
+| **language_code** | **string**| One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |
+| **prompt** | **int**| Filter by prompt ID | [optional] |
+| **prompt_type** | **string**| One prompt type or a comma-separated list: informational, navigational, commercial, transactional | [optional] |
+| **brand_kind** | **string**| Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. | [optional] |
+| **range** | **int**| Number of days to look back (alternative to from/to) | [optional] |
+| **from** | **\DateTime**|  | [optional] |
+| **to** | **\DateTime**| End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
+| **output** | **string**| Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. &#39;flat&#39; returns the same metadata plus &#39;columns&#39; and &#39;rows&#39;; &#39;csv&#39; returns those rows as text/csv. Errors are always returned as JSON. | [optional] |
+
+### Return type
+
+[**\LLMPulse\Model\LocalBusinessesResponse**](../Model/LocalBusinessesResponse.md)
 
 ### Authorization
 

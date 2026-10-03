@@ -63,6 +63,9 @@ docs/Model/ListWebhooks200Response.md
 docs/Model/ListWebhooks200ResponseDataInner.md
 docs/Model/LlmsTxtTechnicalGeoReport.md
 docs/Model/LlmsTxtTechnicalGeoReportResultData.md
+docs/Model/LocalBusiness.md
+docs/Model/LocalBusinessesResponse.md
+docs/Model/LocalBusinessesTotals.md
 docs/Model/Ping200Response.md
 docs/Model/Project.md
 docs/Model/ProjectCreateRequest.md
@@ -173,6 +176,9 @@ lib/Model/ListWebhooks200Response.php
 lib/Model/ListWebhooks200ResponseDataInner.php
 lib/Model/LlmsTxtTechnicalGeoReport.php
 lib/Model/LlmsTxtTechnicalGeoReportResultData.php
+lib/Model/LocalBusiness.php
+lib/Model/LocalBusinessesResponse.php
+lib/Model/LocalBusinessesTotals.php
 lib/Model/ModelInterface.php
 lib/Model/Ping200Response.php
 lib/Model/Project.php

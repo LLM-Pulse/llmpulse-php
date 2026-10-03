@@ -1,6 +1,6 @@
 <?php
 /**
- * SampleWebhookPayloads200Response
+ * LocalBusinessesTotals
  *
  * PHP version 8.1
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \LLMPulse\ObjectSerializer;
 
 /**
- * SampleWebhookPayloads200Response Class Doc Comment
+ * LocalBusinessesTotals Class Doc Comment
  *
  * @category Class
  * @package  LLMPulse
@@ -41,7 +41,7 @@ use \LLMPulse\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SampleWebhookPayloads200Response implements ModelInterface, ArrayAccess, \JsonSerializable
+class LocalBusinessesTotals implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SampleWebhookPayloads200Response implements ModelInterface, ArrayAccess, \
      *
      * @var string
      */
-    protected static $openAPIModelName = 'sampleWebhookPayloads_200_response';
+    protected static $openAPIModelName = 'LocalBusinessesTotals';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,11 @@ class SampleWebhookPayloads200Response implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $openAPITypes = [
-        'event_type' => 'string',
-        'data' => '\LLMPulse\Model\SampleWebhookPayloads200ResponseDataInner[]',
-        'request_id' => 'string'
+        'businesses' => 'int',
+        'your_businesses' => 'int',
+        'appearances' => 'int',
+        'avg_rating' => 'float',
+        'executions_with_local_businesses' => 'int'
     ];
 
     /**
@@ -71,9 +73,11 @@ class SampleWebhookPayloads200Response implements ModelInterface, ArrayAccess, \
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'event_type' => null,
-        'data' => null,
-        'request_id' => null
+        'businesses' => null,
+        'your_businesses' => null,
+        'appearances' => null,
+        'avg_rating' => null,
+        'executions_with_local_businesses' => null
     ];
 
     /**
@@ -82,9 +86,11 @@ class SampleWebhookPayloads200Response implements ModelInterface, ArrayAccess, \
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'event_type' => false,
-        'data' => false,
-        'request_id' => false
+        'businesses' => false,
+        'your_businesses' => false,
+        'appearances' => false,
+        'avg_rating' => true,
+        'executions_with_local_businesses' => false
     ];
 
     /**
@@ -173,9 +179,11 @@ class SampleWebhookPayloads200Response implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $attributeMap = [
-        'event_type' => 'event_type',
-        'data' => 'data',
-        'request_id' => 'request_id'
+        'businesses' => 'businesses',
+        'your_businesses' => 'your_businesses',
+        'appearances' => 'appearances',
+        'avg_rating' => 'avg_rating',
+        'executions_with_local_businesses' => 'executions_with_local_businesses'
     ];
 
     /**
@@ -184,9 +192,11 @@ class SampleWebhookPayloads200Response implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $setters = [
-        'event_type' => 'setEventType',
-        'data' => 'setData',
-        'request_id' => 'setRequestId'
+        'businesses' => 'setBusinesses',
+        'your_businesses' => 'setYourBusinesses',
+        'appearances' => 'setAppearances',
+        'avg_rating' => 'setAvgRating',
+        'executions_with_local_businesses' => 'setExecutionsWithLocalBusinesses'
     ];
 
     /**
@@ -195,9 +205,11 @@ class SampleWebhookPayloads200Response implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $getters = [
-        'event_type' => 'getEventType',
-        'data' => 'getData',
-        'request_id' => 'getRequestId'
+        'businesses' => 'getBusinesses',
+        'your_businesses' => 'getYourBusinesses',
+        'appearances' => 'getAppearances',
+        'avg_rating' => 'getAvgRating',
+        'executions_with_local_businesses' => 'getExecutionsWithLocalBusinesses'
     ];
 
     /**
@@ -257,9 +269,11 @@ class SampleWebhookPayloads200Response implements ModelInterface, ArrayAccess, \
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('event_type', $data ?? [], null);
-        $this->setIfExists('data', $data ?? [], null);
-        $this->setIfExists('request_id', $data ?? [], null);
+        $this->setIfExists('businesses', $data ?? [], null);
+        $this->setIfExists('your_businesses', $data ?? [], null);
+        $this->setIfExists('appearances', $data ?? [], null);
+        $this->setIfExists('avg_rating', $data ?? [], null);
+        $this->setIfExists('executions_with_local_businesses', $data ?? [], null);
     }
 
     /**
@@ -305,82 +319,143 @@ class SampleWebhookPayloads200Response implements ModelInterface, ArrayAccess, \
 
 
     /**
-     * Gets event_type
+     * Gets businesses
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getEventType()
+    public function getBusinesses()
     {
-        return $this->container['event_type'];
+        return $this->container['businesses'];
     }
 
     /**
-     * Sets event_type
+     * Sets businesses
      *
-     * @param string|null $event_type event_type
+     * @param int|null $businesses businesses
      *
      * @return self
      */
-    public function setEventType($event_type)
+    public function setBusinesses($businesses)
     {
-        if (is_null($event_type)) {
-            throw new \InvalidArgumentException('non-nullable event_type cannot be null');
+        if (is_null($businesses)) {
+            throw new \InvalidArgumentException('non-nullable businesses cannot be null');
         }
-        $this->container['event_type'] = $event_type;
+        $this->container['businesses'] = $businesses;
 
         return $this;
     }
 
     /**
-     * Gets data
+     * Gets your_businesses
      *
-     * @return \LLMPulse\Model\SampleWebhookPayloads200ResponseDataInner[]|null
+     * @return int|null
      */
-    public function getData()
+    public function getYourBusinesses()
     {
-        return $this->container['data'];
+        return $this->container['your_businesses'];
     }
 
     /**
-     * Sets data
+     * Sets your_businesses
      *
-     * @param \LLMPulse\Model\SampleWebhookPayloads200ResponseDataInner[]|null $data data
+     * @param int|null $your_businesses your_businesses
      *
      * @return self
      */
-    public function setData($data)
+    public function setYourBusinesses($your_businesses)
     {
-        if (is_null($data)) {
-            throw new \InvalidArgumentException('non-nullable data cannot be null');
+        if (is_null($your_businesses)) {
+            throw new \InvalidArgumentException('non-nullable your_businesses cannot be null');
         }
-        $this->container['data'] = $data;
+        $this->container['your_businesses'] = $your_businesses;
 
         return $this;
     }
 
     /**
-     * Gets request_id
+     * Gets appearances
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getRequestId()
+    public function getAppearances()
     {
-        return $this->container['request_id'];
+        return $this->container['appearances'];
     }
 
     /**
-     * Sets request_id
+     * Sets appearances
      *
-     * @param string|null $request_id request_id
+     * @param int|null $appearances appearances
      *
      * @return self
      */
-    public function setRequestId($request_id)
+    public function setAppearances($appearances)
     {
-        if (is_null($request_id)) {
-            throw new \InvalidArgumentException('non-nullable request_id cannot be null');
+        if (is_null($appearances)) {
+            throw new \InvalidArgumentException('non-nullable appearances cannot be null');
         }
-        $this->container['request_id'] = $request_id;
+        $this->container['appearances'] = $appearances;
+
+        return $this;
+    }
+
+    /**
+     * Gets avg_rating
+     *
+     * @return float|null
+     */
+    public function getAvgRating()
+    {
+        return $this->container['avg_rating'];
+    }
+
+    /**
+     * Sets avg_rating
+     *
+     * @param float|null $avg_rating avg_rating
+     *
+     * @return self
+     */
+    public function setAvgRating($avg_rating)
+    {
+        if (is_null($avg_rating)) {
+            array_push($this->openAPINullablesSetToNull, 'avg_rating');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('avg_rating', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['avg_rating'] = $avg_rating;
+
+        return $this;
+    }
+
+    /**
+     * Gets executions_with_local_businesses
+     *
+     * @return int|null
+     */
+    public function getExecutionsWithLocalBusinesses()
+    {
+        return $this->container['executions_with_local_businesses'];
+    }
+
+    /**
+     * Sets executions_with_local_businesses
+     *
+     * @param int|null $executions_with_local_businesses executions_with_local_businesses
+     *
+     * @return self
+     */
+    public function setExecutionsWithLocalBusinesses($executions_with_local_businesses)
+    {
+        if (is_null($executions_with_local_businesses)) {
+            throw new \InvalidArgumentException('non-nullable executions_with_local_businesses cannot be null');
+        }
+        $this->container['executions_with_local_businesses'] = $executions_with_local_businesses;
 
         return $this;
     }

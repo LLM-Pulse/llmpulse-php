@@ -1,6 +1,6 @@
 <?php
 /**
- * LlmsTxtTechnicalGeoReportResultData
+ * LocalBusiness
  *
  * PHP version 8.1
  *
@@ -33,16 +33,15 @@ use \ArrayAccess;
 use \LLMPulse\ObjectSerializer;
 
 /**
- * LlmsTxtTechnicalGeoReportResultData Class Doc Comment
+ * LocalBusiness Class Doc Comment
  *
  * @category Class
- * @description The files and generation details once the report has completed; null before that
  * @package  LLMPulse
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class LlmsTxtTechnicalGeoReportResultData implements ModelInterface, ArrayAccess, \JsonSerializable
+class LocalBusiness implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +50,7 @@ class LlmsTxtTechnicalGeoReportResultData implements ModelInterface, ArrayAccess
      *
      * @var string
      */
-    protected static $openAPIModelName = 'LlmsTxtTechnicalGeoReport_result_data';
+    protected static $openAPIModelName = 'LocalBusiness';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -59,17 +58,20 @@ class LlmsTxtTechnicalGeoReportResultData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $openAPITypes = [
-        'llms_txt_content' => 'string',
-        'llms_full_txt_content' => 'string',
-        'manually_edited_at' => '\DateTime',
-        'content_version' => 'string',
-        'original_llms_txt_content' => 'string',
-        'original_llms_full_txt_content' => 'string',
-        'crawl_data' => 'object',
-        'metadata' => 'object',
-        'pages_crawled' => 'int',
-        'generation_time_ms' => 'int',
-        'openai_tokens_used' => 'int'
+        'business_key' => 'string',
+        'title' => 'string',
+        'address' => 'string',
+        'domain' => 'string',
+        'url' => 'string',
+        'phone' => 'string',
+        'avg_rating' => 'float',
+        'reviews' => 'int',
+        'avg_position' => 'float',
+        'prompts' => 'int',
+        'appearances' => 'int',
+        'is_client' => 'bool',
+        'competitor_id' => 'int',
+        'competitor_name' => 'string'
     ];
 
     /**
@@ -80,17 +82,20 @@ class LlmsTxtTechnicalGeoReportResultData implements ModelInterface, ArrayAccess
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'llms_txt_content' => null,
-        'llms_full_txt_content' => null,
-        'manually_edited_at' => 'date-time',
-        'content_version' => null,
-        'original_llms_txt_content' => null,
-        'original_llms_full_txt_content' => null,
-        'crawl_data' => null,
-        'metadata' => null,
-        'pages_crawled' => null,
-        'generation_time_ms' => null,
-        'openai_tokens_used' => null
+        'business_key' => null,
+        'title' => null,
+        'address' => null,
+        'domain' => null,
+        'url' => null,
+        'phone' => null,
+        'avg_rating' => null,
+        'reviews' => null,
+        'avg_position' => null,
+        'prompts' => null,
+        'appearances' => null,
+        'is_client' => null,
+        'competitor_id' => null,
+        'competitor_name' => null
     ];
 
     /**
@@ -99,17 +104,20 @@ class LlmsTxtTechnicalGeoReportResultData implements ModelInterface, ArrayAccess
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'llms_txt_content' => false,
-        'llms_full_txt_content' => true,
-        'manually_edited_at' => true,
-        'content_version' => false,
-        'original_llms_txt_content' => true,
-        'original_llms_full_txt_content' => true,
-        'crawl_data' => true,
-        'metadata' => true,
-        'pages_crawled' => true,
-        'generation_time_ms' => true,
-        'openai_tokens_used' => true
+        'business_key' => false,
+        'title' => false,
+        'address' => true,
+        'domain' => true,
+        'url' => true,
+        'phone' => true,
+        'avg_rating' => true,
+        'reviews' => true,
+        'avg_position' => true,
+        'prompts' => false,
+        'appearances' => false,
+        'is_client' => false,
+        'competitor_id' => true,
+        'competitor_name' => true
     ];
 
     /**
@@ -198,17 +206,20 @@ class LlmsTxtTechnicalGeoReportResultData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'llms_txt_content' => 'llms_txt_content',
-        'llms_full_txt_content' => 'llms_full_txt_content',
-        'manually_edited_at' => 'manually_edited_at',
-        'content_version' => 'content_version',
-        'original_llms_txt_content' => 'original_llms_txt_content',
-        'original_llms_full_txt_content' => 'original_llms_full_txt_content',
-        'crawl_data' => 'crawl_data',
-        'metadata' => 'metadata',
-        'pages_crawled' => 'pages_crawled',
-        'generation_time_ms' => 'generation_time_ms',
-        'openai_tokens_used' => 'openai_tokens_used'
+        'business_key' => 'business_key',
+        'title' => 'title',
+        'address' => 'address',
+        'domain' => 'domain',
+        'url' => 'url',
+        'phone' => 'phone',
+        'avg_rating' => 'avg_rating',
+        'reviews' => 'reviews',
+        'avg_position' => 'avg_position',
+        'prompts' => 'prompts',
+        'appearances' => 'appearances',
+        'is_client' => 'is_client',
+        'competitor_id' => 'competitor_id',
+        'competitor_name' => 'competitor_name'
     ];
 
     /**
@@ -217,17 +228,20 @@ class LlmsTxtTechnicalGeoReportResultData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'llms_txt_content' => 'setLlmsTxtContent',
-        'llms_full_txt_content' => 'setLlmsFullTxtContent',
-        'manually_edited_at' => 'setManuallyEditedAt',
-        'content_version' => 'setContentVersion',
-        'original_llms_txt_content' => 'setOriginalLlmsTxtContent',
-        'original_llms_full_txt_content' => 'setOriginalLlmsFullTxtContent',
-        'crawl_data' => 'setCrawlData',
-        'metadata' => 'setMetadata',
-        'pages_crawled' => 'setPagesCrawled',
-        'generation_time_ms' => 'setGenerationTimeMs',
-        'openai_tokens_used' => 'setOpenaiTokensUsed'
+        'business_key' => 'setBusinessKey',
+        'title' => 'setTitle',
+        'address' => 'setAddress',
+        'domain' => 'setDomain',
+        'url' => 'setUrl',
+        'phone' => 'setPhone',
+        'avg_rating' => 'setAvgRating',
+        'reviews' => 'setReviews',
+        'avg_position' => 'setAvgPosition',
+        'prompts' => 'setPrompts',
+        'appearances' => 'setAppearances',
+        'is_client' => 'setIsClient',
+        'competitor_id' => 'setCompetitorId',
+        'competitor_name' => 'setCompetitorName'
     ];
 
     /**
@@ -236,17 +250,20 @@ class LlmsTxtTechnicalGeoReportResultData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'llms_txt_content' => 'getLlmsTxtContent',
-        'llms_full_txt_content' => 'getLlmsFullTxtContent',
-        'manually_edited_at' => 'getManuallyEditedAt',
-        'content_version' => 'getContentVersion',
-        'original_llms_txt_content' => 'getOriginalLlmsTxtContent',
-        'original_llms_full_txt_content' => 'getOriginalLlmsFullTxtContent',
-        'crawl_data' => 'getCrawlData',
-        'metadata' => 'getMetadata',
-        'pages_crawled' => 'getPagesCrawled',
-        'generation_time_ms' => 'getGenerationTimeMs',
-        'openai_tokens_used' => 'getOpenaiTokensUsed'
+        'business_key' => 'getBusinessKey',
+        'title' => 'getTitle',
+        'address' => 'getAddress',
+        'domain' => 'getDomain',
+        'url' => 'getUrl',
+        'phone' => 'getPhone',
+        'avg_rating' => 'getAvgRating',
+        'reviews' => 'getReviews',
+        'avg_position' => 'getAvgPosition',
+        'prompts' => 'getPrompts',
+        'appearances' => 'getAppearances',
+        'is_client' => 'getIsClient',
+        'competitor_id' => 'getCompetitorId',
+        'competitor_name' => 'getCompetitorName'
     ];
 
     /**
@@ -306,17 +323,20 @@ class LlmsTxtTechnicalGeoReportResultData implements ModelInterface, ArrayAccess
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('llms_txt_content', $data ?? [], null);
-        $this->setIfExists('llms_full_txt_content', $data ?? [], null);
-        $this->setIfExists('manually_edited_at', $data ?? [], null);
-        $this->setIfExists('content_version', $data ?? [], null);
-        $this->setIfExists('original_llms_txt_content', $data ?? [], null);
-        $this->setIfExists('original_llms_full_txt_content', $data ?? [], null);
-        $this->setIfExists('crawl_data', $data ?? [], null);
-        $this->setIfExists('metadata', $data ?? [], null);
-        $this->setIfExists('pages_crawled', $data ?? [], null);
-        $this->setIfExists('generation_time_ms', $data ?? [], null);
-        $this->setIfExists('openai_tokens_used', $data ?? [], null);
+        $this->setIfExists('business_key', $data ?? [], null);
+        $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('address', $data ?? [], null);
+        $this->setIfExists('domain', $data ?? [], null);
+        $this->setIfExists('url', $data ?? [], null);
+        $this->setIfExists('phone', $data ?? [], null);
+        $this->setIfExists('avg_rating', $data ?? [], null);
+        $this->setIfExists('reviews', $data ?? [], null);
+        $this->setIfExists('avg_position', $data ?? [], null);
+        $this->setIfExists('prompts', $data ?? [], null);
+        $this->setIfExists('appearances', $data ?? [], null);
+        $this->setIfExists('is_client', $data ?? [], null);
+        $this->setIfExists('competitor_id', $data ?? [], null);
+        $this->setIfExists('competitor_name', $data ?? [], null);
     }
 
     /**
@@ -362,361 +382,442 @@ class LlmsTxtTechnicalGeoReportResultData implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets llms_txt_content
+     * Gets business_key
      *
      * @return string|null
      */
-    public function getLlmsTxtContent()
+    public function getBusinessKey()
     {
-        return $this->container['llms_txt_content'];
+        return $this->container['business_key'];
     }
 
     /**
-     * Sets llms_txt_content
+     * Sets business_key
      *
-     * @param string|null $llms_txt_content Current llms.txt, manual edits included
+     * @param string|null $business_key Stable grouping key: the lowercased name and address
      *
      * @return self
      */
-    public function setLlmsTxtContent($llms_txt_content)
+    public function setBusinessKey($business_key)
     {
-        if (is_null($llms_txt_content)) {
-            throw new \InvalidArgumentException('non-nullable llms_txt_content cannot be null');
+        if (is_null($business_key)) {
+            throw new \InvalidArgumentException('non-nullable business_key cannot be null');
         }
-        $this->container['llms_txt_content'] = $llms_txt_content;
+        $this->container['business_key'] = $business_key;
 
         return $this;
     }
 
     /**
-     * Gets llms_full_txt_content
+     * Gets title
      *
      * @return string|null
      */
-    public function getLlmsFullTxtContent()
+    public function getTitle()
     {
-        return $this->container['llms_full_txt_content'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets llms_full_txt_content
+     * Sets title
      *
-     * @param string|null $llms_full_txt_content Current llms-full.txt, manual edits included
+     * @param string|null $title title
      *
      * @return self
      */
-    public function setLlmsFullTxtContent($llms_full_txt_content)
+    public function setTitle($title)
     {
-        if (is_null($llms_full_txt_content)) {
-            array_push($this->openAPINullablesSetToNull, 'llms_full_txt_content');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('llms_full_txt_content', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($title)) {
+            throw new \InvalidArgumentException('non-nullable title cannot be null');
         }
-        $this->container['llms_full_txt_content'] = $llms_full_txt_content;
+        $this->container['title'] = $title;
 
         return $this;
     }
 
     /**
-     * Gets manually_edited_at
-     *
-     * @return \DateTime|null
-     */
-    public function getManuallyEditedAt()
-    {
-        return $this->container['manually_edited_at'];
-    }
-
-    /**
-     * Sets manually_edited_at
-     *
-     * @param \DateTime|null $manually_edited_at When the files were last edited by hand in the app, the API or MCP; null while they are as generated
-     *
-     * @return self
-     */
-    public function setManuallyEditedAt($manually_edited_at)
-    {
-        if (is_null($manually_edited_at)) {
-            array_push($this->openAPINullablesSetToNull, 'manually_edited_at');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('manually_edited_at', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['manually_edited_at'] = $manually_edited_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets content_version
+     * Gets address
      *
      * @return string|null
      */
-    public function getContentVersion()
+    public function getAddress()
     {
-        return $this->container['content_version'];
+        return $this->container['address'];
     }
 
     /**
-     * Sets content_version
+     * Sets address
      *
-     * @param string|null $content_version Send it back as content_version when editing the files. It changes on every save
+     * @param string|null $address address
      *
      * @return self
      */
-    public function setContentVersion($content_version)
+    public function setAddress($address)
     {
-        if (is_null($content_version)) {
-            throw new \InvalidArgumentException('non-nullable content_version cannot be null');
+        if (is_null($address)) {
+            array_push($this->openAPINullablesSetToNull, 'address');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('address', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['content_version'] = $content_version;
+        $this->container['address'] = $address;
 
         return $this;
     }
 
     /**
-     * Gets original_llms_txt_content
+     * Gets domain
      *
      * @return string|null
      */
-    public function getOriginalLlmsTxtContent()
+    public function getDomain()
     {
-        return $this->container['original_llms_txt_content'];
+        return $this->container['domain'];
     }
 
     /**
-     * Sets original_llms_txt_content
+     * Sets domain
      *
-     * @param string|null $original_llms_txt_content The generated llms.txt, kept from the first manual edit; null while the files are as generated
+     * @param string|null $domain domain
      *
      * @return self
      */
-    public function setOriginalLlmsTxtContent($original_llms_txt_content)
+    public function setDomain($domain)
     {
-        if (is_null($original_llms_txt_content)) {
-            array_push($this->openAPINullablesSetToNull, 'original_llms_txt_content');
+        if (is_null($domain)) {
+            array_push($this->openAPINullablesSetToNull, 'domain');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('original_llms_txt_content', $nullablesSetToNull);
+            $index = array_search('domain', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['original_llms_txt_content'] = $original_llms_txt_content;
+        $this->container['domain'] = $domain;
 
         return $this;
     }
 
     /**
-     * Gets original_llms_full_txt_content
+     * Gets url
      *
      * @return string|null
      */
-    public function getOriginalLlmsFullTxtContent()
+    public function getUrl()
     {
-        return $this->container['original_llms_full_txt_content'];
+        return $this->container['url'];
     }
 
     /**
-     * Sets original_llms_full_txt_content
+     * Sets url
      *
-     * @param string|null $original_llms_full_txt_content The generated llms-full.txt, kept from the first manual edit; null while the files are as generated
+     * @param string|null $url url
      *
      * @return self
      */
-    public function setOriginalLlmsFullTxtContent($original_llms_full_txt_content)
+    public function setUrl($url)
     {
-        if (is_null($original_llms_full_txt_content)) {
-            array_push($this->openAPINullablesSetToNull, 'original_llms_full_txt_content');
+        if (is_null($url)) {
+            array_push($this->openAPINullablesSetToNull, 'url');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('original_llms_full_txt_content', $nullablesSetToNull);
+            $index = array_search('url', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['original_llms_full_txt_content'] = $original_llms_full_txt_content;
+        $this->container['url'] = $url;
 
         return $this;
     }
 
     /**
-     * Gets crawl_data
+     * Gets phone
      *
-     * @return object|null
+     * @return string|null
      */
-    public function getCrawlData()
+    public function getPhone()
     {
-        return $this->container['crawl_data'];
+        return $this->container['phone'];
     }
 
     /**
-     * Sets crawl_data
+     * Sets phone
      *
-     * @param object|null $crawl_data crawl_data
+     * @param string|null $phone phone
      *
      * @return self
      */
-    public function setCrawlData($crawl_data)
+    public function setPhone($phone)
     {
-        if (is_null($crawl_data)) {
-            array_push($this->openAPINullablesSetToNull, 'crawl_data');
+        if (is_null($phone)) {
+            array_push($this->openAPINullablesSetToNull, 'phone');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('crawl_data', $nullablesSetToNull);
+            $index = array_search('phone', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['crawl_data'] = $crawl_data;
+        $this->container['phone'] = $phone;
 
         return $this;
     }
 
     /**
-     * Gets metadata
+     * Gets avg_rating
      *
-     * @return object|null
+     * @return float|null
      */
-    public function getMetadata()
+    public function getAvgRating()
     {
-        return $this->container['metadata'];
+        return $this->container['avg_rating'];
     }
 
     /**
-     * Sets metadata
+     * Sets avg_rating
      *
-     * @param object|null $metadata Generation details, including output_language_code, the language the files were written in
+     * @param float|null $avg_rating avg_rating
      *
      * @return self
      */
-    public function setMetadata($metadata)
+    public function setAvgRating($avg_rating)
     {
-        if (is_null($metadata)) {
-            array_push($this->openAPINullablesSetToNull, 'metadata');
+        if (is_null($avg_rating)) {
+            array_push($this->openAPINullablesSetToNull, 'avg_rating');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('metadata', $nullablesSetToNull);
+            $index = array_search('avg_rating', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['metadata'] = $metadata;
+        $this->container['avg_rating'] = $avg_rating;
 
         return $this;
     }
 
     /**
-     * Gets pages_crawled
+     * Gets reviews
      *
      * @return int|null
      */
-    public function getPagesCrawled()
+    public function getReviews()
     {
-        return $this->container['pages_crawled'];
+        return $this->container['reviews'];
     }
 
     /**
-     * Sets pages_crawled
+     * Sets reviews
      *
-     * @param int|null $pages_crawled pages_crawled
+     * @param int|null $reviews reviews
      *
      * @return self
      */
-    public function setPagesCrawled($pages_crawled)
+    public function setReviews($reviews)
     {
-        if (is_null($pages_crawled)) {
-            array_push($this->openAPINullablesSetToNull, 'pages_crawled');
+        if (is_null($reviews)) {
+            array_push($this->openAPINullablesSetToNull, 'reviews');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('pages_crawled', $nullablesSetToNull);
+            $index = array_search('reviews', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['pages_crawled'] = $pages_crawled;
+        $this->container['reviews'] = $reviews;
 
         return $this;
     }
 
     /**
-     * Gets generation_time_ms
+     * Gets avg_position
      *
-     * @return int|null
+     * @return float|null
      */
-    public function getGenerationTimeMs()
+    public function getAvgPosition()
     {
-        return $this->container['generation_time_ms'];
+        return $this->container['avg_position'];
     }
 
     /**
-     * Sets generation_time_ms
+     * Sets avg_position
      *
-     * @param int|null $generation_time_ms generation_time_ms
+     * @param float|null $avg_position Average rank of the business in the answer's list (1 = first)
      *
      * @return self
      */
-    public function setGenerationTimeMs($generation_time_ms)
+    public function setAvgPosition($avg_position)
     {
-        if (is_null($generation_time_ms)) {
-            array_push($this->openAPINullablesSetToNull, 'generation_time_ms');
+        if (is_null($avg_position)) {
+            array_push($this->openAPINullablesSetToNull, 'avg_position');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('generation_time_ms', $nullablesSetToNull);
+            $index = array_search('avg_position', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['generation_time_ms'] = $generation_time_ms;
+        $this->container['avg_position'] = $avg_position;
 
         return $this;
     }
 
     /**
-     * Gets openai_tokens_used
+     * Gets prompts
      *
      * @return int|null
      */
-    public function getOpenaiTokensUsed()
+    public function getPrompts()
     {
-        return $this->container['openai_tokens_used'];
+        return $this->container['prompts'];
     }
 
     /**
-     * Sets openai_tokens_used
+     * Sets prompts
      *
-     * @param int|null $openai_tokens_used openai_tokens_used
+     * @param int|null $prompts prompts
      *
      * @return self
      */
-    public function setOpenaiTokensUsed($openai_tokens_used)
+    public function setPrompts($prompts)
     {
-        if (is_null($openai_tokens_used)) {
-            array_push($this->openAPINullablesSetToNull, 'openai_tokens_used');
+        if (is_null($prompts)) {
+            throw new \InvalidArgumentException('non-nullable prompts cannot be null');
+        }
+        $this->container['prompts'] = $prompts;
+
+        return $this;
+    }
+
+    /**
+     * Gets appearances
+     *
+     * @return int|null
+     */
+    public function getAppearances()
+    {
+        return $this->container['appearances'];
+    }
+
+    /**
+     * Sets appearances
+     *
+     * @param int|null $appearances appearances
+     *
+     * @return self
+     */
+    public function setAppearances($appearances)
+    {
+        if (is_null($appearances)) {
+            throw new \InvalidArgumentException('non-nullable appearances cannot be null');
+        }
+        $this->container['appearances'] = $appearances;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_client
+     *
+     * @return bool|null
+     */
+    public function getIsClient()
+    {
+        return $this->container['is_client'];
+    }
+
+    /**
+     * Sets is_client
+     *
+     * @param bool|null $is_client is_client
+     *
+     * @return self
+     */
+    public function setIsClient($is_client)
+    {
+        if (is_null($is_client)) {
+            throw new \InvalidArgumentException('non-nullable is_client cannot be null');
+        }
+        $this->container['is_client'] = $is_client;
+
+        return $this;
+    }
+
+    /**
+     * Gets competitor_id
+     *
+     * @return int|null
+     */
+    public function getCompetitorId()
+    {
+        return $this->container['competitor_id'];
+    }
+
+    /**
+     * Sets competitor_id
+     *
+     * @param int|null $competitor_id competitor_id
+     *
+     * @return self
+     */
+    public function setCompetitorId($competitor_id)
+    {
+        if (is_null($competitor_id)) {
+            array_push($this->openAPINullablesSetToNull, 'competitor_id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('openai_tokens_used', $nullablesSetToNull);
+            $index = array_search('competitor_id', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['openai_tokens_used'] = $openai_tokens_used;
+        $this->container['competitor_id'] = $competitor_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets competitor_name
+     *
+     * @return string|null
+     */
+    public function getCompetitorName()
+    {
+        return $this->container['competitor_name'];
+    }
+
+    /**
+     * Sets competitor_name
+     *
+     * @param string|null $competitor_name competitor_name
+     *
+     * @return self
+     */
+    public function setCompetitorName($competitor_name)
+    {
+        if (is_null($competitor_name)) {
+            array_push($this->openAPINullablesSetToNull, 'competitor_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('competitor_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['competitor_name'] = $competitor_name;
 
         return $this;
     }

@@ -164,6 +164,13 @@ Class | Method | HTTP request | Description
 *SourcesCitationIntelligenceApi* | [**listCitationGroups**](docs/Api/SourcesCitationIntelligenceApi.md#listcitationgroups) | **GET** /citation_intelligence/groups | Grouped citation intelligence
 *SourcesCitationIntelligenceApi* | [**listCitedUrlOccurrences**](docs/Api/SourcesCitationIntelligenceApi.md#listcitedurloccurrences) | **GET** /citation_intelligence/urls/{url_sha256}/occurrences | Cited URL occurrences
 *SourcesCitationIntelligenceApi* | [**listSources**](docs/Api/SourcesCitationIntelligenceApi.md#listsources) | **GET** /dimensions/sources | List source URLs
+*StoreIntegrationsApi* | [**acceptCatalogPromptSuggestions**](docs/Api/StoreIntegrationsApi.md#acceptcatalogpromptsuggestions) | **POST** /catalog_prompt_suggestions/accept | Accept catalog prompt suggestions
+*StoreIntegrationsApi* | [**createCatalogPromptSuggestions**](docs/Api/StoreIntegrationsApi.md#createcatalogpromptsuggestions) | **POST** /catalog_prompt_suggestions | Suggest buyer prompts from catalog products
+*StoreIntegrationsApi* | [**getStoreConnection**](docs/Api/StoreIntegrationsApi.md#getstoreconnection) | **GET** /store_connection | Match a store to a project
+*StoreIntegrationsApi* | [**listAiOrders**](docs/Api/StoreIntegrationsApi.md#listaiorders) | **GET** /ai_orders | Read AI-referred store orders
+*StoreIntegrationsApi* | [**listCatalogPromptSuggestions**](docs/Api/StoreIntegrationsApi.md#listcatalogpromptsuggestions) | **GET** /catalog_prompt_suggestions | List catalog prompt suggestions
+*StoreIntegrationsApi* | [**rejectCatalogPromptSuggestions**](docs/Api/StoreIntegrationsApi.md#rejectcatalogpromptsuggestions) | **POST** /catalog_prompt_suggestions/reject | Reject catalog prompt suggestions
+*StoreIntegrationsApi* | [**replaceAiOrders**](docs/Api/StoreIntegrationsApi.md#replaceaiorders) | **PUT** /ai_orders | Replace AI-referred store orders for a window
 *TechnicalGEOReportsApi* | [**createTechnicalGeoReports**](docs/Api/TechnicalGEOReportsApi.md#createtechnicalgeoreports) | **POST** /technical_geo_reports | Run technical GEO analysis
 *TechnicalGEOReportsApi* | [**getTechnicalGeoReport**](docs/Api/TechnicalGEOReportsApi.md#gettechnicalgeoreport) | **GET** /technical_geo_reports/{id} | Get a technical GEO report
 *TechnicalGEOReportsApi* | [**listTechnicalGeoReports**](docs/Api/TechnicalGEOReportsApi.md#listtechnicalgeoreports) | **GET** /technical_geo_reports | List technical GEO reports
@@ -182,11 +189,29 @@ Class | Method | HTTP request | Description
 - [AgentBot](docs/Model/AgentBot.md)
 - [AgentBotsResponse](docs/Model/AgentBotsResponse.md)
 - [AgentTrafficResponse](docs/Model/AgentTrafficResponse.md)
+- [AiOrdersResponse](docs/Model/AiOrdersResponse.md)
+- [AiOrdersResponseBySourceInner](docs/Model/AiOrdersResponseBySourceInner.md)
+- [AiOrdersResponseSeriesInner](docs/Model/AiOrdersResponseSeriesInner.md)
+- [AiOrdersResponseTotals](docs/Model/AiOrdersResponseTotals.md)
+- [AiOrdersUpdateRequest](docs/Model/AiOrdersUpdateRequest.md)
+- [AiOrdersUpdateRequestDaysInner](docs/Model/AiOrdersUpdateRequestDaysInner.md)
+- [AiOrdersUpdateResponse](docs/Model/AiOrdersUpdateResponse.md)
 - [AnswerDetails](docs/Model/AnswerDetails.md)
 - [AnswerDetailsLocale](docs/Model/AnswerDetailsLocale.md)
 - [ApiError](docs/Model/ApiError.md)
 - [ApiErrorError](docs/Model/ApiErrorError.md)
 - [AssignPromptTagsRequest](docs/Model/AssignPromptTagsRequest.md)
+- [CatalogProduct](docs/Model/CatalogProduct.md)
+- [CatalogPromptSuggestion](docs/Model/CatalogPromptSuggestion.md)
+- [CatalogPromptSuggestionIdsRequest](docs/Model/CatalogPromptSuggestionIdsRequest.md)
+- [CatalogPromptSuggestionProduct](docs/Model/CatalogPromptSuggestionProduct.md)
+- [CatalogPromptSuggestionsAcceptResponse](docs/Model/CatalogPromptSuggestionsAcceptResponse.md)
+- [CatalogPromptSuggestionsAcceptResponseAcceptedInner](docs/Model/CatalogPromptSuggestionsAcceptResponseAcceptedInner.md)
+- [CatalogPromptSuggestionsAcceptResponseSkippedInner](docs/Model/CatalogPromptSuggestionsAcceptResponseSkippedInner.md)
+- [CatalogPromptSuggestionsCreateRequest](docs/Model/CatalogPromptSuggestionsCreateRequest.md)
+- [CatalogPromptSuggestionsCreateResponse](docs/Model/CatalogPromptSuggestionsCreateResponse.md)
+- [CatalogPromptSuggestionsRejectResponse](docs/Model/CatalogPromptSuggestionsRejectResponse.md)
+- [CatalogPromptSuggestionsResponse](docs/Model/CatalogPromptSuggestionsResponse.md)
 - [Competitor](docs/Model/Competitor.md)
 - [CompetitorDetails](docs/Model/CompetitorDetails.md)
 - [CreateAnnotationRequest](docs/Model/CreateAnnotationRequest.md)
@@ -204,6 +229,8 @@ Class | Method | HTTP request | Description
 - [GetAccount200ResponseSubscription](docs/Model/GetAccount200ResponseSubscription.md)
 - [IntelligenceTask](docs/Model/IntelligenceTask.md)
 - [IntelligenceTaskCreateRequest](docs/Model/IntelligenceTaskCreateRequest.md)
+- [IntelligenceTaskProduct](docs/Model/IntelligenceTaskProduct.md)
+- [IntelligenceTaskProductImagesInner](docs/Model/IntelligenceTaskProductImagesInner.md)
 - [IntelligenceTaskUpdateRequest](docs/Model/IntelligenceTaskUpdateRequest.md)
 - [IntelligenceTaskUpdateResponse](docs/Model/IntelligenceTaskUpdateResponse.md)
 - [LaunchRecommendationsRequest](docs/Model/LaunchRecommendationsRequest.md)
@@ -245,6 +272,10 @@ Class | Method | HTTP request | Description
 - [SovResponseOverTimeInner](docs/Model/SovResponseOverTimeInner.md)
 - [SovResponsePeriodsInner](docs/Model/SovResponsePeriodsInner.md)
 - [SovResponseSample](docs/Model/SovResponseSample.md)
+- [StoreConnectionResponse](docs/Model/StoreConnectionResponse.md)
+- [StoreConnectionResponseAccount](docs/Model/StoreConnectionResponseAccount.md)
+- [StoreConnectionResponseCandidatesInner](docs/Model/StoreConnectionResponseCandidatesInner.md)
+- [StoreConnectionResponseProject](docs/Model/StoreConnectionResponseProject.md)
 - [SummaryResponse](docs/Model/SummaryResponse.md)
 - [SummaryResponseAllOfPositionDistribution](docs/Model/SummaryResponseAllOfPositionDistribution.md)
 - [SummaryResponseAllOfSummaryValueInner](docs/Model/SummaryResponseAllOfSummaryValueInner.md)
@@ -287,6 +318,6 @@ info@llmpulse.ai
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.53.0`
+- API version: `1.55.0`
     - Generator version: `7.24.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

@@ -4,10 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**plan** | **string** | Plan key (starter, growth, scale, ...) | [optional]
-**plan_name** | **string** | Display name of the plan to show people (e.g. Scale++ for the scaleplusplus key) | [optional]
+**plan** | **string** | Plan key (starter, growth, scale, ...). Absent for a key limited to some projects. | [optional]
+**plan_name** | **string** | Display name of the plan to show people (e.g. Scale++ for the scaleplusplus key). Absent for a key limited to some projects. | [optional]
 **tracking_frequency** | **string** | How often prompts run (weekly, daily, monthly, ...) | [optional]
 **role** | **string** | Whether the key belongs to the account owner or a team member | [optional]
+**api_key_project_ids** | **int[]** | The projects the calling API key is limited to; null for a key that sees the whole account, and for OAuth | [optional]
 **subscription** | [**\LLMPulse\Model\GetAccount200ResponseSubscription**](GetAccount200ResponseSubscription.md) |  | [optional]
 **limits** | [**\LLMPulse\Model\GetAccount200ResponseLimits**](GetAccount200ResponseLimits.md) |  | [optional]
 **rate_limits** | [**\LLMPulse\Model\GetAccount200ResponseRateLimits**](GetAccount200ResponseRateLimits.md) |  | [optional]

@@ -171,7 +171,7 @@ void (empty response body)
 ## `listCitations()`
 
 ```php
-listCitations($project_id, $page, $per_page, $model, $collection_id, $country_code, $language_code, $prompt, $from, $to, $output)
+listCitations($project_id, $page, $per_page, $model, $collection_id, $country_code, $language_code, $prompt, $from, $to, $output): \LLMPulse\Model\CitationsResponse
 ```
 
 List brand citations
@@ -208,7 +208,8 @@ $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the wind
 $output = 'output_example'; // string | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
 
 try {
-    $apiInstance->listCitations($project_id, $page, $per_page, $model, $collection_id, $country_code, $language_code, $prompt, $from, $to, $output);
+    $result = $apiInstance->listCitations($project_id, $page, $per_page, $model, $collection_id, $country_code, $language_code, $prompt, $from, $to, $output);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MentionsCitationsApi->listCitations: ', $e->getMessage(), PHP_EOL;
 }
@@ -232,7 +233,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\CitationsResponse**](../Model/CitationsResponse.md)
 
 ### Authorization
 
@@ -241,7 +242,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -327,7 +328,7 @@ void (empty response body)
 ## `listCompetitorMentions()`
 
 ```php
-listCompetitorMentions($project_id, $competitors, $page, $per_page, $model, $collection_id, $prompt, $from, $to, $output)
+listCompetitorMentions($project_id, $competitors, $page, $per_page, $model, $collection_id, $prompt, $from, $to, $output): \LLMPulse\Model\CompetitorMentionsResponse
 ```
 
 List competitor mentions
@@ -361,7 +362,8 @@ $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the wind
 $output = 'output_example'; // string | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
 
 try {
-    $apiInstance->listCompetitorMentions($project_id, $competitors, $page, $per_page, $model, $collection_id, $prompt, $from, $to, $output);
+    $result = $apiInstance->listCompetitorMentions($project_id, $competitors, $page, $per_page, $model, $collection_id, $prompt, $from, $to, $output);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MentionsCitationsApi->listCompetitorMentions: ', $e->getMessage(), PHP_EOL;
 }
@@ -384,7 +386,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\CompetitorMentionsResponse**](../Model/CompetitorMentionsResponse.md)
 
 ### Authorization
 
@@ -393,7 +395,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -402,7 +404,7 @@ void (empty response body)
 ## `listMentions()`
 
 ```php
-listMentions($project_id, $page, $per_page, $model, $collection_id, $country_code, $language_code, $prompt, $from, $to, $output)
+listMentions($project_id, $page, $per_page, $model, $collection_id, $country_code, $language_code, $prompt, $from, $to, $output): \LLMPulse\Model\MentionsResponse
 ```
 
 List brand mentions
@@ -437,7 +439,8 @@ $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the wind
 $output = 'output_example'; // string | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
 
 try {
-    $apiInstance->listMentions($project_id, $page, $per_page, $model, $collection_id, $country_code, $language_code, $prompt, $from, $to, $output);
+    $result = $apiInstance->listMentions($project_id, $page, $per_page, $model, $collection_id, $country_code, $language_code, $prompt, $from, $to, $output);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MentionsCitationsApi->listMentions: ', $e->getMessage(), PHP_EOL;
 }
@@ -461,7 +464,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\MentionsResponse**](../Model/MentionsResponse.md)
 
 ### Authorization
 
@@ -470,7 +473,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

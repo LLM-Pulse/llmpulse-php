@@ -15,7 +15,7 @@ All URIs are relative to https://api.llmpulse.ai/api/v1, except if the operation
 ## `createAnnotation()`
 
 ```php
-createAnnotation($create_annotation_request)
+createAnnotation($create_annotation_request): \LLMPulse\Model\AnnotationCreateResponse
 ```
 
 Create a timeline annotation
@@ -42,7 +42,8 @@ $apiInstance = new LLMPulse\Api\AnnotationsApi(
 $create_annotation_request = new \LLMPulse\Model\CreateAnnotationRequest(); // \LLMPulse\Model\CreateAnnotationRequest
 
 try {
-    $apiInstance->createAnnotation($create_annotation_request);
+    $result = $apiInstance->createAnnotation($create_annotation_request);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnnotationsApi->createAnnotation: ', $e->getMessage(), PHP_EOL;
 }
@@ -56,7 +57,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\AnnotationCreateResponse**](../Model/AnnotationCreateResponse.md)
 
 ### Authorization
 

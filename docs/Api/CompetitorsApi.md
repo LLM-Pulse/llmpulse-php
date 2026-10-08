@@ -16,7 +16,7 @@ All URIs are relative to https://api.llmpulse.ai/api/v1, except if the operation
 ## `createCompetitor()`
 
 ```php
-createCompetitor($create_competitor_request)
+createCompetitor($create_competitor_request): \LLMPulse\Model\CompetitorCreateResponse
 ```
 
 Add a competitor
@@ -43,7 +43,8 @@ $apiInstance = new LLMPulse\Api\CompetitorsApi(
 $create_competitor_request = new \LLMPulse\Model\CreateCompetitorRequest(); // \LLMPulse\Model\CreateCompetitorRequest
 
 try {
-    $apiInstance->createCompetitor($create_competitor_request);
+    $result = $apiInstance->createCompetitor($create_competitor_request);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CompetitorsApi->createCompetitor: ', $e->getMessage(), PHP_EOL;
 }
@@ -57,7 +58,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\CompetitorCreateResponse**](../Model/CompetitorCreateResponse.md)
 
 ### Authorization
 

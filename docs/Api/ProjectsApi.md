@@ -320,7 +320,7 @@ void (empty response body)
 ## `listLocales()`
 
 ```php
-listLocales($project_id)
+listLocales($project_id): \LLMPulse\Model\LocalesResponse
 ```
 
 List locales with data
@@ -345,7 +345,8 @@ $apiInstance = new LLMPulse\Api\ProjectsApi(
 $project_id = 56; // int | Project ID
 
 try {
-    $apiInstance->listLocales($project_id);
+    $result = $apiInstance->listLocales($project_id);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectsApi->listLocales: ', $e->getMessage(), PHP_EOL;
 }
@@ -359,7 +360,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\LocalesResponse**](../Model/LocalesResponse.md)
 
 ### Authorization
 
@@ -368,7 +369,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -377,7 +378,7 @@ void (empty response body)
 ## `listModels()`
 
 ```php
-listModels($project_id)
+listModels($project_id): \LLMPulse\Model\ModelsResponse
 ```
 
 List models with data
@@ -402,7 +403,8 @@ $apiInstance = new LLMPulse\Api\ProjectsApi(
 $project_id = 56; // int | Project ID
 
 try {
-    $apiInstance->listModels($project_id);
+    $result = $apiInstance->listModels($project_id);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectsApi->listModels: ', $e->getMessage(), PHP_EOL;
 }
@@ -416,7 +418,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\ModelsResponse**](../Model/ModelsResponse.md)
 
 ### Authorization
 
@@ -425,7 +427,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

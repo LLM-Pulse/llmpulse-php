@@ -17,7 +17,7 @@ All URIs are relative to https://api.llmpulse.ai/api/v1, except if the operation
 ## `assignPromptTags()`
 
 ```php
-assignPromptTags($assign_prompt_tags_request)
+assignPromptTags($assign_prompt_tags_request): \LLMPulse\Model\PromptTagsAssignResponse
 ```
 
 Bulk-attach tags to prompts
@@ -44,7 +44,8 @@ $apiInstance = new LLMPulse\Api\CollectionsTagsApi(
 $assign_prompt_tags_request = new \LLMPulse\Model\AssignPromptTagsRequest(); // \LLMPulse\Model\AssignPromptTagsRequest
 
 try {
-    $apiInstance->assignPromptTags($assign_prompt_tags_request);
+    $result = $apiInstance->assignPromptTags($assign_prompt_tags_request);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CollectionsTagsApi->assignPromptTags: ', $e->getMessage(), PHP_EOL;
 }
@@ -58,7 +59,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\PromptTagsAssignResponse**](../Model/PromptTagsAssignResponse.md)
 
 ### Authorization
 
@@ -76,7 +77,7 @@ void (empty response body)
 ## `createCollection()`
 
 ```php
-createCollection($create_collection_request)
+createCollection($create_collection_request): \LLMPulse\Model\CollectionCreateResponse
 ```
 
 Create a tag
@@ -103,7 +104,8 @@ $apiInstance = new LLMPulse\Api\CollectionsTagsApi(
 $create_collection_request = new \LLMPulse\Model\CreateCollectionRequest(); // \LLMPulse\Model\CreateCollectionRequest
 
 try {
-    $apiInstance->createCollection($create_collection_request);
+    $result = $apiInstance->createCollection($create_collection_request);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CollectionsTagsApi->createCollection: ', $e->getMessage(), PHP_EOL;
 }
@@ -117,7 +119,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\CollectionCreateResponse**](../Model/CollectionCreateResponse.md)
 
 ### Authorization
 
@@ -196,7 +198,7 @@ void (empty response body)
 ## `listCollections()`
 
 ```php
-listCollections($project_id, $output)
+listCollections($project_id, $output): \LLMPulse\Model\CollectionsResponse
 ```
 
 List tags/collections
@@ -222,7 +224,8 @@ $project_id = 56; // int | Project ID
 $output = 'output_example'; // string | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
 
 try {
-    $apiInstance->listCollections($project_id, $output);
+    $result = $apiInstance->listCollections($project_id, $output);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CollectionsTagsApi->listCollections: ', $e->getMessage(), PHP_EOL;
 }
@@ -237,7 +240,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\CollectionsResponse**](../Model/CollectionsResponse.md)
 
 ### Authorization
 
@@ -246,7 +249,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -255,7 +258,7 @@ void (empty response body)
 ## `listTags()`
 
 ```php
-listTags($project_id, $output)
+listTags($project_id, $output): \LLMPulse\Model\CollectionsResponse
 ```
 
 List tags (alias for /collections)
@@ -281,7 +284,8 @@ $project_id = 56; // int | Project ID
 $output = 'output_example'; // string | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
 
 try {
-    $apiInstance->listTags($project_id, $output);
+    $result = $apiInstance->listTags($project_id, $output);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CollectionsTagsApi->listTags: ', $e->getMessage(), PHP_EOL;
 }
@@ -296,7 +300,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\CollectionsResponse**](../Model/CollectionsResponse.md)
 
 ### Authorization
 
@@ -305,7 +309,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

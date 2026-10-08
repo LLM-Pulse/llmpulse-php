@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **prompts_count** | **int** |  | [optional]
+**prompts_by_brand_kind** | [**\LLMPulse\Model\ProjectDetailsAllOfStatsPromptsByBrandKind**](ProjectDetailsAllOfStatsPromptsByBrandKind.md) |  | [optional]
 **competitors_count** | **int** |  | [optional]
 **collections_count** | **int** |  | [optional]
 

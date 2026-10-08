@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **executed_at** | **\DateTime** |  | [optional]
 **duration_ms** | **float** | Milliseconds, rounded to one decimal place | [optional]
 **success** | **bool** | Null while the answer is still pending | [optional]
+**no_result** | **bool** | True for a sentinel non-answer (the provider returned nothing after retries); excluded from platform metrics | [optional]
 **fan_out_queries** | **string[]** |  | [optional]
 **mentions** | **object[]** |  | [optional]
 **citations** | **object[]** |  | [optional]
@@ -25,5 +26,6 @@ Name | Type | Description | Notes
 **local_businesses** | **object[]** |  | [optional]
 **locale** | [**\LLMPulse\Model\AnswerDetailsLocale**](AnswerDetailsLocale.md) |  | [optional]
 **app_url** | **string** | Opens this answer in the app. The link names its project, so it opens there for any user with access to that project | [optional]
+**request_id** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

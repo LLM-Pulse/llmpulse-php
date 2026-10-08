@@ -74,7 +74,7 @@ void (empty response body)
 ## `listSentimentRecords()`
 
 ```php
-listSentimentRecords($project_id, $competitor_id, $brand_only, $analysis, $model, $collection_id, $country_code, $language_code, $from, $to, $page, $per_page)
+listSentimentRecords($project_id, $competitor_id, $brand_only, $analysis, $model, $collection_id, $country_code, $language_code, $from, $to, $page, $per_page): \LLMPulse\Model\SentimentsResponse
 ```
 
 List sentiment records (Growth plan or above)
@@ -112,7 +112,8 @@ $page = 1; // int
 $per_page = 20; // int
 
 try {
-    $apiInstance->listSentimentRecords($project_id, $competitor_id, $brand_only, $analysis, $model, $collection_id, $country_code, $language_code, $from, $to, $page, $per_page);
+    $result = $apiInstance->listSentimentRecords($project_id, $competitor_id, $brand_only, $analysis, $model, $collection_id, $country_code, $language_code, $from, $to, $page, $per_page);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SentimentsApi->listSentimentRecords: ', $e->getMessage(), PHP_EOL;
 }
@@ -137,7 +138,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\SentimentsResponse**](../Model/SentimentsResponse.md)
 
 ### Authorization
 

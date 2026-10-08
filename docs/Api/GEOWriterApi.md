@@ -136,7 +136,7 @@ try {
 ## `listIntelligenceTasks()`
 
 ```php
-listIntelligenceTasks($project_id, $task_type, $status, $page, $per_page)
+listIntelligenceTasks($project_id, $task_type, $status, $page, $per_page): \LLMPulse\Model\IntelligenceTasksResponse
 ```
 
 List GEO Writer tasks
@@ -165,7 +165,8 @@ $page = 1; // int
 $per_page = 20; // int
 
 try {
-    $apiInstance->listIntelligenceTasks($project_id, $task_type, $status, $page, $per_page);
+    $result = $apiInstance->listIntelligenceTasks($project_id, $task_type, $status, $page, $per_page);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GEOWriterApi->listIntelligenceTasks: ', $e->getMessage(), PHP_EOL;
 }
@@ -183,7 +184,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\IntelligenceTasksResponse**](../Model/IntelligenceTasksResponse.md)
 
 ### Authorization
 
@@ -192,7 +193,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

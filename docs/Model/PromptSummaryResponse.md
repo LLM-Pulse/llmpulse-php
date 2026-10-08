@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **project_id** | **int** |  | [optional]
 **from** | **\DateTime** |  | [optional]
 **to** | **\DateTime** |  | [optional]
-**filters** | **object** |  | [optional]
+**filters** | [**\LLMPulse\Model\MetricsFiltersEcho**](MetricsFiltersEcho.md) |  | [optional]
 **breakdown** | **string** |  | [optional]
 **sort** | **string** |  | [optional]
 **sort_dir** | **string** |  | [optional]

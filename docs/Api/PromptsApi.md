@@ -137,7 +137,7 @@ void (empty response body)
 ## `listPromptExecutions()`
 
 ```php
-listPromptExecutions($project_id, $page, $per_page, $model, $collection_id, $country_code, $language_code, $prompt, $from, $to, $mention_filter, $citation_filter, $competitors, $output)
+listPromptExecutions($project_id, $page, $per_page, $model, $collection_id, $country_code, $language_code, $prompt, $from, $to, $mention_filter, $citation_filter, $competitors, $output): \LLMPulse\Model\PromptExecutionsResponse
 ```
 
 List prompt executions
@@ -175,7 +175,8 @@ $competitors = 'competitors_example'; // string | Comma-separated competitor IDs
 $output = 'output_example'; // string | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
 
 try {
-    $apiInstance->listPromptExecutions($project_id, $page, $per_page, $model, $collection_id, $country_code, $language_code, $prompt, $from, $to, $mention_filter, $citation_filter, $competitors, $output);
+    $result = $apiInstance->listPromptExecutions($project_id, $page, $per_page, $model, $collection_id, $country_code, $language_code, $prompt, $from, $to, $mention_filter, $citation_filter, $competitors, $output);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PromptsApi->listPromptExecutions: ', $e->getMessage(), PHP_EOL;
 }
@@ -202,7 +203,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\PromptExecutionsResponse**](../Model/PromptExecutionsResponse.md)
 
 ### Authorization
 
@@ -211,7 +212,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -220,7 +221,7 @@ void (empty response body)
 ## `listPrompts()`
 
 ```php
-listPrompts($project_id, $page, $per_page, $model, $collection_id, $country_code, $language_code, $prompt_type, $brand_kind, $from, $to, $output)
+listPrompts($project_id, $page, $per_page, $model, $collection_id, $country_code, $language_code, $prompt_type, $brand_kind, $from, $to, $output): \LLMPulse\Model\PromptsResponse
 ```
 
 List prompts
@@ -256,7 +257,8 @@ $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the wind
 $output = 'output_example'; // string | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
 
 try {
-    $apiInstance->listPrompts($project_id, $page, $per_page, $model, $collection_id, $country_code, $language_code, $prompt_type, $brand_kind, $from, $to, $output);
+    $result = $apiInstance->listPrompts($project_id, $page, $per_page, $model, $collection_id, $country_code, $language_code, $prompt_type, $brand_kind, $from, $to, $output);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PromptsApi->listPrompts: ', $e->getMessage(), PHP_EOL;
 }
@@ -281,7 +283,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\PromptsResponse**](../Model/PromptsResponse.md)
 
 ### Authorization
 
@@ -290,7 +292,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

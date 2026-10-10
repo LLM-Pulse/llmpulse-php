@@ -158,6 +158,7 @@ docs/Model/PromptsCreateRequest.md
 docs/Model/PromptsCreateResponse.md
 docs/Model/PromptsCreateResponseDataInner.md
 docs/Model/PromptsResponse.md
+docs/Model/QueryWebAnalyticsRequest.md
 docs/Model/RecommendationSummary.md
 docs/Model/RecommendationSummarySummary.md
 docs/Model/RecommendationsResponse.md
@@ -195,6 +196,9 @@ docs/Model/UpdateCollectionRequest.md
 docs/Model/UpdateCompetitorRequest.md
 docs/Model/UpdateProjectDraftRequest.md
 docs/Model/UpdateProjectRequest.md
+docs/Model/WebAnalyticsQueryResponse.md
+docs/Model/WebAnalyticsQueryResponseColumnsInner.md
+docs/Model/WebAnalyticsSchemaResponse.md
 git_push.sh
 lib/Api/AIAgentTrafficApi.php
 lib/Api/AIModelInsightsApi.php
@@ -355,6 +359,7 @@ lib/Model/PromptsCreateRequest.php
 lib/Model/PromptsCreateResponse.php
 lib/Model/PromptsCreateResponseDataInner.php
 lib/Model/PromptsResponse.php
+lib/Model/QueryWebAnalyticsRequest.php
 lib/Model/RecommendationSummary.php
 lib/Model/RecommendationSummarySummary.php
 lib/Model/RecommendationsResponse.php
@@ -392,5 +397,8 @@ lib/Model/UpdateCollectionRequest.php
 lib/Model/UpdateCompetitorRequest.php
 lib/Model/UpdateProjectDraftRequest.php
 lib/Model/UpdateProjectRequest.php
+lib/Model/WebAnalyticsQueryResponse.php
+lib/Model/WebAnalyticsQueryResponseColumnsInner.php
+lib/Model/WebAnalyticsSchemaResponse.php
 lib/ObjectSerializer.php
 phpunit.xml.dist

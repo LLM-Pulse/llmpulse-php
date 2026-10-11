@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **processed_at** | **\DateTime** |  | [optional]
 **manually_edited_at** | **\DateTime** | When the content was last edited by hand; null while the output is as generated | [optional]
 **edited_by_user_id** | **int** | User behind the last manual edit; null for an unedited task or an edit made from an embedded portal | [optional]
+**result_version** | **string** | Concurrency token for content edits: send it back as result_version on PATCH /intelligence_tasks/{id} so an edit composed before a regeneration is refused with ERR_STALE_CONTENT (409). It is \&quot;0\&quot; until the task first completes, then changes each time a generation or regeneration replaces result_data, never on a manual edit or a revert. Treat it as opaque text | [optional]
 **request_id** | **string** |  | [optional]
 **changed_paths** | **string[]** | Paths whose text actually changed; empty when every value matched the stored text | [optional]
 

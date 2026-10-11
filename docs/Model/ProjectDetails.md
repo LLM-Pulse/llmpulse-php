@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **created_at** | **\DateTime** |  | [optional]
 **stats** | [**\LLMPulse\Model\ProjectDetailsAllOfStats**](ProjectDetailsAllOfStats.md) |  | [optional]
 **data_coverage** | [**\LLMPulse\Model\ProjectDetailsAllOfDataCoverage**](ProjectDetailsAllOfDataCoverage.md) |  | [optional]
+**search_console** | [**\LLMPulse\Model\ProjectDetailsAllOfSearchConsole**](ProjectDetailsAllOfSearchConsole.md) |  | [optional]
 **request_id** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

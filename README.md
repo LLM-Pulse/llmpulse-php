@@ -166,6 +166,7 @@ Class | Method | HTTP request | Description
 *ReputationStudiesApi* | [**listStudies**](docs/Api/ReputationStudiesApi.md#liststudies) | **GET** /studies | List custom AI studies
 *SearchConsoleApi* | [**getSearchConsolePages**](docs/Api/SearchConsoleApi.md#getsearchconsolepages) | **GET** /search_console/pages | Top Search Console pages (Growth+)
 *SearchConsoleApi* | [**getSearchConsoleQueries**](docs/Api/SearchConsoleApi.md#getsearchconsolequeries) | **GET** /search_console/queries | Top Search Console queries (Growth+)
+*SearchConsoleApi* | [**getSearchConsoleRows**](docs/Api/SearchConsoleApi.md#getsearchconsolerows) | **GET** /search_console/rows | Search Console rows by several dimensions (Growth+)
 *SearchConsoleApi* | [**getSearchConsoleSummary**](docs/Api/SearchConsoleApi.md#getsearchconsolesummary) | **GET** /search_console/summary | Search Console summary (Growth+)
 *SearchConsoleApi* | [**getSearchConsoleTimeseries**](docs/Api/SearchConsoleApi.md#getsearchconsoletimeseries) | **GET** /search_console/timeseries | Search Console time series (Growth+)
 *SentimentsApi* | [**listSentimentCategories**](docs/Api/SentimentsApi.md#listsentimentcategories) | **GET** /dimensions/sentiments | List sentiment categories (Growth plan or above)
@@ -186,6 +187,11 @@ Class | Method | HTTP request | Description
 *StoreIntegrationsApi* | [**listCatalogPromptSuggestions**](docs/Api/StoreIntegrationsApi.md#listcatalogpromptsuggestions) | **GET** /catalog_prompt_suggestions | List catalog prompt suggestions
 *StoreIntegrationsApi* | [**rejectCatalogPromptSuggestions**](docs/Api/StoreIntegrationsApi.md#rejectcatalogpromptsuggestions) | **POST** /catalog_prompt_suggestions/reject | Reject catalog prompt suggestions
 *StoreIntegrationsApi* | [**replaceAiOrders**](docs/Api/StoreIntegrationsApi.md#replaceaiorders) | **PUT** /ai_orders | Replace AI-referred store orders for a window
+*TeamApi* | [**createTeamInvitation**](docs/Api/TeamApi.md#createteaminvitation) | **POST** /team_invitations | Invite a team member
+*TeamApi* | [**listTeamInvitations**](docs/Api/TeamApi.md#listteaminvitations) | **GET** /team_invitations | List pending team invitations
+*TeamApi* | [**listTeamMembers**](docs/Api/TeamApi.md#listteammembers) | **GET** /team_members | List team members
+*TeamApi* | [**removeTeamMember**](docs/Api/TeamApi.md#removeteammember) | **DELETE** /team_members/{id} | Remove a team member
+*TeamApi* | [**revokeTeamInvitation**](docs/Api/TeamApi.md#revoketeaminvitation) | **DELETE** /team_invitations/{id} | Revoke a pending team invitation
 *TechnicalGEOReportsApi* | [**createTechnicalGeoReports**](docs/Api/TechnicalGEOReportsApi.md#createtechnicalgeoreports) | **POST** /technical_geo_reports | Run technical GEO analysis
 *TechnicalGEOReportsApi* | [**getTechnicalGeoReport**](docs/Api/TechnicalGEOReportsApi.md#gettechnicalgeoreport) | **GET** /technical_geo_reports/{id} | Get a technical GEO report
 *TechnicalGEOReportsApi* | [**listTechnicalGeoReports**](docs/Api/TechnicalGEOReportsApi.md#listtechnicalgeoreports) | **GET** /technical_geo_reports | List technical GEO reports
@@ -245,6 +251,8 @@ Class | Method | HTTP request | Description
 - [CreateCollectionRequest](docs/Model/CreateCollectionRequest.md)
 - [CreateCompetitorRequest](docs/Model/CreateCompetitorRequest.md)
 - [CreateProjectDraftRequest](docs/Model/CreateProjectDraftRequest.md)
+- [CreateTeamInvitation201Response](docs/Model/CreateTeamInvitation201Response.md)
+- [CreateTeamInvitationRequest](docs/Model/CreateTeamInvitationRequest.md)
 - [CreateTechnicalGeoReportsRequest](docs/Model/CreateTechnicalGeoReportsRequest.md)
 - [CreateWebhook201Response](docs/Model/CreateWebhook201Response.md)
 - [CreateWebhookRequest](docs/Model/CreateWebhookRequest.md)
@@ -288,6 +296,8 @@ Class | Method | HTTP request | Description
 - [LaunchRecommendationsRequest](docs/Model/LaunchRecommendationsRequest.md)
 - [ListCompetitors200Response](docs/Model/ListCompetitors200Response.md)
 - [ListProjects200Response](docs/Model/ListProjects200Response.md)
+- [ListTeamInvitations200Response](docs/Model/ListTeamInvitations200Response.md)
+- [ListTeamMembers200Response](docs/Model/ListTeamMembers200Response.md)
 - [ListWebhooks200Response](docs/Model/ListWebhooks200Response.md)
 - [ListWebhooks200ResponseDataInner](docs/Model/ListWebhooks200ResponseDataInner.md)
 - [LlmsTxtTechnicalGeoReport](docs/Model/LlmsTxtTechnicalGeoReport.md)
@@ -316,6 +326,7 @@ Class | Method | HTTP request | Description
 - [ProjectCreateResponseSameDomainProjectsInner](docs/Model/ProjectCreateResponseSameDomainProjectsInner.md)
 - [ProjectDetails](docs/Model/ProjectDetails.md)
 - [ProjectDetailsAllOfDataCoverage](docs/Model/ProjectDetailsAllOfDataCoverage.md)
+- [ProjectDetailsAllOfSearchConsole](docs/Model/ProjectDetailsAllOfSearchConsole.md)
 - [ProjectDetailsAllOfStats](docs/Model/ProjectDetailsAllOfStats.md)
 - [ProjectDetailsAllOfStatsPromptsByBrandKind](docs/Model/ProjectDetailsAllOfStatsPromptsByBrandKind.md)
 - [PromptExecutionRecord](docs/Model/PromptExecutionRecord.md)
@@ -332,9 +343,21 @@ Class | Method | HTTP request | Description
 - [RecommendationSummary](docs/Model/RecommendationSummary.md)
 - [RecommendationSummarySummary](docs/Model/RecommendationSummarySummary.md)
 - [RecommendationsResponse](docs/Model/RecommendationsResponse.md)
+- [RemoveTeamMember200Response](docs/Model/RemoveTeamMember200Response.md)
+- [RevokeTeamInvitation200Response](docs/Model/RevokeTeamInvitation200Response.md)
 - [SampleWebhookPayloads200Response](docs/Model/SampleWebhookPayloads200Response.md)
 - [SampleWebhookPayloads200ResponseDataInner](docs/Model/SampleWebhookPayloads200ResponseDataInner.md)
 - [SearchConsoleFiltersInner](docs/Model/SearchConsoleFiltersInner.md)
+- [SearchConsoleListResponse](docs/Model/SearchConsoleListResponse.md)
+- [SearchConsoleListResponseDataInner](docs/Model/SearchConsoleListResponseDataInner.md)
+- [SearchConsoleMetrics](docs/Model/SearchConsoleMetrics.md)
+- [SearchConsoleProperty](docs/Model/SearchConsoleProperty.md)
+- [SearchConsoleRowsResponse](docs/Model/SearchConsoleRowsResponse.md)
+- [SearchConsoleRowsResponseDataInner](docs/Model/SearchConsoleRowsResponseDataInner.md)
+- [SearchConsoleSummaryResponse](docs/Model/SearchConsoleSummaryResponse.md)
+- [SearchConsoleSummaryResponseBreakdownInner](docs/Model/SearchConsoleSummaryResponseBreakdownInner.md)
+- [SearchConsoleTimeseriesResponse](docs/Model/SearchConsoleTimeseriesResponse.md)
+- [SearchConsoleTimeseriesResponseDataInner](docs/Model/SearchConsoleTimeseriesResponseDataInner.md)
 - [SentimentRecord](docs/Model/SentimentRecord.md)
 - [SentimentsResponse](docs/Model/SentimentsResponse.md)
 - [SovResponse](docs/Model/SovResponse.md)
@@ -352,6 +375,9 @@ Class | Method | HTTP request | Description
 - [SummaryResponseAllOfPositionDistribution](docs/Model/SummaryResponseAllOfPositionDistribution.md)
 - [SummaryResponseAllOfSummaryValueInner](docs/Model/SummaryResponseAllOfSummaryValueInner.md)
 - [TagRef](docs/Model/TagRef.md)
+- [TeamAccountRole](docs/Model/TeamAccountRole.md)
+- [TeamInvitation](docs/Model/TeamInvitation.md)
+- [TeamMember](docs/Model/TeamMember.md)
 - [TechnicalGeoReportContentRevertRequest](docs/Model/TechnicalGeoReportContentRevertRequest.md)
 - [TechnicalGeoReportContentUpdateRequest](docs/Model/TechnicalGeoReportContentUpdateRequest.md)
 - [TechnicalGeoReportContentUpdateRequestEdits](docs/Model/TechnicalGeoReportContentUpdateRequestEdits.md)
@@ -394,6 +420,6 @@ info@llmpulse.ai
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.57.0`
+- API version: `1.59.0`
     - Generator version: `7.24.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

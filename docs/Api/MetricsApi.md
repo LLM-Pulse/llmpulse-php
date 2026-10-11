@@ -21,7 +21,7 @@ getPromptSummary($project_id, $range, $from, $to, $breakdown, $model, $collectio
 
 Per-prompt metrics summary
 
-Paginated per-prompt aggregated metrics. Returns responses, mentions, citations, mention_rate, citation_rate, avg_mention_position and avg_position per prompt. Citations and citation rate include visible citations and background source references; avg_position uses visible citations only. Pass `breakdown=model` to split each prompt by model.
+Paginated per-prompt aggregated metrics. Returns responses, mentions, citations, mention_rate, citation_rate, avg_mention_position and avg_position per prompt, plus the brand sentiment of its responses (sentiment_responses, the five sentiment percentages and net_sentiment, computed like the sentiment timeseries) and the prompt's classification (country_code, language_code, prompt_type, brand_kind and tags, as in /dimensions/prompts). Citations and citation rate include visible citations and background source references; avg_position uses visible citations only. Pass `breakdown=model` to split each prompt by model.
 
 ### Example
 

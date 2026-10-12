@@ -154,6 +154,8 @@ docs/Model/ProjectDetailsAllOfDataCoverage.md
 docs/Model/ProjectDetailsAllOfSearchConsole.md
 docs/Model/ProjectDetailsAllOfStats.md
 docs/Model/ProjectDetailsAllOfStatsPromptsByBrandKind.md
+docs/Model/ProjectProfile.md
+docs/Model/ProjectUpdateResponse.md
 docs/Model/PromptExecutionRecord.md
 docs/Model/PromptExecutionsResponse.md
 docs/Model/PromptRecord.md
@@ -376,6 +378,8 @@ lib/Model/ProjectDetailsAllOfDataCoverage.php
 lib/Model/ProjectDetailsAllOfSearchConsole.php
 lib/Model/ProjectDetailsAllOfStats.php
 lib/Model/ProjectDetailsAllOfStatsPromptsByBrandKind.php
+lib/Model/ProjectProfile.php
+lib/Model/ProjectUpdateResponse.php
 lib/Model/PromptExecutionRecord.php
 lib/Model/PromptExecutionsResponse.php
 lib/Model/PromptRecord.php

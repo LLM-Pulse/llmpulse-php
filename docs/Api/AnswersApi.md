@@ -102,7 +102,7 @@ $apiInstance = new LLMPulse\Api\AnswersApi(
     $config
 );
 $project_id = 56; // int | Project ID
-$model = 'model_example'; // string | Filter by AI model. Models the API key's user has not enabled are silently dropped.
+$model = 'model_example'; // string | Filter by one AI model. It must be a model enabled for the API key's user: an unknown value, or a model the user has not enabled, returns 422 ERR_INVALID_PARAM with the valid values in the message.
 $collection_id = 12,34; // string | One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
 $country_code = 'country_code_example'; // string | One ISO country code or a comma-separated list (e.g. US,GB,DE)
 $language_code = 'language_code_example'; // string | One ISO language code or a comma-separated list (e.g. en,es,de)
@@ -129,7 +129,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **project_id** | **int**| Project ID | |
-| **model** | **string**| Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. | [optional] |
+| **model** | **string**| Filter by one AI model. It must be a model enabled for the API key&#39;s user: an unknown value, or a model the user has not enabled, returns 422 ERR_INVALID_PARAM with the valid values in the message. | [optional] |
 | **collection_id** | **string**| One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. | [optional] |
 | **country_code** | **string**| One ISO country code or a comma-separated list (e.g. US,GB,DE) | [optional] |
 | **language_code** | **string**| One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |

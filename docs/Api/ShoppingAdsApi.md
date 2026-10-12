@@ -46,7 +46,7 @@ $owned = True; // bool | Return only placements identified as the tracked brand'
 $order = 'order_example'; // string | Sort field; the allowed set depends on view
 $direction = 'direction_example'; // string | Sort direction for view=advertisers. Defaults to desc, except avg_position and domain which default to asc.
 $query = 'query_example'; // string | Case-insensitive substring filter on the ad title, domain or snippet
-$model = 'model_example'; // string | Filter by AI model. Models the API key's user has not enabled are silently dropped.
+$model = 'model_example'; // string | Filter by one AI model. It must be a model enabled for the API key's user: an unknown value, or a model the user has not enabled, returns 422 ERR_INVALID_PARAM with the valid values in the message.
 $collection_id = 12,34; // string | One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
 $country_code = 'country_code_example'; // string | One ISO country code or a comma-separated list (e.g. US,GB,DE)
 $language_code = 'language_code_example'; // string | One ISO language code or a comma-separated list (e.g. en,es,de)
@@ -77,7 +77,7 @@ try {
 | **order** | **string**| Sort field; the allowed set depends on view | [optional] |
 | **direction** | **string**| Sort direction for view&#x3D;advertisers. Defaults to desc, except avg_position and domain which default to asc. | [optional] |
 | **query** | **string**| Case-insensitive substring filter on the ad title, domain or snippet | [optional] |
-| **model** | **string**| Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. | [optional] |
+| **model** | **string**| Filter by one AI model. It must be a model enabled for the API key&#39;s user: an unknown value, or a model the user has not enabled, returns 422 ERR_INVALID_PARAM with the valid values in the message. | [optional] |
 | **collection_id** | **string**| One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. | [optional] |
 | **country_code** | **string**| One ISO country code or a comma-separated list (e.g. US,GB,DE) | [optional] |
 | **language_code** | **string**| One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |
@@ -140,7 +140,7 @@ $owned = True; // bool | Return only listings identified as the tracked brand's 
 $order = 'appearances'; // string | Sort field
 $direction = 'desc'; // string
 $query = 'query_example'; // string | Case-insensitive substring filter on the business name or address
-$model = 'model_example'; // string | Filter by AI model. Models the API key's user has not enabled are silently dropped.
+$model = 'model_example'; // string | Filter by one AI model. It must be a model enabled for the API key's user: an unknown value, or a model the user has not enabled, returns 422 ERR_INVALID_PARAM with the valid values in the message.
 $collection_id = 12,34; // string | One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
 $country_code = 'country_code_example'; // string | One ISO country code or a comma-separated list (e.g. US,GB,DE)
 $language_code = 'language_code_example'; // string | One ISO language code or a comma-separated list (e.g. en,es,de)
@@ -171,7 +171,7 @@ try {
 | **order** | **string**| Sort field | [optional] [default to &#39;appearances&#39;] |
 | **direction** | **string**|  | [optional] [default to &#39;desc&#39;] |
 | **query** | **string**| Case-insensitive substring filter on the business name or address | [optional] |
-| **model** | **string**| Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. | [optional] |
+| **model** | **string**| Filter by one AI model. It must be a model enabled for the API key&#39;s user: an unknown value, or a model the user has not enabled, returns 422 ERR_INVALID_PARAM with the valid values in the message. | [optional] |
 | **collection_id** | **string**| One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. | [optional] |
 | **country_code** | **string**| One ISO country code or a comma-separated list (e.g. US,GB,DE) | [optional] |
 | **language_code** | **string**| One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |
@@ -235,7 +235,7 @@ $owned = True; // bool | Return only products identified as the tracked brand's 
 $order = 'order_example'; // string | Sort field; the allowed set depends on view
 $direction = 'desc'; // string
 $query = 'query_example'; // string | Case-insensitive substring filter on the product title
-$model = 'model_example'; // string | Filter by AI model. Models the API key's user has not enabled are silently dropped.
+$model = 'model_example'; // string | Filter by one AI model. It must be a model enabled for the API key's user: an unknown value, or a model the user has not enabled, returns 422 ERR_INVALID_PARAM with the valid values in the message.
 $collection_id = 12,34; // string | One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
 $country_code = 'country_code_example'; // string | One ISO country code or a comma-separated list (e.g. US,GB,DE)
 $language_code = 'language_code_example'; // string | One ISO language code or a comma-separated list (e.g. en,es,de)
@@ -266,7 +266,7 @@ try {
 | **order** | **string**| Sort field; the allowed set depends on view | [optional] |
 | **direction** | **string**|  | [optional] [default to &#39;desc&#39;] |
 | **query** | **string**| Case-insensitive substring filter on the product title | [optional] |
-| **model** | **string**| Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. | [optional] |
+| **model** | **string**| Filter by one AI model. It must be a model enabled for the API key&#39;s user: an unknown value, or a model the user has not enabled, returns 422 ERR_INVALID_PARAM with the valid values in the message. | [optional] |
 | **collection_id** | **string**| One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. | [optional] |
 | **country_code** | **string**| One ISO country code or a comma-separated list (e.g. US,GB,DE) | [optional] |
 | **language_code** | **string**| One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |

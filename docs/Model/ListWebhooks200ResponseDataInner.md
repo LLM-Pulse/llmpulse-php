@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **project_id** | **int** |  | [optional]
 **event_type** | **string** |  | [optional]
 **target_url** | **string** |  | [optional]
-**disabled** | **bool** |  | [optional]
+**disabled** | **bool** | True when the subscription receives no more events, including when the API key or OAuth connection that created it was revoked. Creating it again with the same project, event and URL replaces it with a new subscription and secret. | [optional]
 **failure_count** | **int** |  | [optional]
 **last_delivered_at** | **\DateTime** |  | [optional]
 **created_at** | **\DateTime** |  | [optional]

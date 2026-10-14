@@ -115,7 +115,7 @@ $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the wind
 $page = 1; // int
 $per_page = 20; // int
 $query = 'query_example'; // string | Case-insensitive full-text search inside AI response texts. Switches items to snippet + match_count mode.
-$no_result = True; // bool | Filter sentinel non-answers (provider returned nothing after retries; excluded from platform metrics). false = only real answers, true = only sentinels, omit = both. Every item carries its own no_result flag.
+$no_result = True; // bool | Filter sentinel non-answers (the provider returned nothing after all retries, or the model declined to answer, today only Gemini; excluded from platform metrics). false = only real answers, true = only sentinels, omit = both. Every item carries its own no_result flag.
 
 try {
     $apiInstance->listAnswers($project_id, $model, $collection_id, $country_code, $language_code, $prompt, $mention_filter, $citation_filter, $competitors, $from, $to, $page, $per_page, $query, $no_result);
@@ -142,7 +142,7 @@ try {
 | **page** | **int**|  | [optional] [default to 1] |
 | **per_page** | **int**|  | [optional] [default to 20] |
 | **query** | **string**| Case-insensitive full-text search inside AI response texts. Switches items to snippet + match_count mode. | [optional] |
-| **no_result** | **bool**| Filter sentinel non-answers (provider returned nothing after retries; excluded from platform metrics). false &#x3D; only real answers, true &#x3D; only sentinels, omit &#x3D; both. Every item carries its own no_result flag. | [optional] |
+| **no_result** | **bool**| Filter sentinel non-answers (the provider returned nothing after all retries, or the model declined to answer, today only Gemini; excluded from platform metrics). false &#x3D; only real answers, true &#x3D; only sentinels, omit &#x3D; both. Every item carries its own no_result flag. | [optional] |
 
 ### Return type
 

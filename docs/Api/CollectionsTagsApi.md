@@ -11,6 +11,7 @@ All URIs are relative to https://api.llmpulse.ai/api/v1, except if the operation
 | [**deleteCollection()**](CollectionsTagsApi.md#deleteCollection) | **DELETE** /collections/{id} | Delete a tag |
 | [**listCollections()**](CollectionsTagsApi.md#listCollections) | **GET** /dimensions/collections | List tags/collections |
 | [**listTags()**](CollectionsTagsApi.md#listTags) | **GET** /dimensions/tags | List tags (alias for /collections) |
+| [**removePromptTags()**](CollectionsTagsApi.md#removePromptTags) | **POST** /prompts/remove_tags | Bulk-detach tags from prompts |
 | [**updateCollection()**](CollectionsTagsApi.md#updateCollection) | **PATCH** /collections/{id} | Update a tag |
 
 
@@ -309,6 +310,66 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `removePromptTags()`
+
+```php
+removePromptTags($remove_prompt_tags_request): \LLMPulse\Model\PromptTagsRemoveResponse
+```
+
+Bulk-detach tags from prompts
+
+Idempotent bulk removal of tags (Collections) from existing prompts: up to 500 prompt_ids and 50 tags, resolved by id or by name (case-insensitive). Only the prompt-tag links are removed; tags and prompts stay. Links that did not exist are counted in skipped_not_linked. Requires a `read_write` scope API key and, for team members, update access to Prompts.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: BearerAuth
+$config = LLMPulse\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new LLMPulse\Api\CollectionsTagsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$remove_prompt_tags_request = new \LLMPulse\Model\RemovePromptTagsRequest(); // \LLMPulse\Model\RemovePromptTagsRequest
+
+try {
+    $result = $apiInstance->removePromptTags($remove_prompt_tags_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CollectionsTagsApi->removePromptTags: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **remove_prompt_tags_request** | [**\LLMPulse\Model\RemovePromptTagsRequest**](../Model/RemovePromptTagsRequest.md)|  | |
+
+### Return type
+
+[**\LLMPulse\Model\PromptTagsRemoveResponse**](../Model/PromptTagsRemoveResponse.md)
+
+### Authorization
+
+[BearerAuth](../../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

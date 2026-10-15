@@ -1,6 +1,6 @@
 # LLMPulse\RecommendationsApi
 
-Recommendation runs that power the in-app Recommendations page, plus the endpoint that launches a new one.
+Recommendation runs that power the in-app Recommendations page, the endpoint that launches a new one, and the one that completes, archives or restores an item.
 
 All URIs are relative to https://api.llmpulse.ai/api/v1, except if the operation defines another base path.
 
@@ -9,6 +9,7 @@ All URIs are relative to https://api.llmpulse.ai/api/v1, except if the operation
 | [**getRecommendation()**](RecommendationsApi.md#getRecommendation) | **GET** /recommendations/{id} | Get recommendation run with items |
 | [**launchRecommendations()**](RecommendationsApi.md#launchRecommendations) | **POST** /recommendations | Launch a recommendations generation |
 | [**listRecommendations()**](RecommendationsApi.md#listRecommendations) | **GET** /recommendations | List recommendation runs |
+| [**updateRecommendationItem()**](RecommendationsApi.md#updateRecommendationItem) | **PATCH** /recommendations/{id}/items/{item_id} | Complete, archive or restore a recommendation item |
 
 
 ## `getRecommendation()`
@@ -193,6 +194,70 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateRecommendationItem()`
+
+```php
+updateRecommendationItem($id, $item_id, $update_recommendation_item_request): \LLMPulse\Model\RecommendationItemUpdateResponse
+```
+
+Complete, archive or restore a recommendation item
+
+Moves one item of a recommendation run between `active`, `completed` and `archived`, exactly like the complete, archive and restore buttons on the Recommendations page, and stamps `status_changed_at`. Returns the item in the shape `GET /recommendations/{id}` lists items. Requires a `read_write` scope API key and, for team members, create permission on Recommendations (the permission the page uses for these buttons).
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: BearerAuth
+$config = LLMPulse\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new LLMPulse\Api\RecommendationsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | Recommendation run id
+$item_id = 56; // int | Item id, from the items of GET /recommendations/{id}
+$update_recommendation_item_request = new \LLMPulse\Model\UpdateRecommendationItemRequest(); // \LLMPulse\Model\UpdateRecommendationItemRequest
+
+try {
+    $result = $apiInstance->updateRecommendationItem($id, $item_id, $update_recommendation_item_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling RecommendationsApi->updateRecommendationItem: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| Recommendation run id | |
+| **item_id** | **int**| Item id, from the items of GET /recommendations/{id} | |
+| **update_recommendation_item_request** | [**\LLMPulse\Model\UpdateRecommendationItemRequest**](../Model/UpdateRecommendationItemRequest.md)|  | |
+
+### Return type
+
+[**\LLMPulse\Model\RecommendationItemUpdateResponse**](../Model/RecommendationItemUpdateResponse.md)
+
+### Authorization
+
+[BearerAuth](../../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

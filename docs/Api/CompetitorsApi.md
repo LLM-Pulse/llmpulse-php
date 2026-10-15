@@ -9,6 +9,7 @@ All URIs are relative to https://api.llmpulse.ai/api/v1, except if the operation
 | [**createCompetitor()**](CompetitorsApi.md#createCompetitor) | **POST** /competitors | Add a competitor |
 | [**deleteCompetitor()**](CompetitorsApi.md#deleteCompetitor) | **DELETE** /competitors/{id} | Delete a competitor |
 | [**getCompetitorDetails()**](CompetitorsApi.md#getCompetitorDetails) | **GET** /dimensions/competitors/{id} | Competitor details |
+| [**listCompetitorSuggestions()**](CompetitorsApi.md#listCompetitorSuggestions) | **GET** /competitors/suggestions | List competitor suggestions |
 | [**listCompetitors()**](CompetitorsApi.md#listCompetitors) | **GET** /dimensions/competitors | List competitors |
 | [**updateCompetitor()**](CompetitorsApi.md#updateCompetitor) | **PATCH** /competitors/{id} | Update a competitor |
 
@@ -180,6 +181,76 @@ try {
 ### Return type
 
 [**\LLMPulse\Model\CompetitorDetails**](../Model/CompetitorDetails.md)
+
+### Authorization
+
+[BearerAuth](../../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `listCompetitorSuggestions()`
+
+```php
+listCompetitorSuggestions($project_id, $basis, $query, $page, $per_page, $output): \LLMPulse\Model\CompetitorSuggestionsResponse
+```
+
+List competitor suggestions
+
+The two lists of the Suggested tab of the Competitors page. `basis=brands` (default) returns the competing brands the AI discovery proposed that are not tracked or rejected yet, with the names it would match and, when counted, how many answers name it (`mentions`). `basis=citations` returns the domains AI answers cite most that are not your own or tracked yet, with how many answers cite each (`citations`). `discovery` tells whether a discovery run is still loading. Read-only: it never starts a discovery run, which the page starts from its Discover button. Add a suggestion with POST /competitors.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: BearerAuth
+$config = LLMPulse\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new LLMPulse\Api\CompetitorsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$project_id = 56; // int | Project ID
+$basis = 'brands'; // string
+$query = 'query_example'; // string | Only suggestions whose brand name or domain contains this text
+$page = 1; // int
+$per_page = 20; // int
+$output = 'output_example'; // string | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
+
+try {
+    $result = $apiInstance->listCompetitorSuggestions($project_id, $basis, $query, $page, $per_page, $output);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CompetitorsApi->listCompetitorSuggestions: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **project_id** | **int**| Project ID | |
+| **basis** | **string**|  | [optional] [default to &#39;brands&#39;] |
+| **query** | **string**| Only suggestions whose brand name or domain contains this text | [optional] |
+| **page** | **int**|  | [optional] [default to 1] |
+| **per_page** | **int**|  | [optional] [default to 20] |
+| **output** | **string**| Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. &#39;flat&#39; returns the same metadata plus &#39;columns&#39; and &#39;rows&#39;; &#39;csv&#39; returns those rows as text/csv. Errors are always returned as JSON. | [optional] |
+
+### Return type
+
+[**\LLMPulse\Model\CompetitorSuggestionsResponse**](../Model/CompetitorSuggestionsResponse.md)
 
 ### Authorization
 

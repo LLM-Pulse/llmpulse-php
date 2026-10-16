@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **google_play_id** | **string** |  | [optional]
 **app_store_id** | **string** |  | [optional]
 **created_at** | **\DateTime** |  | [optional]
-**prompt_limit** | **int** | Maximum number of active prompts this project may hold, set by the account owner or a co-owner in Account Settings &gt; Prompt Limits; null when the project has no limit of its own and only the account quota applies | [optional]
+**prompt_limit** | **int** | The most prompts this project can hold, set by the account owner or a co-owner (Account Settings &gt; Prompt Limits). Null when the project has no limit of its own; the account&#39;s plan allowance applies either way | [optional]
 **stats** | [**\LLMPulse\Model\ProjectDetailsAllOfStats**](ProjectDetailsAllOfStats.md) |  | [optional]
 **data_coverage** | [**\LLMPulse\Model\ProjectDetailsAllOfDataCoverage**](ProjectDetailsAllOfDataCoverage.md) |  | [optional]
 **search_console** | [**\LLMPulse\Model\ProjectDetailsAllOfSearchConsole**](ProjectDetailsAllOfSearchConsole.md) |  | [optional]

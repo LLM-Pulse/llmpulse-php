@@ -719,7 +719,7 @@ class UpdateProjectRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets prompt_limit
      *
-     * @param int|null $prompt_limit Maximum number of active prompts this project may hold, within the account prompt quota; null removes the project limit so it can use any prompts left in the account. A limit below the current count keeps every existing prompt and refuses new ones. Account owner or co-owner only; a key limited to some projects cannot send it
+     * @param int|null $prompt_limit The most prompts this project can hold, a JSON integer from 1 to 2147483647; null removes the project's limit. A string, a decimal, 0 or a negative number is rejected with ERR_INVALID_PARAM. The account's plan allowance still applies, so the lower of the two wins (GET /dimensions/projects/{id} returns prompt_limit and stats.prompts_available). A limit below the current count keeps every prompt and refuses new ones until the project is under it; note says what the project can now hold. Account owner or a co-owner with Projects update permission only; a key limited to some projects answers ERR_KEY_PROJECT_SCOPED. The Swift, Kotlin, Dart and R clients leave a null field out of the request body, so they can set a limit but not remove one: remove it with a plain HTTP request that sends prompt_limit as null
      *
      * @return self
      */

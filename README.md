@@ -158,7 +158,7 @@ Class | Method | HTTP request | Description
 *ProjectsApi* | [**listLocales**](docs/Api/ProjectsApi.md#listlocales) | **GET** /dimensions/locales | List locales with data
 *ProjectsApi* | [**listModels**](docs/Api/ProjectsApi.md#listmodels) | **GET** /dimensions/models | List models with data
 *ProjectsApi* | [**listProjects**](docs/Api/ProjectsApi.md#listprojects) | **GET** /dimensions/projects | List projects
-*ProjectsApi* | [**updateProject**](docs/Api/ProjectsApi.md#updateproject) | **PATCH** /projects/{id} | Update a project profile (Brand Book) or prompt limit
+*ProjectsApi* | [**updateProject**](docs/Api/ProjectsApi.md#updateproject) | **PATCH** /projects/{id} | Update a project profile (Brand Book)
 *ProjectsApi* | [**updateProjectDraft**](docs/Api/ProjectsApi.md#updateprojectdraft) | **PATCH** /project_drafts/{id} | Submit a wizard step
 *PromptsApi* | [**acceptSuggestedPrompts**](docs/Api/PromptsApi.md#acceptsuggestedprompts) | **POST** /suggested_prompts/accept | Accept suggested prompts
 *PromptsApi* | [**createPromptGeneration**](docs/Api/PromptsApi.md#createpromptgeneration) | **POST** /prompt_generations | Generate prompt suggestions

@@ -2325,7 +2325,7 @@ class ProjectsApi
     /**
      * Operation updateProject
      *
-     * Update a project profile (Brand Book) or prompt limit
+     * Update a project profile (Brand Book)
      *
      * @param  int $id id (required)
      * @param  \LLMPulse\Model\UpdateProjectRequest $update_project_request update_project_request (required)
@@ -2344,7 +2344,7 @@ class ProjectsApi
     /**
      * Operation updateProjectWithHttpInfo
      *
-     * Update a project profile (Brand Book) or prompt limit
+     * Update a project profile (Brand Book)
      *
      * @param  int $id (required)
      * @param  \LLMPulse\Model\UpdateProjectRequest $update_project_request (required)
@@ -2472,7 +2472,7 @@ class ProjectsApi
     /**
      * Operation updateProjectAsync
      *
-     * Update a project profile (Brand Book) or prompt limit
+     * Update a project profile (Brand Book)
      *
      * @param  int $id (required)
      * @param  \LLMPulse\Model\UpdateProjectRequest $update_project_request (required)
@@ -2494,7 +2494,7 @@ class ProjectsApi
     /**
      * Operation updateProjectAsyncWithHttpInfo
      *
-     * Update a project profile (Brand Book) or prompt limit
+     * Update a project profile (Brand Book)
      *
      * @param  int $id (required)
      * @param  \LLMPulse\Model\UpdateProjectRequest $update_project_request (required)

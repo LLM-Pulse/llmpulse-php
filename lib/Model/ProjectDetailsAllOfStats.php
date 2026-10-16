@@ -59,10 +59,10 @@ class ProjectDetailsAllOfStats implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $openAPITypes = [
         'prompts_count' => 'int',
-        'prompts_available' => 'int',
         'prompts_by_brand_kind' => '\LLMPulse\Model\ProjectDetailsAllOfStatsPromptsByBrandKind',
         'competitors_count' => 'int',
-        'collections_count' => 'int'
+        'collections_count' => 'int',
+        'prompts_available' => 'int'
     ];
 
     /**
@@ -74,10 +74,10 @@ class ProjectDetailsAllOfStats implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $openAPIFormats = [
         'prompts_count' => null,
-        'prompts_available' => null,
         'prompts_by_brand_kind' => null,
         'competitors_count' => null,
-        'collections_count' => null
+        'collections_count' => null,
+        'prompts_available' => null
     ];
 
     /**
@@ -87,10 +87,10 @@ class ProjectDetailsAllOfStats implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static array $openAPINullables = [
         'prompts_count' => false,
-        'prompts_available' => true,
         'prompts_by_brand_kind' => false,
         'competitors_count' => false,
-        'collections_count' => false
+        'collections_count' => false,
+        'prompts_available' => true
     ];
 
     /**
@@ -180,10 +180,10 @@ class ProjectDetailsAllOfStats implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $attributeMap = [
         'prompts_count' => 'prompts_count',
-        'prompts_available' => 'prompts_available',
         'prompts_by_brand_kind' => 'prompts_by_brand_kind',
         'competitors_count' => 'competitors_count',
-        'collections_count' => 'collections_count'
+        'collections_count' => 'collections_count',
+        'prompts_available' => 'prompts_available'
     ];
 
     /**
@@ -193,10 +193,10 @@ class ProjectDetailsAllOfStats implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $setters = [
         'prompts_count' => 'setPromptsCount',
-        'prompts_available' => 'setPromptsAvailable',
         'prompts_by_brand_kind' => 'setPromptsByBrandKind',
         'competitors_count' => 'setCompetitorsCount',
-        'collections_count' => 'setCollectionsCount'
+        'collections_count' => 'setCollectionsCount',
+        'prompts_available' => 'setPromptsAvailable'
     ];
 
     /**
@@ -206,10 +206,10 @@ class ProjectDetailsAllOfStats implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $getters = [
         'prompts_count' => 'getPromptsCount',
-        'prompts_available' => 'getPromptsAvailable',
         'prompts_by_brand_kind' => 'getPromptsByBrandKind',
         'competitors_count' => 'getCompetitorsCount',
-        'collections_count' => 'getCollectionsCount'
+        'collections_count' => 'getCollectionsCount',
+        'prompts_available' => 'getPromptsAvailable'
     ];
 
     /**
@@ -270,10 +270,10 @@ class ProjectDetailsAllOfStats implements ModelInterface, ArrayAccess, \JsonSeri
     public function __construct(?array $data = null)
     {
         $this->setIfExists('prompts_count', $data ?? [], null);
-        $this->setIfExists('prompts_available', $data ?? [], null);
         $this->setIfExists('prompts_by_brand_kind', $data ?? [], null);
         $this->setIfExists('competitors_count', $data ?? [], null);
         $this->setIfExists('collections_count', $data ?? [], null);
+        $this->setIfExists('prompts_available', $data ?? [], null);
     }
 
     /**
@@ -331,7 +331,7 @@ class ProjectDetailsAllOfStats implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets prompts_count
      *
-     * @param int|null $prompts_count Active prompts in the project
+     * @param int|null $prompts_count prompts_count
      *
      * @return self
      */
@@ -341,40 +341,6 @@ class ProjectDetailsAllOfStats implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable prompts_count cannot be null');
         }
         $this->container['prompts_count'] = $prompts_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets prompts_available
-     *
-     * @return int|null
-     */
-    public function getPromptsAvailable()
-    {
-        return $this->container['prompts_available'];
-    }
-
-    /**
-     * Sets prompts_available
-     *
-     * @param int|null $prompts_available Prompts that can still be added to this project, the lower of its free slots under prompt_limit and the prompts left in the account quota; null when neither caps it
-     *
-     * @return self
-     */
-    public function setPromptsAvailable($prompts_available)
-    {
-        if (is_null($prompts_available)) {
-            array_push($this->openAPINullablesSetToNull, 'prompts_available');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('prompts_available', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['prompts_available'] = $prompts_available;
 
         return $this;
     }
@@ -456,6 +422,40 @@ class ProjectDetailsAllOfStats implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable collections_count cannot be null');
         }
         $this->container['collections_count'] = $collections_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets prompts_available
+     *
+     * @return int|null
+     */
+    public function getPromptsAvailable()
+    {
+        return $this->container['prompts_available'];
+    }
+
+    /**
+     * Sets prompts_available
+     *
+     * @param int|null $prompts_available How many prompts can still be added to this project now, the same number the Prompts page offers. The lower of the project's free slots under prompt_limit and the account's remaining prompts; 0 when either is full (a project over its limit keeps its prompts). Null when neither caps it
+     *
+     * @return self
+     */
+    public function setPromptsAvailable($prompts_available)
+    {
+        if (is_null($prompts_available)) {
+            array_push($this->openAPINullablesSetToNull, 'prompts_available');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('prompts_available', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['prompts_available'] = $prompts_available;
 
         return $this;
     }

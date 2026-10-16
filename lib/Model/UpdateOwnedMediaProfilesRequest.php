@@ -605,7 +605,7 @@ class UpdateOwnedMediaProfilesRequest implements ModelInterface, ArrayAccess, \J
     /**
      * Sets linkedin_company_url
      *
-     * @param string|null $linkedin_company_url The main LinkedIn Company Page URL (/company/...). An empty string or null clears it
+     * @param string|null $linkedin_company_url The main LinkedIn page URL: a company (/company/...), school (/school/...) or showcase (/showcase/...) page. An empty string or null clears it
      *
      * @return self
      */
@@ -774,7 +774,7 @@ class UpdateOwnedMediaProfilesRequest implements ModelInterface, ArrayAccess, \J
     /**
      * Sets linkedin_extra_profile_urls
      *
-     * @param string[]|null $linkedin_extra_profile_urls FULL replacement list of extra LinkedIn Company Page URLs (at most 10); [] clears it
+     * @param string[]|null $linkedin_extra_profile_urls FULL replacement list of extra LinkedIn company, school or showcase page URLs (at most 10); [] clears it
      *
      * @return self
      */

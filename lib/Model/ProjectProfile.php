@@ -817,7 +817,7 @@ class ProjectProfile implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets prompt_limit
      *
-     * @param int|null $prompt_limit Maximum number of active prompts this project may hold; null when only the account quota applies
+     * @param int|null $prompt_limit The most prompts this project can hold, set by the account owner or a co-owner (Account Settings > Prompt Limits). Null when the project has no limit of its own; the account's plan allowance applies either way
      *
      * @return self
      */

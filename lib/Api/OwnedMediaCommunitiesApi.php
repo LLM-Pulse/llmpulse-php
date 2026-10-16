@@ -925,7 +925,7 @@ class OwnedMediaCommunitiesApi
      *
      * @throws \LLMPulse\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \LLMPulse\Model\OwnedMediaListResponse|\LLMPulse\Model\ApiError
+     * @return \LLMPulse\Model\OwnedMediaListResponse|\LLMPulse\Model\ApiError|\LLMPulse\Model\ApiError
      */
     public function listOwnedMedia($project_id, $provider, $page = 1, $per_page = 20, $view = null, $store = 'google_play', $owned = null, $model = null, $collection_id = null, $country_code = null, $language_code = null, $brand_kind = null, $range = null, $from = null, $to = null, $output = null, string $contentType = self::contentTypes['listOwnedMedia'][0])
     {
@@ -958,7 +958,7 @@ class OwnedMediaCommunitiesApi
      *
      * @throws \LLMPulse\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \LLMPulse\Model\OwnedMediaListResponse|\LLMPulse\Model\ApiError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \LLMPulse\Model\OwnedMediaListResponse|\LLMPulse\Model\ApiError|\LLMPulse\Model\ApiError, HTTP status code, HTTP response headers (array of strings)
      */
     public function listOwnedMediaWithHttpInfo($project_id, $provider, $page = 1, $per_page = 20, $view = null, $store = 'google_play', $owned = null, $model = null, $collection_id = null, $country_code = null, $language_code = null, $brand_kind = null, $range = null, $from = null, $to = null, $output = null, string $contentType = self::contentTypes['listOwnedMedia'][0])
     {
@@ -991,6 +991,12 @@ class OwnedMediaCommunitiesApi
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\LLMPulse\Model\OwnedMediaListResponse',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\LLMPulse\Model\ApiError',
                         $request,
                         $response,
                     );
@@ -1028,6 +1034,14 @@ class OwnedMediaCommunitiesApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\LLMPulse\Model\OwnedMediaListResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\LLMPulse\Model\ApiError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

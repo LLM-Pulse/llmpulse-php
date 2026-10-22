@@ -206,7 +206,7 @@ getProjectDetails($id): \LLMPulse\Model\ProjectDetails
 
 Project details
 
-Detailed info for one project: matching_names, additional_owned_domains, industry, business model, primary products, target audience, brand voice, locale, app store IDs, prompt_limit (the project's own prompt cap, null without one), stats (incl. prompts_by_brand_kind counts and prompts_available, how many prompts can still be added: the lower of the project's free slots and the account's remaining prompts, null when neither caps it) and data_coverage (models, countries and languages with data).
+Detailed info for one project: matching_names, additional_owned_domains, industry, business model, primary products, target audience, brand voice, locale, app store IDs, prompt_limit (the project's own prompt cap, null without one), stats (incl. prompts_by_brand_kind counts and prompts_available, how many prompts can still be added: the lower of the project's free slots and the account's remaining prompts, null when neither caps it), data_coverage (models, countries and languages with data) and the status of each data connection (search_console, ai_traffic, agent_traffic) with the connect_url where the user connects it.
 
 ### Example
 

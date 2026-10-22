@@ -28,6 +28,8 @@ Name | Type | Description | Notes
 **stats** | [**\LLMPulse\Model\ProjectDetailsAllOfStats**](ProjectDetailsAllOfStats.md) |  | [optional]
 **data_coverage** | [**\LLMPulse\Model\ProjectDetailsAllOfDataCoverage**](ProjectDetailsAllOfDataCoverage.md) |  | [optional]
 **search_console** | [**\LLMPulse\Model\ProjectDetailsAllOfSearchConsole**](ProjectDetailsAllOfSearchConsole.md) |  | [optional]
+**ai_traffic** | [**\LLMPulse\Model\ProjectDetailsAllOfAiTraffic**](ProjectDetailsAllOfAiTraffic.md) |  | [optional]
+**agent_traffic** | [**\LLMPulse\Model\ProjectDetailsAllOfAgentTraffic**](ProjectDetailsAllOfAgentTraffic.md) |  | [optional]
 **request_id** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

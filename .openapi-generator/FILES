@@ -187,6 +187,8 @@ docs/Model/ProjectCreateResponseLimits.md
 docs/Model/ProjectCreateResponsePrompts.md
 docs/Model/ProjectCreateResponseSameDomainProjectsInner.md
 docs/Model/ProjectDetails.md
+docs/Model/ProjectDetailsAllOfAgentTraffic.md
+docs/Model/ProjectDetailsAllOfAiTraffic.md
 docs/Model/ProjectDetailsAllOfDataCoverage.md
 docs/Model/ProjectDetailsAllOfSearchConsole.md
 docs/Model/ProjectDetailsAllOfStats.md
@@ -480,6 +482,8 @@ lib/Model/ProjectCreateResponseLimits.php
 lib/Model/ProjectCreateResponsePrompts.php
 lib/Model/ProjectCreateResponseSameDomainProjectsInner.php
 lib/Model/ProjectDetails.php
+lib/Model/ProjectDetailsAllOfAgentTraffic.php
+lib/Model/ProjectDetailsAllOfAiTraffic.php
 lib/Model/ProjectDetailsAllOfDataCoverage.php
 lib/Model/ProjectDetailsAllOfSearchConsole.php
 lib/Model/ProjectDetailsAllOfStats.php

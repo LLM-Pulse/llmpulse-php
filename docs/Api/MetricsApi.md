@@ -108,7 +108,7 @@ try {
 ## `getShareOfVoice()`
 
 ```php
-getShareOfVoice($project_id, $range, $from, $to, $granularity, $competitors, $model, $collection_id, $prompt, $prompt_type, $brand_kind, $output, $view): \LLMPulse\Model\SovResponse
+getShareOfVoice($project_id, $range, $from, $to, $granularity, $competitors, $model, $collection_id, $prompt, $prompt_type, $brand_kind, $output, $view, $country_code, $language_code, $include_project): \LLMPulse\Model\SovResponse
 ```
 
 Share of Voice
@@ -145,9 +145,12 @@ $prompt_type = 'prompt_type_example'; // string | One prompt type or a comma-sep
 $brand_kind = 'brand_kind_example'; // string | Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default.
 $output = 'output_example'; // string | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
 $view = 'over_time'; // string | Which Share of Voice projection to flatten. Only valid together with 'output'. 'over_time' (default) is one row per date and actor, 'current' the ranked snapshot, 'breakdown' the Top 4 plus Others.
+$country_code = 'country_code_example'; // string | One ISO country code or a comma-separated list (e.g. US,GB,DE)
+$language_code = 'language_code_example'; // string | One ISO language code or a comma-separated list (e.g. en,es,de)
+$include_project = true; // bool
 
 try {
-    $result = $apiInstance->getShareOfVoice($project_id, $range, $from, $to, $granularity, $competitors, $model, $collection_id, $prompt, $prompt_type, $brand_kind, $output, $view);
+    $result = $apiInstance->getShareOfVoice($project_id, $range, $from, $to, $granularity, $competitors, $model, $collection_id, $prompt, $prompt_type, $brand_kind, $output, $view, $country_code, $language_code, $include_project);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MetricsApi->getShareOfVoice: ', $e->getMessage(), PHP_EOL;
@@ -171,6 +174,9 @@ try {
 | **brand_kind** | **string**| Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. | [optional] |
 | **output** | **string**| Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. &#39;flat&#39; returns the same metadata plus &#39;columns&#39; and &#39;rows&#39;; &#39;csv&#39; returns those rows as text/csv. Errors are always returned as JSON. | [optional] |
 | **view** | **string**| Which Share of Voice projection to flatten. Only valid together with &#39;output&#39;. &#39;over_time&#39; (default) is one row per date and actor, &#39;current&#39; the ranked snapshot, &#39;breakdown&#39; the Top 4 plus Others. | [optional] [default to &#39;over_time&#39;] |
+| **country_code** | **string**| One ISO country code or a comma-separated list (e.g. US,GB,DE) | [optional] |
+| **language_code** | **string**| One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |
+| **include_project** | **bool**|  | [optional] [default to true] |
 
 ### Return type
 
@@ -192,7 +198,7 @@ try {
 ## `getSummary()`
 
 ```php
-getSummary($project_id, $metrics, $granularity, $range, $from, $to, $competitors, $model, $collection_id, $prompt, $prompt_type, $brand_kind, $output): \LLMPulse\Model\SummaryResponse
+getSummary($project_id, $metrics, $granularity, $range, $from, $to, $competitors, $model, $collection_id, $prompt, $prompt_type, $brand_kind, $output, $country_code, $language_code, $include_project): \LLMPulse\Model\SummaryResponse
 ```
 
 Aggregated metrics summary
@@ -229,9 +235,12 @@ $prompt = 56; // int | Filter by prompt ID
 $prompt_type = 'prompt_type_example'; // string | One prompt type or a comma-separated list: informational, navigational, commercial, transactional
 $brand_kind = 'brand_kind_example'; // string | Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default.
 $output = 'output_example'; // string | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
+$country_code = 'country_code_example'; // string | One ISO country code or a comma-separated list (e.g. US,GB,DE)
+$language_code = 'language_code_example'; // string | One ISO language code or a comma-separated list (e.g. en,es,de)
+$include_project = true; // bool
 
 try {
-    $result = $apiInstance->getSummary($project_id, $metrics, $granularity, $range, $from, $to, $competitors, $model, $collection_id, $prompt, $prompt_type, $brand_kind, $output);
+    $result = $apiInstance->getSummary($project_id, $metrics, $granularity, $range, $from, $to, $competitors, $model, $collection_id, $prompt, $prompt_type, $brand_kind, $output, $country_code, $language_code, $include_project);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MetricsApi->getSummary: ', $e->getMessage(), PHP_EOL;
@@ -255,6 +264,9 @@ try {
 | **prompt_type** | **string**| One prompt type or a comma-separated list: informational, navigational, commercial, transactional | [optional] |
 | **brand_kind** | **string**| Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. | [optional] |
 | **output** | **string**| Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. &#39;flat&#39; returns the same metadata plus &#39;columns&#39; and &#39;rows&#39;; &#39;csv&#39; returns those rows as text/csv. Errors are always returned as JSON. | [optional] |
+| **country_code** | **string**| One ISO country code or a comma-separated list (e.g. US,GB,DE) | [optional] |
+| **language_code** | **string**| One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |
+| **include_project** | **bool**|  | [optional] [default to true] |
 
 ### Return type
 
@@ -366,7 +378,7 @@ try {
 ## `getTopSources()`
 
 ```php
-getTopSources($project_id, $range, $from, $to, $model, $collection_id, $country_code, $language_code, $prompt, $prompt_type, $brand_kind, $sort, $query, $page, $per_page, $output): \LLMPulse\Model\TopSourcesResponse
+getTopSources($project_id, $range, $from, $to, $model, $collection_id, $country_code, $language_code, $prompt, $prompt_type, $brand_kind, $sort, $query, $page, $per_page, $output, $collection_ids, $domains): \LLMPulse\Model\TopSourcesResponse
 ```
 
 Top cited sources
@@ -406,9 +418,11 @@ $query = 'query_example'; // string | Filter domains by case-insensitive partial
 $page = 1; // int
 $per_page = 20; // int
 $output = 'output_example'; // string | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
+$collection_ids = array(56); // int[] | Tags (collections) to include at once, as a union: one ID or a comma-separated list, e.g. collection_ids=12,15 (collection_ids[]=12&collection_ids[]=15 is also accepted). Combines with collection_id. An ID outside the project returns 422 ERR_INVALID_PARAM.
+$domains = array('domains_example'); // string[] | Restrict the result to these exact domains, case-insensitive: one domain or a comma-separated list, e.g. domains=wikipedia.org,reddit.com. The bracket form domains[]=wikipedia.org&domains[]=reddit.com is also accepted.
 
 try {
-    $result = $apiInstance->getTopSources($project_id, $range, $from, $to, $model, $collection_id, $country_code, $language_code, $prompt, $prompt_type, $brand_kind, $sort, $query, $page, $per_page, $output);
+    $result = $apiInstance->getTopSources($project_id, $range, $from, $to, $model, $collection_id, $country_code, $language_code, $prompt, $prompt_type, $brand_kind, $sort, $query, $page, $per_page, $output, $collection_ids, $domains);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MetricsApi->getTopSources: ', $e->getMessage(), PHP_EOL;
@@ -435,6 +449,8 @@ try {
 | **page** | **int**|  | [optional] [default to 1] |
 | **per_page** | **int**|  | [optional] [default to 20] |
 | **output** | **string**| Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. &#39;flat&#39; returns the same metadata plus &#39;columns&#39; and &#39;rows&#39;; &#39;csv&#39; returns those rows as text/csv. Errors are always returned as JSON. | [optional] |
+| **collection_ids** | [**int[]**](../Model/int.md)| Tags (collections) to include at once, as a union: one ID or a comma-separated list, e.g. collection_ids&#x3D;12,15 (collection_ids[]&#x3D;12&amp;collection_ids[]&#x3D;15 is also accepted). Combines with collection_id. An ID outside the project returns 422 ERR_INVALID_PARAM. | [optional] |
+| **domains** | [**string[]**](../Model/string.md)| Restrict the result to these exact domains, case-insensitive: one domain or a comma-separated list, e.g. domains&#x3D;wikipedia.org,reddit.com. The bracket form domains[]&#x3D;wikipedia.org&amp;domains[]&#x3D;reddit.com is also accepted. | [optional] |
 
 ### Return type
 

@@ -17,7 +17,7 @@ All URIs are relative to https://api.llmpulse.ai/api/v1, except if the operation
 ## `listAllCitations()`
 
 ```php
-listAllCitations($project_id, $competitors, $page, $per_page, $model, $collection_id, $prompt, $from, $to, $output)
+listAllCitations($project_id, $competitors, $page, $per_page, $model, $collection_id, $prompt, $from, $to, $output, $country_code, $language_code, $prompt_type, $brand_kind, $range)
 ```
 
 List all citations (brand + competitor)
@@ -51,9 +51,14 @@ $prompt = 56; // int | Filter by prompt ID
 $from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
 $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
 $output = 'output_example'; // string | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
+$country_code = 'country_code_example'; // string | One ISO country code or a comma-separated list (e.g. US,GB,DE)
+$language_code = 'language_code_example'; // string | One ISO language code or a comma-separated list (e.g. en,es,de)
+$prompt_type = 'prompt_type_example'; // string | One prompt type or a comma-separated list: informational, navigational, commercial, transactional
+$brand_kind = 'brand_kind_example'; // string | Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default.
+$range = 56; // int | Number of days to look back (alternative to from/to)
 
 try {
-    $apiInstance->listAllCitations($project_id, $competitors, $page, $per_page, $model, $collection_id, $prompt, $from, $to, $output);
+    $apiInstance->listAllCitations($project_id, $competitors, $page, $per_page, $model, $collection_id, $prompt, $from, $to, $output, $country_code, $language_code, $prompt_type, $brand_kind, $range);
 } catch (Exception $e) {
     echo 'Exception when calling MentionsCitationsApi->listAllCitations: ', $e->getMessage(), PHP_EOL;
 }
@@ -73,6 +78,11 @@ try {
 | **from** | **\DateTime**|  | [optional] |
 | **to** | **\DateTime**| End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
 | **output** | **string**| Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. &#39;flat&#39; returns the same metadata plus &#39;columns&#39; and &#39;rows&#39;; &#39;csv&#39; returns those rows as text/csv. Errors are always returned as JSON. | [optional] |
+| **country_code** | **string**| One ISO country code or a comma-separated list (e.g. US,GB,DE) | [optional] |
+| **language_code** | **string**| One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |
+| **prompt_type** | **string**| One prompt type or a comma-separated list: informational, navigational, commercial, transactional | [optional] |
+| **brand_kind** | **string**| Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. | [optional] |
+| **range** | **int**| Number of days to look back (alternative to from/to) | [optional] |
 
 ### Return type
 
@@ -94,7 +104,7 @@ void (empty response body)
 ## `listAllMentions()`
 
 ```php
-listAllMentions($project_id, $competitors, $page, $per_page, $model, $collection_id, $prompt, $from, $to, $output)
+listAllMentions($project_id, $competitors, $page, $per_page, $model, $collection_id, $prompt, $from, $to, $output, $country_code, $language_code, $prompt_type, $brand_kind, $range)
 ```
 
 List all mentions (brand + competitor)
@@ -128,9 +138,14 @@ $prompt = 56; // int | Filter by prompt ID
 $from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
 $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
 $output = 'output_example'; // string | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
+$country_code = 'country_code_example'; // string | One ISO country code or a comma-separated list (e.g. US,GB,DE)
+$language_code = 'language_code_example'; // string | One ISO language code or a comma-separated list (e.g. en,es,de)
+$prompt_type = 'prompt_type_example'; // string | One prompt type or a comma-separated list: informational, navigational, commercial, transactional
+$brand_kind = 'brand_kind_example'; // string | Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default.
+$range = 56; // int | Number of days to look back (alternative to from/to)
 
 try {
-    $apiInstance->listAllMentions($project_id, $competitors, $page, $per_page, $model, $collection_id, $prompt, $from, $to, $output);
+    $apiInstance->listAllMentions($project_id, $competitors, $page, $per_page, $model, $collection_id, $prompt, $from, $to, $output, $country_code, $language_code, $prompt_type, $brand_kind, $range);
 } catch (Exception $e) {
     echo 'Exception when calling MentionsCitationsApi->listAllMentions: ', $e->getMessage(), PHP_EOL;
 }
@@ -150,6 +165,11 @@ try {
 | **from** | **\DateTime**|  | [optional] |
 | **to** | **\DateTime**| End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
 | **output** | **string**| Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. &#39;flat&#39; returns the same metadata plus &#39;columns&#39; and &#39;rows&#39;; &#39;csv&#39; returns those rows as text/csv. Errors are always returned as JSON. | [optional] |
+| **country_code** | **string**| One ISO country code or a comma-separated list (e.g. US,GB,DE) | [optional] |
+| **language_code** | **string**| One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |
+| **prompt_type** | **string**| One prompt type or a comma-separated list: informational, navigational, commercial, transactional | [optional] |
+| **brand_kind** | **string**| Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. | [optional] |
+| **range** | **int**| Number of days to look back (alternative to from/to) | [optional] |
 
 ### Return type
 
@@ -171,7 +191,7 @@ void (empty response body)
 ## `listCitations()`
 
 ```php
-listCitations($project_id, $page, $per_page, $model, $collection_id, $country_code, $language_code, $prompt, $from, $to, $output): \LLMPulse\Model\CitationsResponse
+listCitations($project_id, $page, $per_page, $model, $collection_id, $country_code, $language_code, $prompt, $from, $to, $output, $prompt_type, $brand_kind, $range): \LLMPulse\Model\CitationsResponse
 ```
 
 List brand citations
@@ -206,9 +226,12 @@ $prompt = 56; // int | Filter by prompt ID
 $from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
 $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
 $output = 'output_example'; // string | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
+$prompt_type = 'prompt_type_example'; // string | One prompt type or a comma-separated list: informational, navigational, commercial, transactional
+$brand_kind = 'brand_kind_example'; // string | Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default.
+$range = 56; // int | Number of days to look back (alternative to from/to)
 
 try {
-    $result = $apiInstance->listCitations($project_id, $page, $per_page, $model, $collection_id, $country_code, $language_code, $prompt, $from, $to, $output);
+    $result = $apiInstance->listCitations($project_id, $page, $per_page, $model, $collection_id, $country_code, $language_code, $prompt, $from, $to, $output, $prompt_type, $brand_kind, $range);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MentionsCitationsApi->listCitations: ', $e->getMessage(), PHP_EOL;
@@ -230,6 +253,9 @@ try {
 | **from** | **\DateTime**|  | [optional] |
 | **to** | **\DateTime**| End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
 | **output** | **string**| Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. &#39;flat&#39; returns the same metadata plus &#39;columns&#39; and &#39;rows&#39;; &#39;csv&#39; returns those rows as text/csv. Errors are always returned as JSON. | [optional] |
+| **prompt_type** | **string**| One prompt type or a comma-separated list: informational, navigational, commercial, transactional | [optional] |
+| **brand_kind** | **string**| Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. | [optional] |
+| **range** | **int**| Number of days to look back (alternative to from/to) | [optional] |
 
 ### Return type
 
@@ -251,7 +277,7 @@ try {
 ## `listCompetitorCitations()`
 
 ```php
-listCompetitorCitations($project_id, $competitors, $page, $per_page, $model, $collection_id, $prompt, $from, $to, $output)
+listCompetitorCitations($project_id, $competitors, $page, $per_page, $model, $collection_id, $prompt, $from, $to, $output, $country_code, $language_code, $prompt_type, $brand_kind, $range)
 ```
 
 List competitor citations
@@ -285,9 +311,14 @@ $prompt = 56; // int | Filter by prompt ID
 $from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
 $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
 $output = 'output_example'; // string | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
+$country_code = 'country_code_example'; // string | One ISO country code or a comma-separated list (e.g. US,GB,DE)
+$language_code = 'language_code_example'; // string | One ISO language code or a comma-separated list (e.g. en,es,de)
+$prompt_type = 'prompt_type_example'; // string | One prompt type or a comma-separated list: informational, navigational, commercial, transactional
+$brand_kind = 'brand_kind_example'; // string | Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default.
+$range = 56; // int | Number of days to look back (alternative to from/to)
 
 try {
-    $apiInstance->listCompetitorCitations($project_id, $competitors, $page, $per_page, $model, $collection_id, $prompt, $from, $to, $output);
+    $apiInstance->listCompetitorCitations($project_id, $competitors, $page, $per_page, $model, $collection_id, $prompt, $from, $to, $output, $country_code, $language_code, $prompt_type, $brand_kind, $range);
 } catch (Exception $e) {
     echo 'Exception when calling MentionsCitationsApi->listCompetitorCitations: ', $e->getMessage(), PHP_EOL;
 }
@@ -307,6 +338,11 @@ try {
 | **from** | **\DateTime**|  | [optional] |
 | **to** | **\DateTime**| End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
 | **output** | **string**| Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. &#39;flat&#39; returns the same metadata plus &#39;columns&#39; and &#39;rows&#39;; &#39;csv&#39; returns those rows as text/csv. Errors are always returned as JSON. | [optional] |
+| **country_code** | **string**| One ISO country code or a comma-separated list (e.g. US,GB,DE) | [optional] |
+| **language_code** | **string**| One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |
+| **prompt_type** | **string**| One prompt type or a comma-separated list: informational, navigational, commercial, transactional | [optional] |
+| **brand_kind** | **string**| Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. | [optional] |
+| **range** | **int**| Number of days to look back (alternative to from/to) | [optional] |
 
 ### Return type
 
@@ -328,7 +364,7 @@ void (empty response body)
 ## `listCompetitorMentions()`
 
 ```php
-listCompetitorMentions($project_id, $competitors, $page, $per_page, $model, $collection_id, $prompt, $from, $to, $output): \LLMPulse\Model\CompetitorMentionsResponse
+listCompetitorMentions($project_id, $competitors, $page, $per_page, $model, $collection_id, $prompt, $from, $to, $output, $country_code, $language_code, $prompt_type, $brand_kind, $range): \LLMPulse\Model\CompetitorMentionsResponse
 ```
 
 List competitor mentions
@@ -360,9 +396,14 @@ $prompt = 56; // int | Filter by prompt ID
 $from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
 $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
 $output = 'output_example'; // string | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
+$country_code = 'country_code_example'; // string | One ISO country code or a comma-separated list (e.g. US,GB,DE)
+$language_code = 'language_code_example'; // string | One ISO language code or a comma-separated list (e.g. en,es,de)
+$prompt_type = 'prompt_type_example'; // string | One prompt type or a comma-separated list: informational, navigational, commercial, transactional
+$brand_kind = 'brand_kind_example'; // string | Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default.
+$range = 56; // int | Number of days to look back (alternative to from/to)
 
 try {
-    $result = $apiInstance->listCompetitorMentions($project_id, $competitors, $page, $per_page, $model, $collection_id, $prompt, $from, $to, $output);
+    $result = $apiInstance->listCompetitorMentions($project_id, $competitors, $page, $per_page, $model, $collection_id, $prompt, $from, $to, $output, $country_code, $language_code, $prompt_type, $brand_kind, $range);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MentionsCitationsApi->listCompetitorMentions: ', $e->getMessage(), PHP_EOL;
@@ -383,6 +424,11 @@ try {
 | **from** | **\DateTime**|  | [optional] |
 | **to** | **\DateTime**| End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
 | **output** | **string**| Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. &#39;flat&#39; returns the same metadata plus &#39;columns&#39; and &#39;rows&#39;; &#39;csv&#39; returns those rows as text/csv. Errors are always returned as JSON. | [optional] |
+| **country_code** | **string**| One ISO country code or a comma-separated list (e.g. US,GB,DE) | [optional] |
+| **language_code** | **string**| One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |
+| **prompt_type** | **string**| One prompt type or a comma-separated list: informational, navigational, commercial, transactional | [optional] |
+| **brand_kind** | **string**| Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. | [optional] |
+| **range** | **int**| Number of days to look back (alternative to from/to) | [optional] |
 
 ### Return type
 
@@ -404,7 +450,7 @@ try {
 ## `listMentions()`
 
 ```php
-listMentions($project_id, $page, $per_page, $model, $collection_id, $country_code, $language_code, $prompt, $from, $to, $output): \LLMPulse\Model\MentionsResponse
+listMentions($project_id, $page, $per_page, $model, $collection_id, $country_code, $language_code, $prompt, $from, $to, $output, $prompt_type, $brand_kind, $range): \LLMPulse\Model\MentionsResponse
 ```
 
 List brand mentions
@@ -437,9 +483,12 @@ $prompt = 56; // int | Filter by prompt ID
 $from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
 $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
 $output = 'output_example'; // string | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
+$prompt_type = 'prompt_type_example'; // string | One prompt type or a comma-separated list: informational, navigational, commercial, transactional
+$brand_kind = 'brand_kind_example'; // string | Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default.
+$range = 56; // int | Number of days to look back (alternative to from/to)
 
 try {
-    $result = $apiInstance->listMentions($project_id, $page, $per_page, $model, $collection_id, $country_code, $language_code, $prompt, $from, $to, $output);
+    $result = $apiInstance->listMentions($project_id, $page, $per_page, $model, $collection_id, $country_code, $language_code, $prompt, $from, $to, $output, $prompt_type, $brand_kind, $range);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MentionsCitationsApi->listMentions: ', $e->getMessage(), PHP_EOL;
@@ -461,6 +510,9 @@ try {
 | **from** | **\DateTime**|  | [optional] |
 | **to** | **\DateTime**| End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
 | **output** | **string**| Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. &#39;flat&#39; returns the same metadata plus &#39;columns&#39; and &#39;rows&#39;; &#39;csv&#39; returns those rows as text/csv. Errors are always returned as JSON. | [optional] |
+| **prompt_type** | **string**| One prompt type or a comma-separated list: informational, navigational, commercial, transactional | [optional] |
+| **brand_kind** | **string**| Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. | [optional] |
+| **range** | **int**| Number of days to look back (alternative to from/to) | [optional] |
 
 ### Return type
 

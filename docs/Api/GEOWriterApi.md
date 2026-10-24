@@ -160,7 +160,7 @@ $apiInstance = new LLMPulse\Api\GEOWriterApi(
 );
 $project_id = 56; // int | Project ID
 $task_type = 'task_type_example'; // string
-$status = 'status_example'; // string
+$status = 'status_example'; // string | Keep only the tasks in this status. Discarded tasks are never listed, so discarded returns an empty page.
 $page = 1; // int
 $per_page = 20; // int
 
@@ -178,7 +178,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **project_id** | **int**| Project ID | |
 | **task_type** | **string**|  | [optional] |
-| **status** | **string**|  | [optional] |
+| **status** | **string**| Keep only the tasks in this status. Discarded tasks are never listed, so discarded returns an empty page. | [optional] |
 | **page** | **int**|  | [optional] [default to 1] |
 | **per_page** | **int**|  | [optional] [default to 20] |
 

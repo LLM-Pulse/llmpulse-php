@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **status** | **string** |  |
 **status_changed_at** | **\DateTime** |  | [optional]
 **position** | **int** |  |
-**metadata** | **array<string,mixed>** |  | [optional]
+**metadata** | **array<string,mixed>** | Free-form details. Carries effort (low, medium or high) when the generator rated it, archive_reason (not_relevant, too_complex or competitor) on an item archived with a reason, and domain on PR &amp; Citation Building items. | [optional]
 **created_at** | **\DateTime** |  |
 **updated_at** | **\DateTime** |  |
 **resolved_source_refs** | **array<string,mixed>[]** | The evidence each source_refs code points to (prompt, citation or own page) | [optional]

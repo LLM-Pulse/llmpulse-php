@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **country_code** | **string** |  | [optional]
 **cadence** | **string** |  | [optional]
 **status** | **string** |  | [optional]
-**paused_reason** | **string** | user, or unreachable when three runs in a row could not reach the site | [optional]
+**paused_reason** | **string** | Null unless status is paused. user (paused by hand), unreachable (three runs in a row could not reach the site) or quota (the account has more active recurring audits than its plan allows; resume it once there is room) | [optional]
 **schedule** | [**\LLMPulse\Model\GeoAuditSchedule**](GeoAuditSchedule.md) |  | [optional]
 **next_run_at** | **\DateTime** |  | [optional]
 **email_alerts** | **bool** |  | [optional]

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **schedule** | [**\LLMPulse\Model\CustomReportSchedule**](CustomReportSchedule.md) |  |
 **recipients_count** | **int** |  |
 **published** | **bool** | Whether the shared link is published |
-**public_link_active** | **bool** | Whether the shared link opens (published and not made inside a client portal) |
+**public_link_active** | **bool** | Whether the shared link opens (published, not made inside a client portal, and the account is active on the Scale tier or higher) |
 **password_protected** | **bool** |  |
 **portal_only** | **bool** | Made inside a client portal, so it cannot be shared or emailed |
 **widget_count** | **int** |  |

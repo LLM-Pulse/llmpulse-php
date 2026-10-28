@@ -191,6 +191,7 @@ docs/Model/ProjectCreateResponseEmailSubscription.md
 docs/Model/ProjectCreateResponseLimits.md
 docs/Model/ProjectCreateResponsePrompts.md
 docs/Model/ProjectCreateResponseSameDomainProjectsInner.md
+docs/Model/ProjectDeleteResponse.md
 docs/Model/ProjectDetails.md
 docs/Model/ProjectDetailsAllOfAgentTraffic.md
 docs/Model/ProjectDetailsAllOfAiTraffic.md
@@ -496,6 +497,7 @@ lib/Model/ProjectCreateResponseEmailSubscription.php
 lib/Model/ProjectCreateResponseLimits.php
 lib/Model/ProjectCreateResponsePrompts.php
 lib/Model/ProjectCreateResponseSameDomainProjectsInner.php
+lib/Model/ProjectDeleteResponse.php
 lib/Model/ProjectDetails.php
 lib/Model/ProjectDetailsAllOfAgentTraffic.php
 lib/Model/ProjectDetailsAllOfAiTraffic.php

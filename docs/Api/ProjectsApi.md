@@ -1,6 +1,6 @@
 # LLMPulse\ProjectsApi
 
-A project is one tracked brand. List and read projects, see which AI models and locales have data, create a project in one call, or drive the multi-step draft wizard.
+A project is one tracked brand. List and read projects, see which AI models and locales have data, create a project in one call or through the multi-step draft wizard, update its profile, or delete it.
 
 All URIs are relative to https://api.llmpulse.ai/api/v1, except if the operation defines another base path.
 
@@ -8,6 +8,7 @@ All URIs are relative to https://api.llmpulse.ai/api/v1, except if the operation
 | ------------- | ------------- | ------------- |
 | [**createProject()**](ProjectsApi.md#createProject) | **POST** /projects | Create a project (fast mode) |
 | [**createProjectDraft()**](ProjectsApi.md#createProjectDraft) | **POST** /project_drafts | Start a project draft (wizard step 1) |
+| [**deleteProject()**](ProjectsApi.md#deleteProject) | **DELETE** /projects/{id} | Delete a project |
 | [**finalizeProjectDraft()**](ProjectsApi.md#finalizeProjectDraft) | **POST** /project_drafts/{id}/finalize | Finalize a draft into a real project |
 | [**getProjectDetails()**](ProjectsApi.md#getProjectDetails) | **GET** /dimensions/projects/{id} | Project details |
 | [**getProjectDraft()**](ProjectsApi.md#getProjectDraft) | **GET** /project_drafts/{id} | Read a project draft |
@@ -131,6 +132,66 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteProject()`
+
+```php
+deleteProject($id): \LLMPulse\Model\ProjectDeleteResponse
+```
+
+Delete a project
+
+Deletes a project, like Delete Project in Project Settings, and cannot be undone. The project disappears at once from the app, GET /dimensions/projects and every other endpoint, and frees a project slot; a background job then deletes its prompts, answers, mentions, citations, sentiment, competitors and metrics history. API keys limited to it lose it, and a key left with no project is revoked. A project that is already being deleted, or that the key cannot see, answers ERR_PROJECT_NOT_FOUND. Requires an account-wide `read_write` scope API key: a key limited to some projects answers ERR_KEY_PROJECT_SCOPED. A team member needs permission to delete projects.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: BearerAuth
+$config = LLMPulse\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new LLMPulse\Api\ProjectsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int
+
+try {
+    $result = $apiInstance->deleteProject($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProjectsApi->deleteProject: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**|  | |
+
+### Return type
+
+[**\LLMPulse\Model\ProjectDeleteResponse**](../Model/ProjectDeleteResponse.md)
+
+### Authorization
+
+[BearerAuth](../../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

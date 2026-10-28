@@ -6,6 +6,7 @@ README.md
 composer.json
 docs/Api/AIAgentTrafficApi.md
 docs/Api/AIModelInsightsApi.md
+docs/Api/APIKeysApi.md
 docs/Api/AccountApi.md
 docs/Api/AnnotationsApi.md
 docs/Api/AnswersApi.md
@@ -49,6 +50,7 @@ docs/Model/AnswerDetails.md
 docs/Model/AnswerDetailsLocale.md
 docs/Model/ApiError.md
 docs/Model/ApiErrorError.md
+docs/Model/ApiKeyInfo.md
 docs/Model/AssignPromptTagsRequest.md
 docs/Model/CatalogProduct.md
 docs/Model/CatalogPromptSuggestion.md
@@ -77,6 +79,8 @@ docs/Model/CompetitorMentionsResponse.md
 docs/Model/CompetitorSuggestion.md
 docs/Model/CompetitorSuggestionsResponse.md
 docs/Model/CreateAnnotationRequest.md
+docs/Model/CreateApiKey201Response.md
+docs/Model/CreateApiKeyRequest.md
 docs/Model/CreateCollectionRequest.md
 docs/Model/CreateCompetitorRequest.md
 docs/Model/CreateProjectDraftRequest.md
@@ -133,6 +137,7 @@ docs/Model/IntelligenceTaskUpdateRequest.md
 docs/Model/IntelligenceTaskUpdateResponse.md
 docs/Model/IntelligenceTasksResponse.md
 docs/Model/LaunchRecommendationsRequest.md
+docs/Model/ListApiKeys200Response.md
 docs/Model/ListCompetitors200Response.md
 docs/Model/ListProjects200Response.md
 docs/Model/ListTeamInvitations200Response.md
@@ -224,6 +229,7 @@ docs/Model/RecommendationSummarySummary.md
 docs/Model/RecommendationsResponse.md
 docs/Model/RemovePromptTagsRequest.md
 docs/Model/RemoveTeamMember200Response.md
+docs/Model/RevokeApiKey200Response.md
 docs/Model/RevokeTeamInvitation200Response.md
 docs/Model/SampleWebhookPayloads200Response.md
 docs/Model/SampleWebhookPayloads200ResponseDataInner.md
@@ -300,6 +306,7 @@ docs/Model/WebAnalyticsSchemaResponse.md
 git_push.sh
 lib/Api/AIAgentTrafficApi.php
 lib/Api/AIModelInsightsApi.php
+lib/Api/APIKeysApi.php
 lib/Api/AccountApi.php
 lib/Api/AnnotationsApi.php
 lib/Api/AnswersApi.php
@@ -347,6 +354,7 @@ lib/Model/AnswerDetails.php
 lib/Model/AnswerDetailsLocale.php
 lib/Model/ApiError.php
 lib/Model/ApiErrorError.php
+lib/Model/ApiKeyInfo.php
 lib/Model/AssignPromptTagsRequest.php
 lib/Model/CatalogProduct.php
 lib/Model/CatalogPromptSuggestion.php
@@ -375,6 +383,8 @@ lib/Model/CompetitorMentionsResponse.php
 lib/Model/CompetitorSuggestion.php
 lib/Model/CompetitorSuggestionsResponse.php
 lib/Model/CreateAnnotationRequest.php
+lib/Model/CreateApiKey201Response.php
+lib/Model/CreateApiKeyRequest.php
 lib/Model/CreateCollectionRequest.php
 lib/Model/CreateCompetitorRequest.php
 lib/Model/CreateProjectDraftRequest.php
@@ -431,6 +441,7 @@ lib/Model/IntelligenceTaskUpdateRequest.php
 lib/Model/IntelligenceTaskUpdateResponse.php
 lib/Model/IntelligenceTasksResponse.php
 lib/Model/LaunchRecommendationsRequest.php
+lib/Model/ListApiKeys200Response.php
 lib/Model/ListCompetitors200Response.php
 lib/Model/ListProjects200Response.php
 lib/Model/ListTeamInvitations200Response.php
@@ -523,6 +534,7 @@ lib/Model/RecommendationSummarySummary.php
 lib/Model/RecommendationsResponse.php
 lib/Model/RemovePromptTagsRequest.php
 lib/Model/RemoveTeamMember200Response.php
+lib/Model/RevokeApiKey200Response.php
 lib/Model/RevokeTeamInvitation200Response.php
 lib/Model/SampleWebhookPayloads200Response.php
 lib/Model/SampleWebhookPayloads200ResponseDataInner.php

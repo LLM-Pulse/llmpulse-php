@@ -338,7 +338,7 @@ listRedditCitations($project_id, $page, $per_page, $view, $subreddit, $author, $
 
 List cited Reddit content
 
-Which Reddit content AI answers cite for your tracked prompts. view=subreddits (default) returns one row per subreddit with its citation count, unique authors and positive/negative sentiment split; view=authors returns one row per author; view=threads returns the individual cited threads with upvotes, comments, average position and dominant sentiment. Requires the Growth plan or above.
+Which Reddit content AI answers cite for your tracked prompts. view=subreddits (default) returns one row per subreddit with its citation count, unique authors and positive/negative sentiment split; view=authors returns one row per author; view=threads returns the individual cited threads with upvotes, comments, average position and dominant sentiment. view=breakdowns returns the figures behind Reddit Intelligence > Sentiment and breakdowns: citations is the number of Reddit citations after the filters, and each row is one slice, with breakdown (sentiment, model or country), key, count and pct, the share within its breakdown as the page charts it. Sentiment is that of the AI answer that cited Reddit, with all five labels (very_positive to very_negative) listed, zero included; order and direction do not apply. Requires the Growth plan or above.
 
 ### Example
 
@@ -366,7 +366,7 @@ $author = 'author_example'; // string | Filter to one Reddit author
 $status = 'status_example'; // string | view=threads only
 $owned = True; // bool | Return only subreddits/authors the account has claimed as its own
 $brand = 'brand_example'; // string | Filter to citations whose scraped Reddit content mentions a brand: 'brand' for the tracked brand, or a competitor id. Reads the page content, not the AI answer.
-$order = 'order_example'; // string | Sort field; the allowed set depends on view
+$order = 'order_example'; // string | Sort field; the allowed set depends on view, and view=breakdowns accepts none
 $direction = 'desc'; // string
 $model = 'model_example'; // string | Filter by one AI model. It must be a model enabled for the API key's user: an unknown value, or a model the user has not enabled, returns 422 ERR_INVALID_PARAM with the valid values in the message.
 $collection_id = 12,34; // string | One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
@@ -398,7 +398,7 @@ try {
 | **status** | **string**| view&#x3D;threads only | [optional] |
 | **owned** | **bool**| Return only subreddits/authors the account has claimed as its own | [optional] |
 | **brand** | **string**| Filter to citations whose scraped Reddit content mentions a brand: &#39;brand&#39; for the tracked brand, or a competitor id. Reads the page content, not the AI answer. | [optional] |
-| **order** | **string**| Sort field; the allowed set depends on view | [optional] |
+| **order** | **string**| Sort field; the allowed set depends on view, and view&#x3D;breakdowns accepts none | [optional] |
 | **direction** | **string**|  | [optional] [default to &#39;desc&#39;] |
 | **model** | **string**| Filter by one AI model. It must be a model enabled for the API key&#39;s user: an unknown value, or a model the user has not enabled, returns 422 ERR_INVALID_PARAM with the valid values in the message. | [optional] |
 | **collection_id** | **string**| One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. | [optional] |

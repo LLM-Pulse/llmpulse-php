@@ -11,5 +11,6 @@ Name | Type | Description | Notes
 **team_members** | [**\LLMPulse\Model\AccountCapacity**](AccountCapacity.md) |  | [optional]
 **recurring_geo_audits** | [**\LLMPulse\Model\AccountQuota**](AccountQuota.md) |  | [optional]
 **geo_audit_manual_runs** | [**\LLMPulse\Model\AccountQuota**](AccountQuota.md) |  | [optional]
+**pitch_projects** | [**\LLMPulse\Model\AccountPitchQuota**](AccountPitchQuota.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

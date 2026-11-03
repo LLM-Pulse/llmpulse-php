@@ -14,12 +14,12 @@ All URIs are relative to https://api.llmpulse.ai/api/v1, except if the operation
 ## `getAiModelInsightsSummary()`
 
 ```php
-getAiModelInsightsSummary($project_id, $range, $from, $to, $granularity, $collection_id, $country_code, $language_code, $prompt_type, $brand_kind, $competitors)
+getAiModelInsightsSummary($project_id, $range, $from, $to, $granularity, $collection_id, $country_code, $language_code, $prompt_type, $brand_kind, $competitors): \LLMPulse\Model\AiModelInsightsSummaryResponse
 ```
 
 AI Model Insights summary
 
-Per-model mentions, citations, brand net sentiment with raw counts, weighted visibility totals/shares, plus actor matrices. All actor entries use the standard shape `{ type, id, competitor_id, name, domain }` with bare (scheme-less) domains.
+Per-model mentions, citations, brand net sentiment with raw counts, weighted visibility totals/shares, plus actor matrices. All actor entries use the standard shape `{ type, id, competitor_id, name, domain }` with bare (scheme-less) domains. Rows cover the AI models the account has enabled or that answered in the window. A share, net sentiment or market share value with nothing behind it is null; counts, totals and weighted visibility scores stay 0.
 
 ### Example
 
@@ -51,7 +51,8 @@ $brand_kind = 'brand_kind_example'; // string | Filter by brand kind: brand (own
 $competitors = 'competitors_example'; // string | Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM)
 
 try {
-    $apiInstance->getAiModelInsightsSummary($project_id, $range, $from, $to, $granularity, $collection_id, $country_code, $language_code, $prompt_type, $brand_kind, $competitors);
+    $result = $apiInstance->getAiModelInsightsSummary($project_id, $range, $from, $to, $granularity, $collection_id, $country_code, $language_code, $prompt_type, $brand_kind, $competitors);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AIModelInsightsApi->getAiModelInsightsSummary: ', $e->getMessage(), PHP_EOL;
 }
@@ -75,7 +76,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\AiModelInsightsSummaryResponse**](../Model/AiModelInsightsSummaryResponse.md)
 
 ### Authorization
 
@@ -84,7 +85,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

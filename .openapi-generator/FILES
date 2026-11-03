@@ -32,6 +32,7 @@ docs/Api/TeamApi.md
 docs/Api/TechnicalGEOReportsApi.md
 docs/Api/WebhooksApi.md
 docs/Model/AccountCapacity.md
+docs/Model/AccountExecutionQuota.md
 docs/Model/AccountPitchQuota.md
 docs/Model/AccountQuota.md
 docs/Model/Actor.md
@@ -360,6 +361,7 @@ lib/Configuration.php
 lib/FormDataProcessor.php
 lib/HeaderSelector.php
 lib/Model/AccountCapacity.php
+lib/Model/AccountExecutionQuota.php
 lib/Model/AccountPitchQuota.php
 lib/Model/AccountQuota.php
 lib/Model/Actor.php

@@ -41,8 +41,8 @@ $apiInstance = new LLMPulse\Api\MetricsApi(
     $config
 );
 $project_id = 56; // int | Project ID
-$range = 56; // int | Number of days to look back (alternative to from/to)
-$from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
+$range = 56; // int | Number of days to look back, today included. Required unless from is given: a request with neither range nor from returns 422 ERR_INVALID_PARAM.
+$from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | Start of the window, instead of range (to then defaults to the end of today). Required unless range is given.
 $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
 $breakdown = 'breakdown_example'; // string | Add per-(prompt, model) rows to the output
 $model = 'model_example'; // string | Filter by one AI model. It must be a model enabled for the API key's user: an unknown value, or a model the user has not enabled, returns 422 ERR_INVALID_PARAM with the valid values in the message. The legacy values google-ai-mode and google-ai-overview are also accepted, as ai_mode and ai_overview.
@@ -71,8 +71,8 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **project_id** | **int**| Project ID | |
-| **range** | **int**| Number of days to look back (alternative to from/to) | [optional] |
-| **from** | **\DateTime**|  | [optional] |
+| **range** | **int**| Number of days to look back, today included. Required unless from is given: a request with neither range nor from returns 422 ERR_INVALID_PARAM. | [optional] |
+| **from** | **\DateTime**| Start of the window, instead of range (to then defaults to the end of today). Required unless range is given. | [optional] |
 | **to** | **\DateTime**| End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
 | **breakdown** | **string**| Add per-(prompt, model) rows to the output | [optional] |
 | **model** | **string**| Filter by one AI model. It must be a model enabled for the API key&#39;s user: an unknown value, or a model the user has not enabled, returns 422 ERR_INVALID_PARAM with the valid values in the message. The legacy values google-ai-mode and google-ai-overview are also accepted, as ai_mode and ai_overview. | [optional] |
@@ -133,8 +133,8 @@ $apiInstance = new LLMPulse\Api\MetricsApi(
     $config
 );
 $project_id = 56; // int | Project ID
-$range = 56; // int | Number of days to look back (alternative to from/to)
-$from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
+$range = 56; // int | Number of days to look back, today included. Required unless from is given: a request with neither range nor from returns 422 ERR_INVALID_PARAM.
+$from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | Start of the window, instead of range (to then defaults to the end of today). Required unless range is given.
 $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
 $granularity = 'granularity_example'; // string
 $competitors = 'competitors_example'; // string | Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM)
@@ -162,8 +162,8 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **project_id** | **int**| Project ID | |
-| **range** | **int**| Number of days to look back (alternative to from/to) | [optional] |
-| **from** | **\DateTime**|  | [optional] |
+| **range** | **int**| Number of days to look back, today included. Required unless from is given: a request with neither range nor from returns 422 ERR_INVALID_PARAM. | [optional] |
+| **from** | **\DateTime**| Start of the window, instead of range (to then defaults to the end of today). Required unless range is given. | [optional] |
 | **to** | **\DateTime**| End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
 | **granularity** | **string**|  | [optional] |
 | **competitors** | **string**| Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM) | [optional] |
@@ -225,8 +225,8 @@ $apiInstance = new LLMPulse\Api\MetricsApi(
 $project_id = 56; // int | Project ID
 $metrics = 'metrics_example'; // string | Comma-separated list of metrics: mentions, citations, responses, mention_rate, visibility (alias for mention_rate), weighted_visibility, ai_visibility_score (alias for weighted_visibility), citation_rate, avg_position, avg_mention_position, net_sentiment, sentiment_very_positive, sentiment_positive, sentiment_neutral, sentiment_negative, sentiment_very_negative. Citations and citation_rate include visible citations and background source references; avg_position uses visible citations only.
 $granularity = 'granularity_example'; // string
-$range = 56; // int | Number of days to look back (alternative to from/to)
-$from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
+$range = 56; // int | Number of days to look back, today included. Required unless from is given: a request with neither range nor from returns 422 ERR_INVALID_PARAM.
+$from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | Start of the window, instead of range (to then defaults to the end of today). Required unless range is given.
 $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
 $competitors = 'competitors_example'; // string | Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM)
 $model = 'model_example'; // string | Filter by one AI model. It must be a model enabled for the API key's user: an unknown value, or a model the user has not enabled, returns 422 ERR_INVALID_PARAM with the valid values in the message. The legacy values google-ai-mode and google-ai-overview are also accepted, as ai_mode and ai_overview.
@@ -254,8 +254,8 @@ try {
 | **project_id** | **int**| Project ID | |
 | **metrics** | **string**| Comma-separated list of metrics: mentions, citations, responses, mention_rate, visibility (alias for mention_rate), weighted_visibility, ai_visibility_score (alias for weighted_visibility), citation_rate, avg_position, avg_mention_position, net_sentiment, sentiment_very_positive, sentiment_positive, sentiment_neutral, sentiment_negative, sentiment_very_negative. Citations and citation_rate include visible citations and background source references; avg_position uses visible citations only. | [optional] |
 | **granularity** | **string**|  | [optional] |
-| **range** | **int**| Number of days to look back (alternative to from/to) | [optional] |
-| **from** | **\DateTime**|  | [optional] |
+| **range** | **int**| Number of days to look back, today included. Required unless from is given: a request with neither range nor from returns 422 ERR_INVALID_PARAM. | [optional] |
+| **from** | **\DateTime**| Start of the window, instead of range (to then defaults to the end of today). Required unless range is given. | [optional] |
 | **to** | **\DateTime**| End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
 | **competitors** | **string**| Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM) | [optional] |
 | **model** | **string**| Filter by one AI model. It must be a model enabled for the API key&#39;s user: an unknown value, or a model the user has not enabled, returns 422 ERR_INVALID_PARAM with the valid values in the message. The legacy values google-ai-mode and google-ai-overview are also accepted, as ai_mode and ai_overview. | [optional] |
@@ -315,8 +315,8 @@ $apiInstance = new LLMPulse\Api\MetricsApi(
 $project_id = 56; // int | Project ID
 $metrics = 'metrics_example'; // string | Comma-separated list of metrics: mentions, citations, responses, mention_rate, visibility (alias for mention_rate), weighted_visibility, ai_visibility_score (alias for weighted_visibility), citation_rate, avg_position, avg_mention_position, net_sentiment, sentiment_very_positive, sentiment_positive, sentiment_neutral, sentiment_negative, sentiment_very_negative. Citations and citation_rate include visible citations and background source references; avg_position uses visible citations only.
 $granularity = 'granularity_example'; // string
-$range = 56; // int | Number of days to look back (alternative to from/to)
-$from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
+$range = 56; // int | Number of days to look back, today included. Required unless from is given: a request with neither range nor from returns 422 ERR_INVALID_PARAM.
+$from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | Start of the window, instead of range (to then defaults to the end of today). Required unless range is given.
 $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
 $competitors = 'competitors_example'; // string | Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM)
 $model = 'model_example'; // string | Filter by one AI model. It must be a model enabled for the API key's user: an unknown value, or a model the user has not enabled, returns 422 ERR_INVALID_PARAM with the valid values in the message. The legacy values google-ai-mode and google-ai-overview are also accepted, as ai_mode and ai_overview.
@@ -344,8 +344,8 @@ try {
 | **project_id** | **int**| Project ID | |
 | **metrics** | **string**| Comma-separated list of metrics: mentions, citations, responses, mention_rate, visibility (alias for mention_rate), weighted_visibility, ai_visibility_score (alias for weighted_visibility), citation_rate, avg_position, avg_mention_position, net_sentiment, sentiment_very_positive, sentiment_positive, sentiment_neutral, sentiment_negative, sentiment_very_negative. Citations and citation_rate include visible citations and background source references; avg_position uses visible citations only. | [optional] |
 | **granularity** | **string**|  | [optional] |
-| **range** | **int**| Number of days to look back (alternative to from/to) | [optional] |
-| **from** | **\DateTime**|  | [optional] |
+| **range** | **int**| Number of days to look back, today included. Required unless from is given: a request with neither range nor from returns 422 ERR_INVALID_PARAM. | [optional] |
+| **from** | **\DateTime**| Start of the window, instead of range (to then defaults to the end of today). Required unless range is given. | [optional] |
 | **to** | **\DateTime**| End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
 | **competitors** | **string**| Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM) | [optional] |
 | **model** | **string**| Filter by one AI model. It must be a model enabled for the API key&#39;s user: an unknown value, or a model the user has not enabled, returns 422 ERR_INVALID_PARAM with the valid values in the message. The legacy values google-ai-mode and google-ai-overview are also accepted, as ai_mode and ai_overview. | [optional] |
@@ -403,8 +403,8 @@ $apiInstance = new LLMPulse\Api\MetricsApi(
     $config
 );
 $project_id = 56; // int | Project ID
-$range = 56; // int | Number of days to look back (alternative to from/to)
-$from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
+$range = 56; // int | Number of days to look back, today included. Required unless from is given: a request with neither range nor from returns 422 ERR_INVALID_PARAM.
+$from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | Start of the window, instead of range (to then defaults to the end of today). Required unless range is given.
 $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
 $model = 'model_example'; // string | Filter by one AI model. It must be a model enabled for the API key's user: an unknown value, or a model the user has not enabled, returns 422 ERR_INVALID_PARAM with the valid values in the message. The legacy values google-ai-mode and google-ai-overview are also accepted, as ai_mode and ai_overview.
 $collection_id = 12,34; // string | One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
@@ -434,8 +434,8 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **project_id** | **int**| Project ID | |
-| **range** | **int**| Number of days to look back (alternative to from/to) | [optional] |
-| **from** | **\DateTime**|  | [optional] |
+| **range** | **int**| Number of days to look back, today included. Required unless from is given: a request with neither range nor from returns 422 ERR_INVALID_PARAM. | [optional] |
+| **from** | **\DateTime**| Start of the window, instead of range (to then defaults to the end of today). Required unless range is given. | [optional] |
 | **to** | **\DateTime**| End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
 | **model** | **string**| Filter by one AI model. It must be a model enabled for the API key&#39;s user: an unknown value, or a model the user has not enabled, returns 422 ERR_INVALID_PARAM with the valid values in the message. The legacy values google-ai-mode and google-ai-overview are also accepted, as ai_mode and ai_overview. | [optional] |
 | **collection_id** | **string**| One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. | [optional] |

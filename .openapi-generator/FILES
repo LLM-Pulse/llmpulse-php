@@ -89,6 +89,13 @@ docs/Model/CatalogPromptSuggestionsResponse.md
 docs/Model/CitationMatchMode.md
 docs/Model/CitationRecord.md
 docs/Model/CitationsResponse.md
+docs/Model/CmsContentItem.md
+docs/Model/CmsContentItemResponse.md
+docs/Model/CmsContentListResponse.md
+docs/Model/CmsContentSummary.md
+docs/Model/CmsPublication.md
+docs/Model/CmsSendResponse.md
+docs/Model/CmsSite.md
 docs/Model/CollectionCreateResponse.md
 docs/Model/CollectionCreateResponseCollection.md
 docs/Model/CollectionsResponse.md
@@ -429,6 +436,13 @@ lib/Model/CatalogPromptSuggestionsResponse.php
 lib/Model/CitationMatchMode.php
 lib/Model/CitationRecord.php
 lib/Model/CitationsResponse.php
+lib/Model/CmsContentItem.php
+lib/Model/CmsContentItemResponse.php
+lib/Model/CmsContentListResponse.php
+lib/Model/CmsContentSummary.php
+lib/Model/CmsPublication.php
+lib/Model/CmsSendResponse.php
+lib/Model/CmsSite.php
 lib/Model/CollectionCreateResponse.php
 lib/Model/CollectionCreateResponseCollection.php
 lib/Model/CollectionsResponse.php

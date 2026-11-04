@@ -82,7 +82,7 @@ getOwnedMediaSummary($project_id, $provider, $model, $collection_id, $country_co
 
 Get an owned-media summary
 
-The numbers behind one Owned Media tab. kpis gives the platform citations (total), yours (your profiles and their content), your_profile and your_content apart, and share_pct; previous gives the same KPIs for the period of the same length that ends just before from, and changes the difference (percent for counts, percentage points for share_pct, null when there is nothing to compare). weekly is the citations per week, yours against everyone else. by_model and by_country split every citation of the platform; content_types (reel, post, tv, pulse, or regular, shorts and live on YouTube) and age_buckets cover posts and videos. provider=mobile_apps adds stores, the per-store totals, and has no content type or age; provider=overview returns platforms, one rollup per platform the caller can read, and no breakdowns. A team member also needs the YouTube Intelligence permission for provider=youtube. Defaults to the last 30 days. Requires the Growth plan or above.
+The numbers behind one Owned Media tab. kpis gives platform citations (total), yours (the account's own profiles and content), your_profile and your_content separately where available, and share_pct; previous gives the same KPIs for the period of the same length that ends just before from, and changes gives the difference (percent for counts, percentage points for share_pct and positive_pct, null when there is nothing to compare). weekly remains the Monday-anchored series. Every provider returns activity by actual project reporting period, with date at the period start, citations, yours and other; yours and other are null for provider=overview. The overview also includes each readable platform's activity under platforms, with date and citations. Periods without runs are omitted, and a period with runs but no citation has zero. Activity counts use the selected date window. by_model and by_country split citations; content_types (reel, post, tv, pulse, or regular, shorts and live on YouTube) and age_buckets cover posts and videos. provider=mobile_apps adds stores and per-store totals; provider=overview returns one rollup per readable platform. provider=reddit adds unique_subreddits, unique_authors, positive_pct, and positive, neutral and negative sentiment counts in activity for the citing AI answers, plus subreddit_activity for the top five subreddits and Others, positions and brand_share. A team member also needs the YouTube Intelligence permission for provider=youtube or Reddit Intelligence for provider=reddit. Defaults to the last 30 days. Requires the Growth plan or above.
 
 ### Example
 
@@ -160,7 +160,7 @@ listOwnedMedia($project_id, $provider, $page, $per_page, $view, $store, $owned, 
 
 List owned-media citations
 
-Which owned-media content AI answers cite, by platform. `provider` is required. Each row carries a `yours` flag so you can compare your own presence against everyone else cited on the same platform. Video, post, channel and profile rows also carry their image (thumbnail_url or avatar_url, our cached copy where one exists), their average position in the answers and, on YouTube, the video id, the channel handle and URL, and the channel key that /dimensions/owned_media/citing_prompts accepts. view=own_citations returns the raw citations of the connected profile only and stays empty until a profile is connected. For Reddit use /dimensions/reddit. A team member also needs the YouTube Intelligence permission for provider=youtube. Requires the Growth plan or above.
+Which owned-media content AI answers cite, by platform. `provider` is required. Each row carries a `yours` flag so you can compare your own presence against everyone else cited on the same platform. Video, post, channel and profile rows also carry their image (thumbnail_url or avatar_url, our cached copy where one exists), their average position in the answers and, on YouTube, the video id, the channel handle and URL, and the channel key that /dimensions/owned_media/citing_prompts accepts. `view=activity` returns one row per entity and actual reporting period; periods without runs are omitted, while a run without a citation has a real zero. Its citation counts cover the selected date window; profile, channel and app metadata are current values, not historical growth. For provider=mobile_apps, select the store with `store`. `view=own_citations` returns the raw citations of the connected profile only and stays empty until a profile is connected. For Reddit use /dimensions/owned_media/summary?provider=reddit for the summary and /dimensions/reddit for cited-content tables. A team member also needs the YouTube Intelligence permission for provider=youtube. Requires the Growth plan or above.
 
 ### Example
 
@@ -183,7 +183,7 @@ $project_id = 56; // int | Project ID
 $provider = 'provider_example'; // string | The platform to report on
 $page = 1; // int
 $per_page = 20; // int
-$view = 'view_example'; // string | Row shape; the allowed set depends on provider
+$view = 'view_example'; // string | Row shape; the allowed set depends on provider, and activity is available for each provider
 $store = 'google_play'; // string | provider=mobile_apps only
 $owned = True; // bool | Return only rows belonging to the account's own connected profile
 $model = 'model_example'; // string | Filter by one AI model. It must be a model enabled for the API key's user: an unknown value, or a model the user has not enabled, returns 422 ERR_INVALID_PARAM with the valid values in the message.
@@ -212,7 +212,7 @@ try {
 | **provider** | **string**| The platform to report on | |
 | **page** | **int**|  | [optional] [default to 1] |
 | **per_page** | **int**|  | [optional] [default to 20] |
-| **view** | **string**| Row shape; the allowed set depends on provider | [optional] |
+| **view** | **string**| Row shape; the allowed set depends on provider, and activity is available for each provider | [optional] |
 | **store** | **string**| provider&#x3D;mobile_apps only | [optional] [default to &#39;google_play&#39;] |
 | **owned** | **bool**| Return only rows belonging to the account&#39;s own connected profile | [optional] |
 | **model** | **string**| Filter by one AI model. It must be a model enabled for the API key&#39;s user: an unknown value, or a model the user has not enabled, returns 422 ERR_INVALID_PARAM with the valid values in the message. | [optional] |

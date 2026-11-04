@@ -195,6 +195,7 @@ docs/Model/OwnedMediaKpiChanges.md
 docs/Model/OwnedMediaKpis.md
 docs/Model/OwnedMediaListResponse.md
 docs/Model/OwnedMediaModelShare.md
+docs/Model/OwnedMediaPlatformActivityPeriod.md
 docs/Model/OwnedMediaPlatformProfiles.md
 docs/Model/OwnedMediaPlatformRollup.md
 docs/Model/OwnedMediaPlatformRollupWeeklyInner.md
@@ -204,6 +205,7 @@ docs/Model/OwnedMediaProfilesResponse.md
 docs/Model/OwnedMediaProfilesUpdateResponse.md
 docs/Model/OwnedMediaRow.md
 docs/Model/OwnedMediaStoreTotals.md
+docs/Model/OwnedMediaSummaryActivityPeriod.md
 docs/Model/OwnedMediaSummaryResponse.md
 docs/Model/OwnedMediaSummaryResponsePrevious.md
 docs/Model/OwnedMediaWeek.md
@@ -259,6 +261,9 @@ docs/Model/RecommendationItemUpdateResponse.md
 docs/Model/RecommendationSummary.md
 docs/Model/RecommendationSummarySummary.md
 docs/Model/RecommendationsResponse.md
+docs/Model/RedditBrandShare.md
+docs/Model/RedditPositionShare.md
+docs/Model/RedditSubredditActivityPeriod.md
 docs/Model/RemovePromptTagsRequest.md
 docs/Model/RemoveTeamMember200Response.md
 docs/Model/RevokeApiKey200Response.md
@@ -543,6 +548,7 @@ lib/Model/OwnedMediaKpiChanges.php
 lib/Model/OwnedMediaKpis.php
 lib/Model/OwnedMediaListResponse.php
 lib/Model/OwnedMediaModelShare.php
+lib/Model/OwnedMediaPlatformActivityPeriod.php
 lib/Model/OwnedMediaPlatformProfiles.php
 lib/Model/OwnedMediaPlatformRollup.php
 lib/Model/OwnedMediaPlatformRollupWeeklyInner.php
@@ -552,6 +558,7 @@ lib/Model/OwnedMediaProfilesResponse.php
 lib/Model/OwnedMediaProfilesUpdateResponse.php
 lib/Model/OwnedMediaRow.php
 lib/Model/OwnedMediaStoreTotals.php
+lib/Model/OwnedMediaSummaryActivityPeriod.php
 lib/Model/OwnedMediaSummaryResponse.php
 lib/Model/OwnedMediaSummaryResponsePrevious.php
 lib/Model/OwnedMediaWeek.php
@@ -607,6 +614,9 @@ lib/Model/RecommendationItemUpdateResponse.php
 lib/Model/RecommendationSummary.php
 lib/Model/RecommendationSummarySummary.php
 lib/Model/RecommendationsResponse.php
+lib/Model/RedditBrandShare.php
+lib/Model/RedditPositionShare.php
+lib/Model/RedditSubredditActivityPeriod.php
 lib/Model/RemovePromptTagsRequest.php
 lib/Model/RemoveTeamMember200Response.php
 lib/Model/RevokeApiKey200Response.php

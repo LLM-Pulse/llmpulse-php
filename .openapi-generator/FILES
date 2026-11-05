@@ -114,6 +114,7 @@ docs/Model/CreateApiKeyRequest.md
 docs/Model/CreateCollectionRequest.md
 docs/Model/CreateCompetitorRequest.md
 docs/Model/CreateProjectDraftRequest.md
+docs/Model/CreateReputationReportRequest.md
 docs/Model/CreateTeamInvitation201Response.md
 docs/Model/CreateTeamInvitationRequest.md
 docs/Model/CreateTechnicalGeoReportsRequest.md
@@ -266,6 +267,8 @@ docs/Model/RedditPositionShare.md
 docs/Model/RedditSubredditActivityPeriod.md
 docs/Model/RemovePromptTagsRequest.md
 docs/Model/RemoveTeamMember200Response.md
+docs/Model/ReputationReportCreateResponse.md
+docs/Model/ReputationReportSummary.md
 docs/Model/RevokeApiKey200Response.md
 docs/Model/RevokeTeamInvitation200Response.md
 docs/Model/SampleWebhookPayloads200Response.md
@@ -466,6 +469,7 @@ lib/Model/CreateApiKeyRequest.php
 lib/Model/CreateCollectionRequest.php
 lib/Model/CreateCompetitorRequest.php
 lib/Model/CreateProjectDraftRequest.php
+lib/Model/CreateReputationReportRequest.php
 lib/Model/CreateTeamInvitation201Response.php
 lib/Model/CreateTeamInvitationRequest.php
 lib/Model/CreateTechnicalGeoReportsRequest.php
@@ -619,6 +623,8 @@ lib/Model/RedditPositionShare.php
 lib/Model/RedditSubredditActivityPeriod.php
 lib/Model/RemovePromptTagsRequest.php
 lib/Model/RemoveTeamMember200Response.php
+lib/Model/ReputationReportCreateResponse.php
+lib/Model/ReputationReportSummary.php
 lib/Model/RevokeApiKey200Response.php
 lib/Model/RevokeTeamInvitation200Response.php
 lib/Model/SampleWebhookPayloads200Response.php

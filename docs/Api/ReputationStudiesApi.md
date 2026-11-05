@@ -6,12 +6,73 @@ All URIs are relative to https://api.llmpulse.ai/api/v1, except if the operation
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**createReputationReport()**](ReputationStudiesApi.md#createReputationReport) | **POST** /reputation/reports | Start a reputation report |
 | [**getReputationReport()**](ReputationStudiesApi.md#getReputationReport) | **GET** /reputation/reports/{id} | Get reputation report scores |
 | [**getStudy()**](ReputationStudiesApi.md#getStudy) | **GET** /studies/{id} | Get a custom AI study |
 | [**getStudyReport()**](ReputationStudiesApi.md#getStudyReport) | **GET** /studies/{id}/reports/{report_id} | Get custom study report scores |
 | [**listReputationReports()**](ReputationStudiesApi.md#listReputationReports) | **GET** /reputation/reports | List reputation reports |
 | [**listStudies()**](ReputationStudiesApi.md#listStudies) | **GET** /studies | List custom AI studies |
 
+
+## `createReputationReport()`
+
+```php
+createReputationReport($create_reputation_report_request): \LLMPulse\Model\ReputationReportCreateResponse
+```
+
+Start a reputation report
+
+Starts this month's Brand Reputation report, like the Generate button on the Reputation page: 201 with the new report (status pending). When the month already holds a report that did not fail, whether it is still running or finished, nothing new starts and the answer is 200 with created false and that report. With recalculate true it uses the month's one manual recalculation instead (the Recalculate This Month button): a fresh run across every analyst model, 201 when it starts, 200 with created false while a report is still running, and ERR_LIMIT_REACHED once the month holds two reports. Generation runs in the background: poll GET /reputation/reports until status is completed, then read the scores with GET /reputation/reports/{id}. ERR_RATE_LIMITED (429, with Retry-After) means another request is starting a report for the same project; retry after a few seconds. recalculate must be true or false and unknown fields are refused (ERR_INVALID_PARAM). Requires reputation monitoring on the account, a `read_write` scope API key and, for team members, create permission on Reputation.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: BearerAuth
+$config = LLMPulse\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new LLMPulse\Api\ReputationStudiesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$create_reputation_report_request = new \LLMPulse\Model\CreateReputationReportRequest(); // \LLMPulse\Model\CreateReputationReportRequest
+
+try {
+    $result = $apiInstance->createReputationReport($create_reputation_report_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ReputationStudiesApi->createReputationReport: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **create_reputation_report_request** | [**\LLMPulse\Model\CreateReputationReportRequest**](../Model/CreateReputationReportRequest.md)|  | |
+
+### Return type
+
+[**\LLMPulse\Model\ReputationReportCreateResponse**](../Model/ReputationReportCreateResponse.md)
+
+### Authorization
+
+[BearerAuth](../../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `getReputationReport()`
 

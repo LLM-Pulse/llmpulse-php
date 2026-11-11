@@ -343,6 +343,7 @@ docs/Model/TimeseriesResponse.md
 docs/Model/TimeseriesSeries.md
 docs/Model/TopSourcesResponse.md
 docs/Model/TopSourcesResponseDataInner.md
+docs/Model/TrustpilotReplies.md
 docs/Model/UpdateAnnotationRequest.md
 docs/Model/UpdateCollectionRequest.md
 docs/Model/UpdateCompetitorRequest.md
@@ -699,6 +700,7 @@ lib/Model/TimeseriesResponse.php
 lib/Model/TimeseriesSeries.php
 lib/Model/TopSourcesResponse.php
 lib/Model/TopSourcesResponseDataInner.php
+lib/Model/TrustpilotReplies.php
 lib/Model/UpdateAnnotationRequest.php
 lib/Model/UpdateCollectionRequest.php
 lib/Model/UpdateCompetitorRequest.php

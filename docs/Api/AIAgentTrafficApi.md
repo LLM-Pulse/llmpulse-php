@@ -41,7 +41,7 @@ $apiInstance = new LLMPulse\Api\AIAgentTrafficApi(
     $config
 );
 $project_id = 56; // int | Project ID
-$range = 56; // int | Number of days to look back (alternative to from/to)
+$range = 56; // int | Number of days to look back (alternative to from/to, which win when both are given). A value that is not a plain positive number returns 422 ERR_INVALID_PARAM, even beside from/to.
 $from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
 $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
 $bot = 'bot_example'; // string | Filter by bot slug (e.g. gptbot, claudebot, perplexitybot)
@@ -62,7 +62,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **project_id** | **int**| Project ID | |
-| **range** | **int**| Number of days to look back (alternative to from/to) | [optional] |
+| **range** | **int**| Number of days to look back (alternative to from/to, which win when both are given). A value that is not a plain positive number returns 422 ERR_INVALID_PARAM, even beside from/to. | [optional] |
 | **from** | **\DateTime**|  | [optional] |
 | **to** | **\DateTime**| End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
 | **bot** | **string**| Filter by bot slug (e.g. gptbot, claudebot, perplexitybot) | [optional] |
@@ -115,7 +115,7 @@ $apiInstance = new LLMPulse\Api\AIAgentTrafficApi(
     $config
 );
 $project_id = 56; // int | Project ID
-$range = 56; // int | Number of days to look back (alternative to from/to)
+$range = 56; // int | Number of days to look back (alternative to from/to, which win when both are given). A value that is not a plain positive number returns 422 ERR_INVALID_PARAM, even beside from/to.
 $from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
 $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
 $source = 'source_example'; // string | Filter by a single AI source slug (e.g. chatgpt, perplexity, gemini, claude)
@@ -133,7 +133,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **project_id** | **int**| Project ID | |
-| **range** | **int**| Number of days to look back (alternative to from/to) | [optional] |
+| **range** | **int**| Number of days to look back (alternative to from/to, which win when both are given). A value that is not a plain positive number returns 422 ERR_INVALID_PARAM, even beside from/to. | [optional] |
 | **from** | **\DateTime**|  | [optional] |
 | **to** | **\DateTime**| End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
 | **source** | **string**| Filter by a single AI source slug (e.g. chatgpt, perplexity, gemini, claude) | [optional] |

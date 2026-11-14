@@ -48,7 +48,7 @@ $apiInstance = new LLMPulse\Api\SearchConsoleApi(
 );
 $project_id = 56; // int | Project ID
 $property = all; // string | Which Search Console properties to read; /search_console/properties lists them. Omit it for the primary property, or pass one property id (e.g. sc-domain:example.com) to read that one; both answer with property. A comma-separated list of ids, or all, combines several and answers with properties, excluded_properties and property_errors instead: excluded_properties are left out because another selected property already counts them (a URL-prefix property under a domain property), so no click is counted twice; property_errors are properties Google refused, left out of the figures and also named in the X-Search-Console-Property-Errors header. When Google refuses every property, the request fails as a single-property read would.
-$range = 56; // int | Number of days to look back, today included (alternative to from/to). At most 487, Google's retention.
+$range = 56; // int | Number of days to look back, today included (alternative to from/to, which win when both are given). At most 487, Google's retention. A value that is not a plain positive number returns 422 ERR_INVALID_PARAM even beside from/to.
 $from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | Start date (YYYY-MM-DD). Defaults to 30 days ago.
 $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End date (YYYY-MM-DD), inclusive. Defaults to today. Google publishes data with a 2-3 day lag, so data_through in the response says how far it reaches.
 $min_impressions = 100; // int | Smallest impressions a query needs.
@@ -75,7 +75,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **project_id** | **int**| Project ID | |
 | **property** | **string**| Which Search Console properties to read; /search_console/properties lists them. Omit it for the primary property, or pass one property id (e.g. sc-domain:example.com) to read that one; both answer with property. A comma-separated list of ids, or all, combines several and answers with properties, excluded_properties and property_errors instead: excluded_properties are left out because another selected property already counts them (a URL-prefix property under a domain property), so no click is counted twice; property_errors are properties Google refused, left out of the figures and also named in the X-Search-Console-Property-Errors header. When Google refuses every property, the request fails as a single-property read would. | [optional] |
-| **range** | **int**| Number of days to look back, today included (alternative to from/to). At most 487, Google&#39;s retention. | [optional] |
+| **range** | **int**| Number of days to look back, today included (alternative to from/to, which win when both are given). At most 487, Google&#39;s retention. A value that is not a plain positive number returns 422 ERR_INVALID_PARAM even beside from/to. | [optional] |
 | **from** | **\DateTime**| Start date (YYYY-MM-DD). Defaults to 30 days ago. | [optional] |
 | **to** | **\DateTime**| End date (YYYY-MM-DD), inclusive. Defaults to today. Google publishes data with a 2-3 day lag, so data_through in the response says how far it reaches. | [optional] |
 | **min_impressions** | **int**| Smallest impressions a query needs. | [optional] [default to 100] |
@@ -134,7 +134,7 @@ $apiInstance = new LLMPulse\Api\SearchConsoleApi(
 );
 $project_id = 56; // int | Project ID
 $property = all; // string | Which Search Console properties to read; /search_console/properties lists them. Omit it for the primary property, or pass one property id (e.g. sc-domain:example.com) to read that one; both answer with property. A comma-separated list of ids, or all, combines several and answers with properties, excluded_properties and property_errors instead: excluded_properties are left out because another selected property already counts them (a URL-prefix property under a domain property), so no click is counted twice; property_errors are properties Google refused, left out of the figures and also named in the X-Search-Console-Property-Errors header. When Google refuses every property, the request fails as a single-property read would.
-$range = 56; // int | Number of days to look back, today included (alternative to from/to). At most 487, Google's retention.
+$range = 56; // int | Number of days to look back, today included (alternative to from/to, which win when both are given). At most 487, Google's retention. A value that is not a plain positive number returns 422 ERR_INVALID_PARAM even beside from/to.
 $from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | Start date (YYYY-MM-DD). Defaults to 30 days ago.
 $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End date (YYYY-MM-DD), inclusive. Defaults to today. Google publishes data with a 2-3 day lag, so data_through in the response says how far it reaches.
 $search_type = 'web'; // string | Which search surface to measure. Defaults to web. discover and googleNews carry no query dimension, so Google rejects /search_console/queries for them.
@@ -156,7 +156,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **project_id** | **int**| Project ID | |
 | **property** | **string**| Which Search Console properties to read; /search_console/properties lists them. Omit it for the primary property, or pass one property id (e.g. sc-domain:example.com) to read that one; both answer with property. A comma-separated list of ids, or all, combines several and answers with properties, excluded_properties and property_errors instead: excluded_properties are left out because another selected property already counts them (a URL-prefix property under a domain property), so no click is counted twice; property_errors are properties Google refused, left out of the figures and also named in the X-Search-Console-Property-Errors header. When Google refuses every property, the request fails as a single-property read would. | [optional] |
-| **range** | **int**| Number of days to look back, today included (alternative to from/to). At most 487, Google&#39;s retention. | [optional] |
+| **range** | **int**| Number of days to look back, today included (alternative to from/to, which win when both are given). At most 487, Google&#39;s retention. A value that is not a plain positive number returns 422 ERR_INVALID_PARAM even beside from/to. | [optional] |
 | **from** | **\DateTime**| Start date (YYYY-MM-DD). Defaults to 30 days ago. | [optional] |
 | **to** | **\DateTime**| End date (YYYY-MM-DD), inclusive. Defaults to today. Google publishes data with a 2-3 day lag, so data_through in the response says how far it reaches. | [optional] |
 | **search_type** | **string**| Which search surface to measure. Defaults to web. discover and googleNews carry no query dimension, so Google rejects /search_console/queries for them. | [optional] [default to &#39;web&#39;] |
@@ -210,7 +210,7 @@ $apiInstance = new LLMPulse\Api\SearchConsoleApi(
 );
 $project_id = 56; // int | Project ID
 $property = all; // string | Which Search Console properties to read; /search_console/properties lists them. Omit it for the primary property, or pass one property id (e.g. sc-domain:example.com) to read that one; both answer with property. A comma-separated list of ids, or all, combines several and answers with properties, excluded_properties and property_errors instead: excluded_properties are left out because another selected property already counts them (a URL-prefix property under a domain property), so no click is counted twice; property_errors are properties Google refused, left out of the figures and also named in the X-Search-Console-Property-Errors header. When Google refuses every property, the request fails as a single-property read would.
-$range = 56; // int | Number of days to look back, today included (alternative to from/to). At most 487, Google's retention.
+$range = 56; // int | Number of days to look back, today included (alternative to from/to, which win when both are given). At most 487, Google's retention. A value that is not a plain positive number returns 422 ERR_INVALID_PARAM even beside from/to.
 $from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | Start date (YYYY-MM-DD). Defaults to 30 days ago.
 $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End date (YYYY-MM-DD), inclusive. Defaults to today. Google publishes data with a 2-3 day lag, so data_through in the response says how far it reaches.
 $min_impressions = 100; // int | Smallest impressions a query needs.
@@ -237,7 +237,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **project_id** | **int**| Project ID | |
 | **property** | **string**| Which Search Console properties to read; /search_console/properties lists them. Omit it for the primary property, or pass one property id (e.g. sc-domain:example.com) to read that one; both answer with property. A comma-separated list of ids, or all, combines several and answers with properties, excluded_properties and property_errors instead: excluded_properties are left out because another selected property already counts them (a URL-prefix property under a domain property), so no click is counted twice; property_errors are properties Google refused, left out of the figures and also named in the X-Search-Console-Property-Errors header. When Google refuses every property, the request fails as a single-property read would. | [optional] |
-| **range** | **int**| Number of days to look back, today included (alternative to from/to). At most 487, Google&#39;s retention. | [optional] |
+| **range** | **int**| Number of days to look back, today included (alternative to from/to, which win when both are given). At most 487, Google&#39;s retention. A value that is not a plain positive number returns 422 ERR_INVALID_PARAM even beside from/to. | [optional] |
 | **from** | **\DateTime**| Start date (YYYY-MM-DD). Defaults to 30 days ago. | [optional] |
 | **to** | **\DateTime**| End date (YYYY-MM-DD), inclusive. Defaults to today. Google publishes data with a 2-3 day lag, so data_through in the response says how far it reaches. | [optional] |
 | **min_impressions** | **int**| Smallest impressions a query needs. | [optional] [default to 100] |
@@ -296,7 +296,7 @@ $apiInstance = new LLMPulse\Api\SearchConsoleApi(
 );
 $project_id = 56; // int | Project ID
 $property = all; // string | Which Search Console properties to read; /search_console/properties lists them. Omit it for the primary property, or pass one property id (e.g. sc-domain:example.com) to read that one; both answer with property. A comma-separated list of ids, or all, combines several and answers with properties, excluded_properties and property_errors instead: excluded_properties are left out because another selected property already counts them (a URL-prefix property under a domain property), so no click is counted twice; property_errors are properties Google refused, left out of the figures and also named in the X-Search-Console-Property-Errors header. When Google refuses every property, the request fails as a single-property read would.
-$range = 56; // int | Number of days to look back, today included (alternative to from/to). At most 487, Google's retention.
+$range = 56; // int | Number of days to look back, today included (alternative to from/to, which win when both are given). At most 487, Google's retention. A value that is not a plain positive number returns 422 ERR_INVALID_PARAM even beside from/to.
 $from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | Start date (YYYY-MM-DD). Defaults to 30 days ago.
 $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End date (YYYY-MM-DD), inclusive. Defaults to today. Google publishes data with a 2-3 day lag, so data_through in the response says how far it reaches.
 $dimension = 'page'; // string | Compare pages or queries.
@@ -323,7 +323,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **project_id** | **int**| Project ID | |
 | **property** | **string**| Which Search Console properties to read; /search_console/properties lists them. Omit it for the primary property, or pass one property id (e.g. sc-domain:example.com) to read that one; both answer with property. A comma-separated list of ids, or all, combines several and answers with properties, excluded_properties and property_errors instead: excluded_properties are left out because another selected property already counts them (a URL-prefix property under a domain property), so no click is counted twice; property_errors are properties Google refused, left out of the figures and also named in the X-Search-Console-Property-Errors header. When Google refuses every property, the request fails as a single-property read would. | [optional] |
-| **range** | **int**| Number of days to look back, today included (alternative to from/to). At most 487, Google&#39;s retention. | [optional] |
+| **range** | **int**| Number of days to look back, today included (alternative to from/to, which win when both are given). At most 487, Google&#39;s retention. A value that is not a plain positive number returns 422 ERR_INVALID_PARAM even beside from/to. | [optional] |
 | **from** | **\DateTime**| Start date (YYYY-MM-DD). Defaults to 30 days ago. | [optional] |
 | **to** | **\DateTime**| End date (YYYY-MM-DD), inclusive. Defaults to today. Google publishes data with a 2-3 day lag, so data_through in the response says how far it reaches. | [optional] |
 | **dimension** | **string**| Compare pages or queries. | [optional] [default to &#39;page&#39;] |
@@ -382,7 +382,7 @@ $apiInstance = new LLMPulse\Api\SearchConsoleApi(
 );
 $project_id = 56; // int | Project ID
 $property = all; // string | Which Search Console properties to read; /search_console/properties lists them. Omit it for the primary property, or pass one property id (e.g. sc-domain:example.com) to read that one; both answer with property. A comma-separated list of ids, or all, combines several and answers with properties, excluded_properties and property_errors instead: excluded_properties are left out because another selected property already counts them (a URL-prefix property under a domain property), so no click is counted twice; property_errors are properties Google refused, left out of the figures and also named in the X-Search-Console-Property-Errors header. When Google refuses every property, the request fails as a single-property read would.
-$range = 56; // int | Number of days to look back, today included (alternative to from/to). At most 487, Google's retention.
+$range = 56; // int | Number of days to look back, today included (alternative to from/to, which win when both are given). At most 487, Google's retention. A value that is not a plain positive number returns 422 ERR_INVALID_PARAM even beside from/to.
 $from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | Start date (YYYY-MM-DD). Defaults to 30 days ago.
 $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End date (YYYY-MM-DD), inclusive. Defaults to today. Google publishes data with a 2-3 day lag, so data_through in the response says how far it reaches.
 $min_impressions = 100; // int | Smallest impressions a query needs.
@@ -410,7 +410,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **project_id** | **int**| Project ID | |
 | **property** | **string**| Which Search Console properties to read; /search_console/properties lists them. Omit it for the primary property, or pass one property id (e.g. sc-domain:example.com) to read that one; both answer with property. A comma-separated list of ids, or all, combines several and answers with properties, excluded_properties and property_errors instead: excluded_properties are left out because another selected property already counts them (a URL-prefix property under a domain property), so no click is counted twice; property_errors are properties Google refused, left out of the figures and also named in the X-Search-Console-Property-Errors header. When Google refuses every property, the request fails as a single-property read would. | [optional] |
-| **range** | **int**| Number of days to look back, today included (alternative to from/to). At most 487, Google&#39;s retention. | [optional] |
+| **range** | **int**| Number of days to look back, today included (alternative to from/to, which win when both are given). At most 487, Google&#39;s retention. A value that is not a plain positive number returns 422 ERR_INVALID_PARAM even beside from/to. | [optional] |
 | **from** | **\DateTime**| Start date (YYYY-MM-DD). Defaults to 30 days ago. | [optional] |
 | **to** | **\DateTime**| End date (YYYY-MM-DD), inclusive. Defaults to today. Google publishes data with a 2-3 day lag, so data_through in the response says how far it reaches. | [optional] |
 | **min_impressions** | **int**| Smallest impressions a query needs. | [optional] [default to 100] |
@@ -469,7 +469,7 @@ $apiInstance = new LLMPulse\Api\SearchConsoleApi(
     $config
 );
 $project_id = 56; // int | Project ID
-$range = 56; // int | Number of days to look back, today included (alternative to from/to). At most 487, Google's retention.
+$range = 56; // int | Number of days to look back, today included (alternative to from/to, which win when both are given). At most 487, Google's retention. A value that is not a plain positive number returns 422 ERR_INVALID_PARAM even beside from/to.
 $from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | Start date (YYYY-MM-DD). Defaults to 30 days ago.
 $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End date (YYYY-MM-DD), inclusive. Defaults to today. Google publishes data with a 2-3 day lag, so data_through in the response says how far it reaches.
 $sort = 'impressions'; // string
@@ -496,7 +496,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **project_id** | **int**| Project ID | |
-| **range** | **int**| Number of days to look back, today included (alternative to from/to). At most 487, Google&#39;s retention. | [optional] |
+| **range** | **int**| Number of days to look back, today included (alternative to from/to, which win when both are given). At most 487, Google&#39;s retention. A value that is not a plain positive number returns 422 ERR_INVALID_PARAM even beside from/to. | [optional] |
 | **from** | **\DateTime**| Start date (YYYY-MM-DD). Defaults to 30 days ago. | [optional] |
 | **to** | **\DateTime**| End date (YYYY-MM-DD), inclusive. Defaults to today. Google publishes data with a 2-3 day lag, so data_through in the response says how far it reaches. | [optional] |
 | **sort** | **string**|  | [optional] [default to &#39;impressions&#39;] |
@@ -555,7 +555,7 @@ $apiInstance = new LLMPulse\Api\SearchConsoleApi(
     $config
 );
 $project_id = 56; // int | Project ID
-$range = 56; // int | Number of days to look back, today included (alternative to from/to). At most 487, Google's retention.
+$range = 56; // int | Number of days to look back, today included (alternative to from/to, which win when both are given). At most 487, Google's retention. A value that is not a plain positive number returns 422 ERR_INVALID_PARAM even beside from/to.
 $from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | Start date (YYYY-MM-DD). Defaults to 30 days ago.
 $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End date (YYYY-MM-DD), inclusive. Defaults to today. Google publishes data with a 2-3 day lag, so data_through in the response says how far it reaches.
 $sort = 'impressions'; // string
@@ -582,7 +582,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **project_id** | **int**| Project ID | |
-| **range** | **int**| Number of days to look back, today included (alternative to from/to). At most 487, Google&#39;s retention. | [optional] |
+| **range** | **int**| Number of days to look back, today included (alternative to from/to, which win when both are given). At most 487, Google&#39;s retention. A value that is not a plain positive number returns 422 ERR_INVALID_PARAM even beside from/to. | [optional] |
 | **from** | **\DateTime**| Start date (YYYY-MM-DD). Defaults to 30 days ago. | [optional] |
 | **to** | **\DateTime**| End date (YYYY-MM-DD), inclusive. Defaults to today. Google publishes data with a 2-3 day lag, so data_through in the response says how far it reaches. | [optional] |
 | **sort** | **string**|  | [optional] [default to &#39;impressions&#39;] |
@@ -642,7 +642,7 @@ $apiInstance = new LLMPulse\Api\SearchConsoleApi(
 );
 $project_id = 56; // int | Project ID
 $dimensions = page,query; // string | Comma-separated dimensions to group by, 1 to 3 of date, country, device, page, query, searchAppearance, property. Each becomes a field of every row; country and device values are lowercase. property is the Search Console property the row comes from (see the property parameter).
-$range = 56; // int | Number of days to look back, today included (alternative to from/to). At most 487, Google's retention.
+$range = 56; // int | Number of days to look back, today included (alternative to from/to, which win when both are given). At most 487, Google's retention. A value that is not a plain positive number returns 422 ERR_INVALID_PARAM even beside from/to.
 $from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | Start date (YYYY-MM-DD). Defaults to 30 days ago.
 $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End date (YYYY-MM-DD), inclusive. Defaults to today. Google publishes data with a 2-3 day lag, so data_through in the response says how far it reaches.
 $sort = 'impressions'; // string
@@ -670,7 +670,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **project_id** | **int**| Project ID | |
 | **dimensions** | **string**| Comma-separated dimensions to group by, 1 to 3 of date, country, device, page, query, searchAppearance, property. Each becomes a field of every row; country and device values are lowercase. property is the Search Console property the row comes from (see the property parameter). | |
-| **range** | **int**| Number of days to look back, today included (alternative to from/to). At most 487, Google&#39;s retention. | [optional] |
+| **range** | **int**| Number of days to look back, today included (alternative to from/to, which win when both are given). At most 487, Google&#39;s retention. A value that is not a plain positive number returns 422 ERR_INVALID_PARAM even beside from/to. | [optional] |
 | **from** | **\DateTime**| Start date (YYYY-MM-DD). Defaults to 30 days ago. | [optional] |
 | **to** | **\DateTime**| End date (YYYY-MM-DD), inclusive. Defaults to today. Google publishes data with a 2-3 day lag, so data_through in the response says how far it reaches. | [optional] |
 | **sort** | **string**|  | [optional] [default to &#39;impressions&#39;] |
@@ -729,7 +729,7 @@ $apiInstance = new LLMPulse\Api\SearchConsoleApi(
     $config
 );
 $project_id = 56; // int | Project ID
-$range = 56; // int | Number of days to look back, today included (alternative to from/to). At most 487, Google's retention.
+$range = 56; // int | Number of days to look back, today included (alternative to from/to, which win when both are given). At most 487, Google's retention. A value that is not a plain positive number returns 422 ERR_INVALID_PARAM even beside from/to.
 $from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | Start date (YYYY-MM-DD). Defaults to 30 days ago.
 $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End date (YYYY-MM-DD), inclusive. Defaults to today. Google publishes data with a 2-3 day lag, so data_through in the response says how far it reaches.
 $dimension = 'dimension_example'; // string | Optional breakdown aggregated over the range. country and device are lowercased; page and query keep the casing Google returns, because a page URL is case sensitive. property gives one row per property read (see the property parameter).
@@ -753,7 +753,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **project_id** | **int**| Project ID | |
-| **range** | **int**| Number of days to look back, today included (alternative to from/to). At most 487, Google&#39;s retention. | [optional] |
+| **range** | **int**| Number of days to look back, today included (alternative to from/to, which win when both are given). At most 487, Google&#39;s retention. A value that is not a plain positive number returns 422 ERR_INVALID_PARAM even beside from/to. | [optional] |
 | **from** | **\DateTime**| Start date (YYYY-MM-DD). Defaults to 30 days ago. | [optional] |
 | **to** | **\DateTime**| End date (YYYY-MM-DD), inclusive. Defaults to today. Google publishes data with a 2-3 day lag, so data_through in the response says how far it reaches. | [optional] |
 | **dimension** | **string**| Optional breakdown aggregated over the range. country and device are lowercased; page and query keep the casing Google returns, because a page URL is case sensitive. property gives one row per property read (see the property parameter). | [optional] |
@@ -809,7 +809,7 @@ $apiInstance = new LLMPulse\Api\SearchConsoleApi(
     $config
 );
 $project_id = 56; // int | Project ID
-$range = 56; // int | Number of days to look back, today included (alternative to from/to). At most 487, Google's retention.
+$range = 56; // int | Number of days to look back, today included (alternative to from/to, which win when both are given). At most 487, Google's retention. A value that is not a plain positive number returns 422 ERR_INVALID_PARAM even beside from/to.
 $from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | Start date (YYYY-MM-DD). Defaults to 30 days ago.
 $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End date (YYYY-MM-DD), inclusive. Defaults to today. Google publishes data with a 2-3 day lag, so data_through in the response says how far it reaches.
 $granularity = 'granularity_example'; // string
@@ -833,7 +833,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **project_id** | **int**| Project ID | |
-| **range** | **int**| Number of days to look back, today included (alternative to from/to). At most 487, Google&#39;s retention. | [optional] |
+| **range** | **int**| Number of days to look back, today included (alternative to from/to, which win when both are given). At most 487, Google&#39;s retention. A value that is not a plain positive number returns 422 ERR_INVALID_PARAM even beside from/to. | [optional] |
 | **from** | **\DateTime**| Start date (YYYY-MM-DD). Defaults to 30 days ago. | [optional] |
 | **to** | **\DateTime**| End date (YYYY-MM-DD), inclusive. Defaults to today. Google publishes data with a 2-3 day lag, so data_through in the response says how far it reaches. | [optional] |
 | **granularity** | **string**|  | [optional] |

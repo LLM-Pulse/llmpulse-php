@@ -40,7 +40,7 @@ $apiInstance = new LLMPulse\Api\SentimentsApi(
     $config
 );
 $project_id = 56; // int | Project ID
-$range = 56; // int | Number of days to look back, today included (default 28, like the Sentiment page). Ignored when from or to is given.
+$range = 56; // int | Number of days to look back, today included (default 28, like the Sentiment page). from or to win over it, but a value that is not a plain positive number returns 422 ERR_INVALID_PARAM even beside them.
 $from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
 $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
 $model = 'model_example'; // string | Filter by one AI model. It must be a model enabled for the API key's user: an unknown value, or a model the user has not enabled, returns 422 ERR_INVALID_PARAM with the valid values in the message.
@@ -71,7 +71,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **project_id** | **int**| Project ID | |
-| **range** | **int**| Number of days to look back, today included (default 28, like the Sentiment page). Ignored when from or to is given. | [optional] |
+| **range** | **int**| Number of days to look back, today included (default 28, like the Sentiment page). from or to win over it, but a value that is not a plain positive number returns 422 ERR_INVALID_PARAM even beside them. | [optional] |
 | **from** | **\DateTime**|  | [optional] |
 | **to** | **\DateTime**| End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
 | **model** | **string**| Filter by one AI model. It must be a model enabled for the API key&#39;s user: an unknown value, or a model the user has not enabled, returns 422 ERR_INVALID_PARAM with the valid values in the message. | [optional] |
@@ -134,7 +134,7 @@ $apiInstance = new LLMPulse\Api\SentimentsApi(
     $config
 );
 $project_id = 56; // int | Project ID
-$range = 56; // int | Number of days to look back, today included (default 28, like the Sentiment page). Ignored when from or to is given.
+$range = 56; // int | Number of days to look back, today included (default 28, like the Sentiment page). from or to win over it, but a value that is not a plain positive number returns 422 ERR_INVALID_PARAM even beside them.
 $from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
 $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
 $model = 'model_example'; // string | Filter by one AI model. It must be a model enabled for the API key's user: an unknown value, or a model the user has not enabled, returns 422 ERR_INVALID_PARAM with the valid values in the message.
@@ -165,7 +165,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **project_id** | **int**| Project ID | |
-| **range** | **int**| Number of days to look back, today included (default 28, like the Sentiment page). Ignored when from or to is given. | [optional] |
+| **range** | **int**| Number of days to look back, today included (default 28, like the Sentiment page). from or to win over it, but a value that is not a plain positive number returns 422 ERR_INVALID_PARAM even beside them. | [optional] |
 | **from** | **\DateTime**|  | [optional] |
 | **to** | **\DateTime**| End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
 | **model** | **string**| Filter by one AI model. It must be a model enabled for the API key&#39;s user: an unknown value, or a model the user has not enabled, returns 422 ERR_INVALID_PARAM with the valid values in the message. | [optional] |
@@ -289,15 +289,15 @@ $apiInstance = new LLMPulse\Api\SentimentsApi(
     $config
 );
 $project_id = 56; // int | Project ID
-$competitor_id = 56; // int
-$brand_only = True; // bool
+$competitor_id = 56; // int | Keep the sentiments about this competitor. An id that is not a plain positive number, or that names no competitor of the project, returns 422 ERR_INVALID_PARAM.
+$brand_only = True; // bool | true keeps only the sentiments about your own brand.
 $analysis = 'analysis_example'; // string | One sentiment level or a comma-separated list: very_positive, positive, neutral, negative, very_negative
-$model = 'model_example'; // string | Filter by one AI model. Here an unknown value, or a model the API key's user has not enabled, is ignored rather than rejected: the request succeeds and returns the records of every enabled model, as if model were omitted.
+$model = 'model_example'; // string | Filter by one AI model. It must be a model enabled for the API key's user: an unknown value, or a model the user has not enabled, returns 422 ERR_INVALID_PARAM with the valid values in the message.
 $collection_id = 12,34; // string | One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
 $country_code = 'country_code_example'; // string | One ISO country code or a comma-separated list (e.g. US,GB,DE)
 $language_code = 'language_code_example'; // string | One ISO language code or a comma-separated list (e.g. en,es,de)
-$from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
-$to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
+$from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | Start of the window. Sent alone, the window runs from it to the end of today. A from later than to, or a window longer than 1,500 days, returns 422 ERR_INVALID_PARAM.
+$to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. Sent without from, the window covers the 30 days that end on it.
 $page = 1; // int
 $per_page = 20; // int
 
@@ -314,15 +314,15 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **project_id** | **int**| Project ID | |
-| **competitor_id** | **int**|  | [optional] |
-| **brand_only** | **bool**|  | [optional] |
+| **competitor_id** | **int**| Keep the sentiments about this competitor. An id that is not a plain positive number, or that names no competitor of the project, returns 422 ERR_INVALID_PARAM. | [optional] |
+| **brand_only** | **bool**| true keeps only the sentiments about your own brand. | [optional] |
 | **analysis** | **string**| One sentiment level or a comma-separated list: very_positive, positive, neutral, negative, very_negative | [optional] |
-| **model** | **string**| Filter by one AI model. Here an unknown value, or a model the API key&#39;s user has not enabled, is ignored rather than rejected: the request succeeds and returns the records of every enabled model, as if model were omitted. | [optional] |
+| **model** | **string**| Filter by one AI model. It must be a model enabled for the API key&#39;s user: an unknown value, or a model the user has not enabled, returns 422 ERR_INVALID_PARAM with the valid values in the message. | [optional] |
 | **collection_id** | **string**| One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. | [optional] |
 | **country_code** | **string**| One ISO country code or a comma-separated list (e.g. US,GB,DE) | [optional] |
 | **language_code** | **string**| One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |
-| **from** | **\DateTime**|  | [optional] |
-| **to** | **\DateTime**| End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
+| **from** | **\DateTime**| Start of the window. Sent alone, the window runs from it to the end of today. A from later than to, or a window longer than 1,500 days, returns 422 ERR_INVALID_PARAM. | [optional] |
+| **to** | **\DateTime**| End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. Sent without from, the window covers the 30 days that end on it. | [optional] |
 | **page** | **int**|  | [optional] [default to 1] |
 | **per_page** | **int**|  | [optional] [default to 20] |
 

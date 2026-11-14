@@ -77,7 +77,7 @@ try {
 ## `listAnswers()`
 
 ```php
-listAnswers($project_id, $model, $collection_id, $country_code, $language_code, $prompt, $mention_filter, $citation_filter, $competitors, $from, $to, $page, $per_page, $query, $no_result)
+listAnswers($project_id, $model, $collection_id, $country_code, $language_code, $prompt, $prompt_type, $brand_kind, $mention_filter, $citation_filter, $competitors, $from, $to, $page, $per_page, $query, $no_result)
 ```
 
 List AI responses
@@ -106,19 +106,21 @@ $model = 'model_example'; // string | Filter by one AI model. It must be a model
 $collection_id = 12,34; // string | One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
 $country_code = 'country_code_example'; // string | One ISO country code or a comma-separated list (e.g. US,GB,DE)
 $language_code = 'language_code_example'; // string | One ISO language code or a comma-separated list (e.g. en,es,de)
-$prompt = 56; // int | Filter by prompt ID
+$prompt = 56; // int | Filter by prompt ID. An id that is not a plain positive number, or that names no prompt of the project, returns 422 ERR_INVALID_PARAM.
+$prompt_type = 'prompt_type_example'; // string | One prompt type or a comma-separated list: informational, navigational, commercial, transactional
+$brand_kind = 'brand_kind_example'; // string | Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default.
 $mention_filter = 'mention_filter_example'; // string | Filter by which brands are mentioned, as a two-axis matrix (your brand x competitors): mentions_you / not_mentions_you, mentions_competitor / not_mentions_competitor, and the four combined cells you_and_competitor, competitor_not_you (a rival wins and you are absent), you_not_competitor, no_brands (no tracked brand appears, i.e. open space; on answers, finished answers only). Combine with 'competitors' to narrow the competitor side to specific rivals; on a negative cell that reads 'none of these'. On /dimensions/sources it applies to the crawled content of each cited page instead of the answer text. The legacy value 'competitors_only' is still accepted as an alias of competitor_not_you.
 $citation_filter = 'citation_filter_example'; // string | Same two-axis matrix applied to the domains cited in the answer instead of the brands named in it (cites_no_brands still allows other domains), plus no_citations, finished answers that cite no source at all. Independent of mention_filter; pass both to intersect them (e.g. mentions_you + not_cites_you finds answers that talk about you without linking to you).
-$competitors = 'competitors_example'; // string | Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM)
-$from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
-$to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
+$competitors = 'competitors_example'; // string | Comma-separated competitor IDs (a malformed or unknown ID returns ERR_INVALID_PARAM)
+$from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | Start of the window. Sent alone, the window runs from it to the end of today. A from later than to, or a window longer than 1,500 days, returns 422 ERR_INVALID_PARAM.
+$to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. Sent without from, the window covers the 30 days that end on it.
 $page = 1; // int
 $per_page = 20; // int
 $query = 'query_example'; // string | Case-insensitive full-text search inside AI response texts. Switches items to snippet + match_count mode.
 $no_result = True; // bool | Filter sentinel non-answers (no answer could be collected after all retries, or the model declined to answer, today only Gemini; excluded from platform metrics). false = only real answers, true = only sentinels, omit = both. Every item carries its own no_result flag, and a sentinel also carries no_result_reason (declined or no_answer).
 
 try {
-    $apiInstance->listAnswers($project_id, $model, $collection_id, $country_code, $language_code, $prompt, $mention_filter, $citation_filter, $competitors, $from, $to, $page, $per_page, $query, $no_result);
+    $apiInstance->listAnswers($project_id, $model, $collection_id, $country_code, $language_code, $prompt, $prompt_type, $brand_kind, $mention_filter, $citation_filter, $competitors, $from, $to, $page, $per_page, $query, $no_result);
 } catch (Exception $e) {
     echo 'Exception when calling AnswersApi->listAnswers: ', $e->getMessage(), PHP_EOL;
 }
@@ -133,12 +135,14 @@ try {
 | **collection_id** | **string**| One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. | [optional] |
 | **country_code** | **string**| One ISO country code or a comma-separated list (e.g. US,GB,DE) | [optional] |
 | **language_code** | **string**| One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |
-| **prompt** | **int**| Filter by prompt ID | [optional] |
+| **prompt** | **int**| Filter by prompt ID. An id that is not a plain positive number, or that names no prompt of the project, returns 422 ERR_INVALID_PARAM. | [optional] |
+| **prompt_type** | **string**| One prompt type or a comma-separated list: informational, navigational, commercial, transactional | [optional] |
+| **brand_kind** | **string**| Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. | [optional] |
 | **mention_filter** | **string**| Filter by which brands are mentioned, as a two-axis matrix (your brand x competitors): mentions_you / not_mentions_you, mentions_competitor / not_mentions_competitor, and the four combined cells you_and_competitor, competitor_not_you (a rival wins and you are absent), you_not_competitor, no_brands (no tracked brand appears, i.e. open space; on answers, finished answers only). Combine with &#39;competitors&#39; to narrow the competitor side to specific rivals; on a negative cell that reads &#39;none of these&#39;. On /dimensions/sources it applies to the crawled content of each cited page instead of the answer text. The legacy value &#39;competitors_only&#39; is still accepted as an alias of competitor_not_you. | [optional] |
 | **citation_filter** | **string**| Same two-axis matrix applied to the domains cited in the answer instead of the brands named in it (cites_no_brands still allows other domains), plus no_citations, finished answers that cite no source at all. Independent of mention_filter; pass both to intersect them (e.g. mentions_you + not_cites_you finds answers that talk about you without linking to you). | [optional] |
-| **competitors** | **string**| Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM) | [optional] |
-| **from** | **\DateTime**|  | [optional] |
-| **to** | **\DateTime**| End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
+| **competitors** | **string**| Comma-separated competitor IDs (a malformed or unknown ID returns ERR_INVALID_PARAM) | [optional] |
+| **from** | **\DateTime**| Start of the window. Sent alone, the window runs from it to the end of today. A from later than to, or a window longer than 1,500 days, returns 422 ERR_INVALID_PARAM. | [optional] |
+| **to** | **\DateTime**| End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. Sent without from, the window covers the 30 days that end on it. | [optional] |
 | **page** | **int**|  | [optional] [default to 1] |
 | **per_page** | **int**|  | [optional] [default to 20] |
 | **query** | **string**| Case-insensitive full-text search inside AI response texts. Switches items to snippet + match_count mode. | [optional] |

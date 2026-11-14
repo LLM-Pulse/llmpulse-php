@@ -22,7 +22,7 @@ createCompetitor($create_competitor_request): \LLMPulse\Model\CompetitorCreateRe
 
 Add a competitor
 
-Adds a competitor with its own citation URL matching rule. Honours the per-plan max competitors cap. Requires a `read_write` scope API key.
+Adds a competitor with its own citation URL matching rule. Honours the per-plan max competitors cap. A `domain` rule on the project's own domain, or one of its subdomains, or a `host` rule on the project's own host, returns ERR_INVALID_PARAM; a `path_prefix` rule on it is accepted. Requires a `read_write` scope API key.
 
 ### Example
 
@@ -335,7 +335,7 @@ updateCompetitor($id, $update_competitor_request)
 
 Update a competitor
 
-Updates brand_name, the competitor website domain or host, matching_names (full replacement list; the brand name is always included automatically), color and/or the citation URL matching rule. Website domain/host and citation-rule changes share one seven-day cooldown per competitor; other fields remain editable during the cooldown. Name, website or citation-rule changes re-run historical matching in the background: the competitor shows processing=true for a few minutes and further edits are rejected meanwhile. Requires a `read_write` scope API key.
+Updates brand_name, the competitor website domain or host, matching_names (full replacement list; the brand name is always included automatically), color and/or the citation URL matching rule. Website domain/host and citation-rule changes share one seven-day cooldown per competitor; other fields remain editable during the cooldown. Moving to a `domain` rule on the project's own domain, or a `host` rule on its own host, returns ERR_INVALID_PARAM. Name, website or citation-rule changes re-run historical matching in the background: the competitor shows processing=true for a few minutes and further edits are rejected meanwhile. Requires a `read_write` scope API key.
 
 ### Example
 

@@ -159,7 +159,7 @@ $apiInstance = new LLMPulse\Api\WebhooksApi(
     new GuzzleHttp\Client(),
     $config
 );
-$project_id = 56; // int | Optional project filter
+$project_id = 56; // int | Optional project filter. An id that is not a plain number, or that names no project of the account, returns ERR_PROJECT_NOT_FOUND.
 $page = 56; // int
 $per_page = 56; // int | Max 100
 
@@ -175,7 +175,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **project_id** | **int**| Optional project filter | [optional] |
+| **project_id** | **int**| Optional project filter. An id that is not a plain number, or that names no project of the account, returns ERR_PROJECT_NOT_FOUND. | [optional] |
 | **page** | **int**|  | [optional] |
 | **per_page** | **int**| Max 100 | [optional] |
 

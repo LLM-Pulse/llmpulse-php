@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **name** | **string** | Project name, as plain text. It can be changed later with PATCH /projects/{id} |
 **main_country** | **string** |  |
 **main_language** | **string** |  |
-**brand_name** | **string** |  | [optional]
+**brand_name** | **string** | Defaults to name. Up to 100 characters, the name included when it stands in; a longer one is refused with ERR_INVALID_PARAM | [optional]
 **description** | **string** |  | [optional]
 **industry** | **string[]** | Industry keys, case-insensitive; a single key string is also accepted. An unknown key returns ERR_INVALID_PARAM listing the valid keys (the same list as the in-app industry picker, e.g. TECHNOLOGY, SAAS, ECOMMERCE) | [optional]
 **business_model** | **string** | Business model key (e.g. B2B_SAAS, MARKETPLACE); unknown keys are rejected | [optional]

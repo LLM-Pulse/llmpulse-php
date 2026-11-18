@@ -9,6 +9,7 @@ All URIs are relative to https://api.llmpulse.ai/api/v1, except if the operation
 | [**getAiModelInsightsSummary()**](AIModelInsightsApi.md#getAiModelInsightsSummary) | **GET** /reports/ai_model_insights/summary | AI Model Insights summary |
 | [**getAiModelPositionDistribution()**](AIModelInsightsApi.md#getAiModelPositionDistribution) | **GET** /reports/ai_model_insights/position_distribution | Position distribution comparison |
 | [**getAiOverviewResults()**](AIModelInsightsApi.md#getAiOverviewResults) | **GET** /reports/ai_model_insights/ai_overview_results | Google AI Overview result availability |
+| [**getDeclinedAnswers()**](AIModelInsightsApi.md#getDeclinedAnswers) | **GET** /reports/ai_model_insights/declined_answers | Declined answers (decline rate) |
 
 
 ## `getAiModelInsightsSummary()`
@@ -246,6 +247,88 @@ void (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getDeclinedAnswers()`
+
+```php
+getDeclinedAnswers($project_id, $range, $from, $to, $model, $collection_id, $country_code, $language_code, $prompt_type, $brand_kind, $page, $per_page): \LLMPulse\Model\AiModelDeclinedAnswersResponse
+```
+
+Declined answers (decline rate)
+
+The Declined answers tab of AI Model Insights. A model declines a prompt for its own safety filters (safety_filter) or because it refuses the topic itself, such as tobacco, gambling or alcohol (topic_refusal); today only Gemini declines. A declined answer counts as no answer and never lowers visibility. The chart has one point per tracking period at the account's cadence that holds an answer of the model, and the window starts at the tracking period holding its first day.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: BearerAuth
+$config = LLMPulse\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new LLMPulse\Api\AIModelInsightsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$project_id = 56; // int | Project ID
+$range = 56; // int | Number of days to look back (alternative to from/to, which win when both are given). A value that is not a plain positive number returns 422 ERR_INVALID_PARAM, even beside from/to.
+$from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
+$to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
+$model = 'model_example'; // string | The model whose declines to read, whether or not it is enabled for the API key's user. Default: gemini. Any other model returns 422 ERR_INVALID_PARAM (invalid model).
+$collection_id = 12,34; // string | One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
+$country_code = 'country_code_example'; // string | One ISO country code or a comma-separated list (e.g. US,GB,DE)
+$language_code = 'language_code_example'; // string | One ISO language code or a comma-separated list (e.g. en,es,de)
+$prompt_type = 'prompt_type_example'; // string | One prompt type or a comma-separated list: informational, navigational, commercial, transactional
+$brand_kind = 'brand_kind_example'; // string | Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default.
+$page = 1; // int
+$per_page = 20; // int
+
+try {
+    $result = $apiInstance->getDeclinedAnswers($project_id, $range, $from, $to, $model, $collection_id, $country_code, $language_code, $prompt_type, $brand_kind, $page, $per_page);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AIModelInsightsApi->getDeclinedAnswers: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **project_id** | **int**| Project ID | |
+| **range** | **int**| Number of days to look back (alternative to from/to, which win when both are given). A value that is not a plain positive number returns 422 ERR_INVALID_PARAM, even beside from/to. | [optional] |
+| **from** | **\DateTime**|  | [optional] |
+| **to** | **\DateTime**| End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
+| **model** | **string**| The model whose declines to read, whether or not it is enabled for the API key&#39;s user. Default: gemini. Any other model returns 422 ERR_INVALID_PARAM (invalid model). | [optional] |
+| **collection_id** | **string**| One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. | [optional] |
+| **country_code** | **string**| One ISO country code or a comma-separated list (e.g. US,GB,DE) | [optional] |
+| **language_code** | **string**| One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |
+| **prompt_type** | **string**| One prompt type or a comma-separated list: informational, navigational, commercial, transactional | [optional] |
+| **brand_kind** | **string**| Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. | [optional] |
+| **page** | **int**|  | [optional] [default to 1] |
+| **per_page** | **int**|  | [optional] [default to 20] |
+
+### Return type
+
+[**\LLMPulse\Model\AiModelDeclinedAnswersResponse**](../Model/AiModelDeclinedAnswersResponse.md)
+
+### Authorization
+
+[BearerAuth](../../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

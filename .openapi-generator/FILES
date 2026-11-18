@@ -40,6 +40,13 @@ docs/Model/AgentBot.md
 docs/Model/AgentBotsResponse.md
 docs/Model/AgentTrafficResponse.md
 docs/Model/AiModelCitationsRow.md
+docs/Model/AiModelDeclineCounts.md
+docs/Model/AiModelDeclinedAnswersResponse.md
+docs/Model/AiModelDeclinedAnswersResponseByPrompt.md
+docs/Model/AiModelDeclinedAnswersResponseByPromptDataInner.md
+docs/Model/AiModelDeclinedAnswersResponseChartInner.md
+docs/Model/AiModelDeclinedAnswersResponseFilters.md
+docs/Model/AiModelDeclinedAnswersResponseSummary.md
 docs/Model/AiModelInsightsFiltersEcho.md
 docs/Model/AiModelInsightsModel.md
 docs/Model/AiModelInsightsSummaryResponse.md
@@ -416,6 +423,13 @@ lib/Model/AgentBot.php
 lib/Model/AgentBotsResponse.php
 lib/Model/AgentTrafficResponse.php
 lib/Model/AiModelCitationsRow.php
+lib/Model/AiModelDeclineCounts.php
+lib/Model/AiModelDeclinedAnswersResponse.php
+lib/Model/AiModelDeclinedAnswersResponseByPrompt.php
+lib/Model/AiModelDeclinedAnswersResponseByPromptDataInner.php
+lib/Model/AiModelDeclinedAnswersResponseChartInner.php
+lib/Model/AiModelDeclinedAnswersResponseFilters.php
+lib/Model/AiModelDeclinedAnswersResponseSummary.php
 lib/Model/AiModelInsightsFiltersEcho.php
 lib/Model/AiModelInsightsModel.php
 lib/Model/AiModelInsightsSummaryResponse.php

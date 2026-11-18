@@ -1,0 +1,13 @@
+# UrlListCreateResponse
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**project_id** | **int** |  |
+**url_list** | [**\LLMPulse\Model\UrlListWithCounts**](UrlListWithCounts.md) |  |
+**entries_added** | **int** |  |
+**invalid_entries** | [**\LLMPulse\Model\UrlListInvalidEntry[]**](UrlListInvalidEntry.md) |  |
+**request_id** | **string** |  |
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

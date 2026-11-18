@@ -207,12 +207,19 @@ Class | Method | HTTP request | Description
 *ShoppingAdsApi* | [**listAds**](docs/Api/ShoppingAdsApi.md#listads) | **GET** /dimensions/ads | List AI ad placements
 *ShoppingAdsApi* | [**listLocalBusinesses**](docs/Api/ShoppingAdsApi.md#listlocalbusinesses) | **GET** /dimensions/local_businesses | List local businesses
 *ShoppingAdsApi* | [**listShopping**](docs/Api/ShoppingAdsApi.md#listshopping) | **GET** /dimensions/shopping | List shopping results
+*SourcesCitationIntelligenceApi* | [**addUrlListEntries**](docs/Api/SourcesCitationIntelligenceApi.md#addurllistentries) | **POST** /url_lists/{id}/entries | Add entries to a URL list
+*SourcesCitationIntelligenceApi* | [**createUrlList**](docs/Api/SourcesCitationIntelligenceApi.md#createurllist) | **POST** /url_lists | Create a URL list
+*SourcesCitationIntelligenceApi* | [**deleteUrlList**](docs/Api/SourcesCitationIntelligenceApi.md#deleteurllist) | **DELETE** /url_lists/{id} | Delete a URL list
 *SourcesCitationIntelligenceApi* | [**getCitedUrlContent**](docs/Api/SourcesCitationIntelligenceApi.md#getcitedurlcontent) | **GET** /citation_intelligence/urls/{url_sha256}/content | Cited URL cached content
 *SourcesCitationIntelligenceApi* | [**getCitedUrlDetail**](docs/Api/SourcesCitationIntelligenceApi.md#getcitedurldetail) | **GET** /citation_intelligence/urls/{url_sha256} | Cited URL detail
 *SourcesCitationIntelligenceApi* | [**getMentionsByCitingDomain**](docs/Api/SourcesCitationIntelligenceApi.md#getmentionsbycitingdomain) | **GET** /citation_intelligence/mentions_by_domain | Mention share by citing domain
+*SourcesCitationIntelligenceApi* | [**getUrlList**](docs/Api/SourcesCitationIntelligenceApi.md#geturllist) | **GET** /url_lists/{id} | Get a URL list report
 *SourcesCitationIntelligenceApi* | [**listCitationGroups**](docs/Api/SourcesCitationIntelligenceApi.md#listcitationgroups) | **GET** /citation_intelligence/groups | Grouped citation intelligence
 *SourcesCitationIntelligenceApi* | [**listCitedUrlOccurrences**](docs/Api/SourcesCitationIntelligenceApi.md#listcitedurloccurrences) | **GET** /citation_intelligence/urls/{url_sha256}/occurrences | Cited URL occurrences
 *SourcesCitationIntelligenceApi* | [**listSources**](docs/Api/SourcesCitationIntelligenceApi.md#listsources) | **GET** /dimensions/sources | List source URLs
+*SourcesCitationIntelligenceApi* | [**listUrlLists**](docs/Api/SourcesCitationIntelligenceApi.md#listurllists) | **GET** /url_lists | List URL lists
+*SourcesCitationIntelligenceApi* | [**removeUrlListEntries**](docs/Api/SourcesCitationIntelligenceApi.md#removeurllistentries) | **POST** /url_lists/{id}/entries/remove | Remove entries from a URL list
+*SourcesCitationIntelligenceApi* | [**updateUrlList**](docs/Api/SourcesCitationIntelligenceApi.md#updateurllist) | **PATCH** /url_lists/{id} | Update a URL list
 *StoreIntegrationsApi* | [**acceptCatalogPromptSuggestions**](docs/Api/StoreIntegrationsApi.md#acceptcatalogpromptsuggestions) | **POST** /catalog_prompt_suggestions/accept | Accept catalog prompt suggestions
 *StoreIntegrationsApi* | [**createCatalogPromptSuggestions**](docs/Api/StoreIntegrationsApi.md#createcatalogpromptsuggestions) | **POST** /catalog_prompt_suggestions | Suggest buyer prompts from catalog products
 *StoreIntegrationsApi* | [**getStoreConnection**](docs/Api/StoreIntegrationsApi.md#getstoreconnection) | **GET** /store_connection | Match a store to a project
@@ -558,6 +565,26 @@ Class | Method | HTTP request | Description
 - [UpdateProjectRequest](docs/Model/UpdateProjectRequest.md)
 - [UpdatePromptRequest](docs/Model/UpdatePromptRequest.md)
 - [UpdateRecommendationItemRequest](docs/Model/UpdateRecommendationItemRequest.md)
+- [UrlList](docs/Model/UrlList.md)
+- [UrlListCreateRequest](docs/Model/UrlListCreateRequest.md)
+- [UrlListCreateResponse](docs/Model/UrlListCreateResponse.md)
+- [UrlListDeleteResponse](docs/Model/UrlListDeleteResponse.md)
+- [UrlListDetailResponse](docs/Model/UrlListDetailResponse.md)
+- [UrlListEntriesAddRequest](docs/Model/UrlListEntriesAddRequest.md)
+- [UrlListEntriesAddResponse](docs/Model/UrlListEntriesAddResponse.md)
+- [UrlListEntriesRemoveRequest](docs/Model/UrlListEntriesRemoveRequest.md)
+- [UrlListEntriesRemoveResponse](docs/Model/UrlListEntriesRemoveResponse.md)
+- [UrlListEntry](docs/Model/UrlListEntry.md)
+- [UrlListEntryInput](docs/Model/UrlListEntryInput.md)
+- [UrlListFilters](docs/Model/UrlListFilters.md)
+- [UrlListInvalidEntry](docs/Model/UrlListInvalidEntry.md)
+- [UrlListStatusCounts](docs/Model/UrlListStatusCounts.md)
+- [UrlListSummary](docs/Model/UrlListSummary.md)
+- [UrlListUpdateRequest](docs/Model/UrlListUpdateRequest.md)
+- [UrlListUpdateResponse](docs/Model/UrlListUpdateResponse.md)
+- [UrlListWithCounts](docs/Model/UrlListWithCounts.md)
+- [UrlListWithStats](docs/Model/UrlListWithStats.md)
+- [UrlListsResponse](docs/Model/UrlListsResponse.md)
 - [WebAnalyticsQueryResponse](docs/Model/WebAnalyticsQueryResponse.md)
 - [WebAnalyticsQueryResponseColumnsInner](docs/Model/WebAnalyticsQueryResponseColumnsInner.md)
 - [WebAnalyticsSchemaResponse](docs/Model/WebAnalyticsSchemaResponse.md)
@@ -586,6 +613,6 @@ info@llmpulse.ai
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.97.0`
+- API version: `1.98.0`
     - Generator version: `7.24.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

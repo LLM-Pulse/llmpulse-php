@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **prompt_type** | **string** | Search intent: informational, navigational, commercial or transactional. Null until the prompt is classified | [optional]
 **brand_kind** | **string** | Brand focus: brand, brand_other or non_brand. Null until the prompt is classified | [optional]
 **tags** | [**\LLMPulse\Model\TagRef[]**](TagRef.md) | Every tag the prompt belongs to | [optional]
-**sentiment_responses** | **int** | Responses in the window with a sentiment verdict for the brand, the base of the sentiment percentages (deduplicated like the sentiment timeseries) | [optional]
+**sentiment_responses** | **int** | Responses in the window with a sentiment verdict for the brand, the base of the sentiment percentages (deduplicated like the sentiment timeseries). Needs the Growth plan or above, like every sentiment field of the row; below it they are left out and named in plan_required_fields | [optional]
 **sentiment_very_positive** | **float** | Percentage (0-100) of sentiment_responses whose brand verdict is very positive; null when sentiment_responses is 0 | [optional]
 **sentiment_positive** | **float** | Percentage (0-100) of sentiment_responses whose brand verdict is positive; null when sentiment_responses is 0 | [optional]
 **sentiment_neutral** | **float** | Percentage (0-100) of sentiment_responses whose brand verdict is neutral; null when sentiment_responses is 0 | [optional]

@@ -304,7 +304,7 @@ $brand_kind = 'brand_kind_example'; // string | Filter by brand kind: brand (own
 $from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
 $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
 $source_type = 'source_type_example'; // string
-$sentiment = 'sentiment_example'; // string
+$sentiment = 'sentiment_example'; // string | Keeps the citations of answers with a negative brand sentiment. Needs the Growth plan or above: below it the filter answers 403 ERR_PLAN_REQUIRED.
 $content_gap = 'content_gap_example'; // string | mentioned: the cited page mentions your brand. gap: it mentions a competitor but not your brand. Only pages with usable content whose mention analysis has completed for this project match.
 $include_series = false; // bool | Adds citation_series. Without it the response is unchanged.
 
@@ -330,7 +330,7 @@ try {
 | **from** | **\DateTime**|  | [optional] |
 | **to** | **\DateTime**| End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
 | **source_type** | **string**|  | [optional] |
-| **sentiment** | **string**|  | [optional] |
+| **sentiment** | **string**| Keeps the citations of answers with a negative brand sentiment. Needs the Growth plan or above: below it the filter answers 403 ERR_PLAN_REQUIRED. | [optional] |
 | **content_gap** | **string**| mentioned: the cited page mentions your brand. gap: it mentions a competitor but not your brand. Only pages with usable content whose mention analysis has completed for this project match. | [optional] |
 | **include_series** | **bool**| Adds citation_series. Without it the response is unchanged. | [optional] [default to false] |
 
@@ -563,7 +563,7 @@ $key = 'key_example'; // string | Return only this group of the chosen view: a d
 $include_series = false; // bool | Requires key, else 422 ERR_INVALID_PARAM. Adds citation_series to the group's row.
 $query = 'query_example'; // string
 $source_type = 'source_type_example'; // string
-$sentiment = 'sentiment_example'; // string
+$sentiment = 'sentiment_example'; // string | Keeps the citations of answers with a negative brand sentiment. Needs the Growth plan or above: below it the filter answers 403 ERR_PLAN_REQUIRED.
 $content_gap = 'content_gap_example'; // string | mentioned: the cited page mentions your brand. gap: it mentions a competitor but not your brand. Only pages with usable content whose mention analysis has completed for this project match.
 
 try {
@@ -595,7 +595,7 @@ try {
 | **include_series** | **bool**| Requires key, else 422 ERR_INVALID_PARAM. Adds citation_series to the group&#39;s row. | [optional] [default to false] |
 | **query** | **string**|  | [optional] |
 | **source_type** | **string**|  | [optional] |
-| **sentiment** | **string**|  | [optional] |
+| **sentiment** | **string**| Keeps the citations of answers with a negative brand sentiment. Needs the Growth plan or above: below it the filter answers 403 ERR_PLAN_REQUIRED. | [optional] |
 | **content_gap** | **string**| mentioned: the cited page mentions your brand. gap: it mentions a competitor but not your brand. Only pages with usable content whose mention analysis has completed for this project match. | [optional] |
 
 ### Return type
@@ -618,7 +618,7 @@ void (empty response body)
 ## `listCitedUrlOccurrences()`
 
 ```php
-listCitedUrlOccurrences($project_id, $url_sha256, $page, $per_page)
+listCitedUrlOccurrences($project_id, $url_sha256, $page, $per_page, $sentiment)
 ```
 
 Cited URL occurrences
@@ -644,9 +644,10 @@ $project_id = 56; // int | Project ID
 $url_sha256 = 'url_sha256_example'; // string | 64-character hex SHA-256 of the cited URL
 $page = 1; // int
 $per_page = 20; // int
+$sentiment = 'sentiment_example'; // string | Keeps the occurrences in answers with a negative brand sentiment. Needs the Growth plan or above: below it the filter answers 403 ERR_PLAN_REQUIRED.
 
 try {
-    $apiInstance->listCitedUrlOccurrences($project_id, $url_sha256, $page, $per_page);
+    $apiInstance->listCitedUrlOccurrences($project_id, $url_sha256, $page, $per_page, $sentiment);
 } catch (Exception $e) {
     echo 'Exception when calling SourcesCitationIntelligenceApi->listCitedUrlOccurrences: ', $e->getMessage(), PHP_EOL;
 }
@@ -660,6 +661,7 @@ try {
 | **url_sha256** | **string**| 64-character hex SHA-256 of the cited URL | |
 | **page** | **int**|  | [optional] [default to 1] |
 | **per_page** | **int**|  | [optional] [default to 20] |
+| **sentiment** | **string**| Keeps the occurrences in answers with a negative brand sentiment. Needs the Growth plan or above: below it the filter answers 403 ERR_PLAN_REQUIRED. | [optional] |
 
 ### Return type
 

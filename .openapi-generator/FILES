@@ -10,6 +10,7 @@ docs/Api/APIKeysApi.md
 docs/Api/AccountApi.md
 docs/Api/AnnotationsApi.md
 docs/Api/AnswersApi.md
+docs/Api/BingWebmasterToolsApi.md
 docs/Api/CollectionsTagsApi.md
 docs/Api/CompetitorsApi.md
 docs/Api/CustomReportsApi.md
@@ -82,6 +83,12 @@ docs/Model/ApiError.md
 docs/Model/ApiErrorError.md
 docs/Model/ApiKeyInfo.md
 docs/Model/AssignPromptTagsRequest.md
+docs/Model/BingWebmasterListResponse.md
+docs/Model/BingWebmasterListResponseDataInner.md
+docs/Model/BingWebmasterMetrics.md
+docs/Model/BingWebmasterSummaryResponse.md
+docs/Model/BingWebmasterTimeseriesResponse.md
+docs/Model/BingWebmasterTimeseriesResponseDataInner.md
 docs/Model/CatalogProduct.md
 docs/Model/CatalogPromptSuggestion.md
 docs/Model/CatalogPromptSuggestionIdsRequest.md
@@ -235,6 +242,7 @@ docs/Model/ProjectDeleteResponse.md
 docs/Model/ProjectDetails.md
 docs/Model/ProjectDetailsAllOfAgentTraffic.md
 docs/Model/ProjectDetailsAllOfAiTraffic.md
+docs/Model/ProjectDetailsAllOfBingWebmaster.md
 docs/Model/ProjectDetailsAllOfDataCoverage.md
 docs/Model/ProjectDetailsAllOfPitchRun.md
 docs/Model/ProjectDetailsAllOfSearchConsole.md
@@ -389,6 +397,7 @@ lib/Api/APIKeysApi.php
 lib/Api/AccountApi.php
 lib/Api/AnnotationsApi.php
 lib/Api/AnswersApi.php
+lib/Api/BingWebmasterToolsApi.php
 lib/Api/CollectionsTagsApi.php
 lib/Api/CompetitorsApi.php
 lib/Api/CustomReportsApi.php
@@ -465,6 +474,12 @@ lib/Model/ApiError.php
 lib/Model/ApiErrorError.php
 lib/Model/ApiKeyInfo.php
 lib/Model/AssignPromptTagsRequest.php
+lib/Model/BingWebmasterListResponse.php
+lib/Model/BingWebmasterListResponseDataInner.php
+lib/Model/BingWebmasterMetrics.php
+lib/Model/BingWebmasterSummaryResponse.php
+lib/Model/BingWebmasterTimeseriesResponse.php
+lib/Model/BingWebmasterTimeseriesResponseDataInner.php
 lib/Model/CatalogProduct.php
 lib/Model/CatalogPromptSuggestion.php
 lib/Model/CatalogPromptSuggestionIdsRequest.php
@@ -619,6 +634,7 @@ lib/Model/ProjectDeleteResponse.php
 lib/Model/ProjectDetails.php
 lib/Model/ProjectDetailsAllOfAgentTraffic.php
 lib/Model/ProjectDetailsAllOfAiTraffic.php
+lib/Model/ProjectDetailsAllOfBingWebmaster.php
 lib/Model/ProjectDetailsAllOfDataCoverage.php
 lib/Model/ProjectDetailsAllOfPitchRun.php
 lib/Model/ProjectDetailsAllOfSearchConsole.php

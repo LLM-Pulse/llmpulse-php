@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** | Report id for GET /reputation/reports/{id} |
+**id** | **string** | Report id for GET /reputation/reports/{id}, or GET /studies/{id}/reports/{report_id} for a study report |
 **status** | **string** |  |
 **created_at** | **\DateTime** |  |
 **processed_at** | **\DateTime** |  | [optional]

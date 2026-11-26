@@ -95,7 +95,7 @@ try {
 ## `getAiModelPositionDistribution()`
 
 ```php
-getAiModelPositionDistribution($project_id, $range, $from, $to, $granularity, $collection_id, $country_code, $language_code, $prompt_type, $brand_kind, $model, $brand1, $brand2)
+getAiModelPositionDistribution($project_id, $range, $from, $to, $granularity, $collection_id, $country_code, $language_code, $prompt_type, $brand_kind, $model, $brand1, $brand2): \LLMPulse\Model\AiModelPositionDistributionResponse
 ```
 
 Position distribution comparison
@@ -132,7 +132,8 @@ $brand1 = 56; // int | Competitor ID for the first comparison brand (omit to com
 $brand2 = 56; // int
 
 try {
-    $apiInstance->getAiModelPositionDistribution($project_id, $range, $from, $to, $granularity, $collection_id, $country_code, $language_code, $prompt_type, $brand_kind, $model, $brand1, $brand2);
+    $result = $apiInstance->getAiModelPositionDistribution($project_id, $range, $from, $to, $granularity, $collection_id, $country_code, $language_code, $prompt_type, $brand_kind, $model, $brand1, $brand2);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AIModelInsightsApi->getAiModelPositionDistribution: ', $e->getMessage(), PHP_EOL;
 }
@@ -158,7 +159,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\AiModelPositionDistributionResponse**](../Model/AiModelPositionDistributionResponse.md)
 
 ### Authorization
 
@@ -167,7 +168,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -176,7 +177,7 @@ void (empty response body)
 ## `getAiOverviewResults()`
 
 ```php
-getAiOverviewResults($project_id, $range, $from, $to, $granularity, $collection_id, $country_code, $language_code, $prompt_type, $brand_kind, $page, $per_page)
+getAiOverviewResults($project_id, $range, $from, $to, $granularity, $collection_id, $country_code, $language_code, $prompt_type, $brand_kind, $page, $per_page): \LLMPulse\Model\AiOverviewResultsResponse
 ```
 
 Google AI Overview result availability
@@ -212,7 +213,8 @@ $page = 1; // int
 $per_page = 20; // int
 
 try {
-    $apiInstance->getAiOverviewResults($project_id, $range, $from, $to, $granularity, $collection_id, $country_code, $language_code, $prompt_type, $brand_kind, $page, $per_page);
+    $result = $apiInstance->getAiOverviewResults($project_id, $range, $from, $to, $granularity, $collection_id, $country_code, $language_code, $prompt_type, $brand_kind, $page, $per_page);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AIModelInsightsApi->getAiOverviewResults: ', $e->getMessage(), PHP_EOL;
 }
@@ -237,7 +239,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\AiOverviewResultsResponse**](../Model/AiOverviewResultsResponse.md)
 
 ### Authorization
 
@@ -246,7 +248,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

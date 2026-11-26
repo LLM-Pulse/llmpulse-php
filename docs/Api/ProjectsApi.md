@@ -82,7 +82,7 @@ try {
 ## `createProjectDraft()`
 
 ```php
-createProjectDraft($create_project_draft_request)
+createProjectDraft($create_project_draft_request): \LLMPulse\Model\ProjectDraftResponse
 ```
 
 Start a project draft (wizard step 1)
@@ -109,7 +109,8 @@ $apiInstance = new LLMPulse\Api\ProjectsApi(
 $create_project_draft_request = new \LLMPulse\Model\CreateProjectDraftRequest(); // \LLMPulse\Model\CreateProjectDraftRequest
 
 try {
-    $apiInstance->createProjectDraft($create_project_draft_request);
+    $result = $apiInstance->createProjectDraft($create_project_draft_request);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectsApi->createProjectDraft: ', $e->getMessage(), PHP_EOL;
 }
@@ -123,7 +124,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\ProjectDraftResponse**](../Model/ProjectDraftResponse.md)
 
 ### Authorization
 
@@ -322,7 +323,7 @@ try {
 ## `getProjectDraft()`
 
 ```php
-getProjectDraft($id, $include_suggestions)
+getProjectDraft($id, $include_suggestions): \LLMPulse\Model\ProjectDraftResponse
 ```
 
 Read a project draft
@@ -348,7 +349,8 @@ $id = 'id_example'; // string | Draft id (draft_...)
 $include_suggestions = false; // bool | Cache-only: returns suggestions for the current step if already generated, never triggers AI
 
 try {
-    $apiInstance->getProjectDraft($id, $include_suggestions);
+    $result = $apiInstance->getProjectDraft($id, $include_suggestions);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectsApi->getProjectDraft: ', $e->getMessage(), PHP_EOL;
 }
@@ -363,7 +365,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\ProjectDraftResponse**](../Model/ProjectDraftResponse.md)
 
 ### Authorization
 
@@ -621,7 +623,7 @@ try {
 ## `updateProjectDraft()`
 
 ```php
-updateProjectDraft($id, $update_project_draft_request)
+updateProjectDraft($id, $update_project_draft_request): \LLMPulse\Model\ProjectDraftResponse
 ```
 
 Submit a wizard step
@@ -649,7 +651,8 @@ $id = 'id_example'; // string
 $update_project_draft_request = new \LLMPulse\Model\UpdateProjectDraftRequest(); // \LLMPulse\Model\UpdateProjectDraftRequest
 
 try {
-    $apiInstance->updateProjectDraft($id, $update_project_draft_request);
+    $result = $apiInstance->updateProjectDraft($id, $update_project_draft_request);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectsApi->updateProjectDraft: ', $e->getMessage(), PHP_EOL;
 }
@@ -664,7 +667,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\ProjectDraftResponse**](../Model/ProjectDraftResponse.md)
 
 ### Authorization
 

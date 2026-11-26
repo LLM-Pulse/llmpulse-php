@@ -1,4 +1,4 @@
-# RecommendationSummarySummary
+# RecommendationDetailResponseSummary
 
 ## Properties
 

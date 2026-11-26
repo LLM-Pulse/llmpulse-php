@@ -14,7 +14,7 @@ All URIs are relative to https://api.llmpulse.ai/api/v1, except if the operation
 ## `listAds()`
 
 ```php
-listAds($project_id, $page, $per_page, $view, $owned, $order, $direction, $query, $model, $collection_id, $country_code, $language_code, $prompt, $prompt_type, $brand_kind, $range, $from, $to, $output)
+listAds($project_id, $page, $per_page, $view, $owned, $order, $direction, $query, $model, $collection_id, $country_code, $language_code, $prompt, $prompt_type, $brand_kind, $range, $from, $to, $output): \LLMPulse\Model\AdsResponse
 ```
 
 List AI ad placements
@@ -59,7 +59,8 @@ $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the wind
 $output = 'output_example'; // string | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
 
 try {
-    $apiInstance->listAds($project_id, $page, $per_page, $view, $owned, $order, $direction, $query, $model, $collection_id, $country_code, $language_code, $prompt, $prompt_type, $brand_kind, $range, $from, $to, $output);
+    $result = $apiInstance->listAds($project_id, $page, $per_page, $view, $owned, $order, $direction, $query, $model, $collection_id, $country_code, $language_code, $prompt, $prompt_type, $brand_kind, $range, $from, $to, $output);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ShoppingAdsApi->listAds: ', $e->getMessage(), PHP_EOL;
 }
@@ -91,7 +92,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\AdsResponse**](../Model/AdsResponse.md)
 
 ### Authorization
 
@@ -203,7 +204,7 @@ try {
 ## `listShopping()`
 
 ```php
-listShopping($project_id, $page, $per_page, $view, $owned, $order, $direction, $query, $model, $collection_id, $country_code, $language_code, $prompt, $prompt_type, $brand_kind, $range, $from, $to, $output)
+listShopping($project_id, $page, $per_page, $view, $owned, $order, $direction, $query, $model, $collection_id, $country_code, $language_code, $prompt, $prompt_type, $brand_kind, $range, $from, $to, $output): \LLMPulse\Model\ShoppingResponse
 ```
 
 List shopping results
@@ -248,7 +249,8 @@ $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the wind
 $output = 'output_example'; // string | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
 
 try {
-    $apiInstance->listShopping($project_id, $page, $per_page, $view, $owned, $order, $direction, $query, $model, $collection_id, $country_code, $language_code, $prompt, $prompt_type, $brand_kind, $range, $from, $to, $output);
+    $result = $apiInstance->listShopping($project_id, $page, $per_page, $view, $owned, $order, $direction, $query, $model, $collection_id, $country_code, $language_code, $prompt, $prompt_type, $brand_kind, $range, $from, $to, $output);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ShoppingAdsApi->listShopping: ', $e->getMessage(), PHP_EOL;
 }
@@ -280,7 +282,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\ShoppingResponse**](../Model/ShoppingResponse.md)
 
 ### Authorization
 

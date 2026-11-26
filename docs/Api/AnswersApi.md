@@ -77,7 +77,7 @@ try {
 ## `listAnswers()`
 
 ```php
-listAnswers($project_id, $model, $collection_id, $country_code, $language_code, $prompt, $prompt_type, $brand_kind, $mention_filter, $citation_filter, $competitors, $from, $to, $page, $per_page, $query, $no_result)
+listAnswers($project_id, $model, $collection_id, $country_code, $language_code, $prompt, $prompt_type, $brand_kind, $mention_filter, $citation_filter, $competitors, $from, $to, $page, $per_page, $query, $no_result): \LLMPulse\Model\AnswersResponse
 ```
 
 List AI responses
@@ -120,7 +120,8 @@ $query = 'query_example'; // string | Case-insensitive full-text search inside A
 $no_result = True; // bool | Filter sentinel non-answers (no answer could be collected after all retries, or the model declined to answer, today only Gemini; excluded from platform metrics). false = only real answers, true = only sentinels, omit = both. Every item carries its own no_result flag, and a sentinel also carries no_result_reason (declined or no_answer).
 
 try {
-    $apiInstance->listAnswers($project_id, $model, $collection_id, $country_code, $language_code, $prompt, $prompt_type, $brand_kind, $mention_filter, $citation_filter, $competitors, $from, $to, $page, $per_page, $query, $no_result);
+    $result = $apiInstance->listAnswers($project_id, $model, $collection_id, $country_code, $language_code, $prompt, $prompt_type, $brand_kind, $mention_filter, $citation_filter, $competitors, $from, $to, $page, $per_page, $query, $no_result);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnswersApi->listAnswers: ', $e->getMessage(), PHP_EOL;
 }
@@ -150,7 +151,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\AnswersResponse**](../Model/AnswersResponse.md)
 
 ### Authorization
 

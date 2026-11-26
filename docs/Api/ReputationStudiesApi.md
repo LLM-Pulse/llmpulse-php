@@ -77,7 +77,7 @@ try {
 ## `getReputationReport()`
 
 ```php
-getReputationReport($id, $project_id, $page, $per_page, $model, $brand, $dimension, $output)
+getReputationReport($id, $project_id, $page, $per_page, $model, $brand, $dimension, $output): \LLMPulse\Model\ReputationReportScoresResponse
 ```
 
 Get reputation report scores
@@ -111,7 +111,8 @@ $dimension = 'dimension_example'; // string | Restrict to one reputation dimensi
 $output = 'output_example'; // string | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
 
 try {
-    $apiInstance->getReputationReport($id, $project_id, $page, $per_page, $model, $brand, $dimension, $output);
+    $result = $apiInstance->getReputationReport($id, $project_id, $page, $per_page, $model, $brand, $dimension, $output);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReputationStudiesApi->getReputationReport: ', $e->getMessage(), PHP_EOL;
 }
@@ -132,7 +133,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\ReputationReportScoresResponse**](../Model/ReputationReportScoresResponse.md)
 
 ### Authorization
 
@@ -150,7 +151,7 @@ void (empty response body)
 ## `getStudy()`
 
 ```php
-getStudy($id)
+getStudy($id): \LLMPulse\Model\StudyResponse
 ```
 
 Get a custom AI study
@@ -177,7 +178,8 @@ $apiInstance = new LLMPulse\Api\ReputationStudiesApi(
 $id = 56; // int
 
 try {
-    $apiInstance->getStudy($id);
+    $result = $apiInstance->getStudy($id);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReputationStudiesApi->getStudy: ', $e->getMessage(), PHP_EOL;
 }
@@ -191,7 +193,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\StudyResponse**](../Model/StudyResponse.md)
 
 ### Authorization
 
@@ -209,7 +211,7 @@ void (empty response body)
 ## `getStudyReport()`
 
 ```php
-getStudyReport($id, $report_id, $page, $per_page, $model, $subject, $dimension, $output)
+getStudyReport($id, $report_id, $page, $per_page, $model, $subject, $dimension, $output): \LLMPulse\Model\StudyReportScoresResponse
 ```
 
 Get custom study report scores
@@ -243,7 +245,8 @@ $dimension = 'dimension_example'; // string | Restrict to one dimension key
 $output = 'output_example'; // string | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
 
 try {
-    $apiInstance->getStudyReport($id, $report_id, $page, $per_page, $model, $subject, $dimension, $output);
+    $result = $apiInstance->getStudyReport($id, $report_id, $page, $per_page, $model, $subject, $dimension, $output);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReputationStudiesApi->getStudyReport: ', $e->getMessage(), PHP_EOL;
 }
@@ -264,7 +267,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\StudyReportScoresResponse**](../Model/StudyReportScoresResponse.md)
 
 ### Authorization
 
@@ -282,7 +285,7 @@ void (empty response body)
 ## `listReputationReports()`
 
 ```php
-listReputationReports($project_id, $page, $per_page, $output)
+listReputationReports($project_id, $page, $per_page, $output): \LLMPulse\Model\ReputationReportsResponse
 ```
 
 List reputation reports
@@ -312,7 +315,8 @@ $per_page = 20; // int
 $output = 'output_example'; // string | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
 
 try {
-    $apiInstance->listReputationReports($project_id, $page, $per_page, $output);
+    $result = $apiInstance->listReputationReports($project_id, $page, $per_page, $output);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReputationStudiesApi->listReputationReports: ', $e->getMessage(), PHP_EOL;
 }
@@ -329,7 +333,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\ReputationReportsResponse**](../Model/ReputationReportsResponse.md)
 
 ### Authorization
 
@@ -338,7 +342,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -347,7 +351,7 @@ void (empty response body)
 ## `listStudies()`
 
 ```php
-listStudies($project_id, $status, $page, $per_page, $output)
+listStudies($project_id, $status, $page, $per_page, $output): \LLMPulse\Model\StudiesResponse
 ```
 
 List custom AI studies
@@ -378,7 +382,8 @@ $per_page = 20; // int
 $output = 'output_example'; // string | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
 
 try {
-    $apiInstance->listStudies($project_id, $status, $page, $per_page, $output);
+    $result = $apiInstance->listStudies($project_id, $status, $page, $per_page, $output);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReputationStudiesApi->listStudies: ', $e->getMessage(), PHP_EOL;
 }
@@ -396,7 +401,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\StudiesResponse**](../Model/StudiesResponse.md)
 
 ### Authorization
 
@@ -405,7 +410,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

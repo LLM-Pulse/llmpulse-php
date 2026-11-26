@@ -208,7 +208,7 @@ try {
 ## `getCitedUrlContent()`
 
 ```php
-getCitedUrlContent($project_id, $url_sha256)
+getCitedUrlContent($project_id, $url_sha256): \LLMPulse\Model\CitedUrlContentResponse
 ```
 
 Cited URL cached content
@@ -236,7 +236,8 @@ $project_id = 56; // int | Project ID
 $url_sha256 = 'url_sha256_example'; // string | 64-character hex SHA-256 of the cited URL
 
 try {
-    $apiInstance->getCitedUrlContent($project_id, $url_sha256);
+    $result = $apiInstance->getCitedUrlContent($project_id, $url_sha256);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SourcesCitationIntelligenceApi->getCitedUrlContent: ', $e->getMessage(), PHP_EOL;
 }
@@ -251,7 +252,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\CitedUrlContentResponse**](../Model/CitedUrlContentResponse.md)
 
 ### Authorization
 
@@ -269,7 +270,7 @@ void (empty response body)
 ## `getCitedUrlDetail()`
 
 ```php
-getCitedUrlDetail($project_id, $url_sha256, $model, $collection_id, $country_code, $language_code, $prompt, $brand_kind, $from, $to, $source_type, $sentiment, $content_gap, $include_series)
+getCitedUrlDetail($project_id, $url_sha256, $model, $collection_id, $country_code, $language_code, $prompt, $brand_kind, $from, $to, $source_type, $sentiment, $content_gap, $include_series): \LLMPulse\Model\CitedUrlDetailsResponse
 ```
 
 Cited URL detail
@@ -309,7 +310,8 @@ $content_gap = 'content_gap_example'; // string | mentioned: the cited page ment
 $include_series = false; // bool | Adds citation_series. Without it the response is unchanged.
 
 try {
-    $apiInstance->getCitedUrlDetail($project_id, $url_sha256, $model, $collection_id, $country_code, $language_code, $prompt, $brand_kind, $from, $to, $source_type, $sentiment, $content_gap, $include_series);
+    $result = $apiInstance->getCitedUrlDetail($project_id, $url_sha256, $model, $collection_id, $country_code, $language_code, $prompt, $brand_kind, $from, $to, $source_type, $sentiment, $content_gap, $include_series);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SourcesCitationIntelligenceApi->getCitedUrlDetail: ', $e->getMessage(), PHP_EOL;
 }
@@ -336,7 +338,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\CitedUrlDetailsResponse**](../Model/CitedUrlDetailsResponse.md)
 
 ### Authorization
 
@@ -354,7 +356,7 @@ void (empty response body)
 ## `getMentionsByCitingDomain()`
 
 ```php
-getMentionsByCitingDomain($project_id, $domains, $model, $collection_id, $country_code, $language_code, $prompt, $brand_kind, $from, $to)
+getMentionsByCitingDomain($project_id, $domains, $model, $collection_id, $country_code, $language_code, $prompt, $brand_kind, $from, $to): \LLMPulse\Model\CitingDomainMentionShareResponse
 ```
 
 Mention share by citing domain
@@ -390,7 +392,8 @@ $from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
 $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
 
 try {
-    $apiInstance->getMentionsByCitingDomain($project_id, $domains, $model, $collection_id, $country_code, $language_code, $prompt, $brand_kind, $from, $to);
+    $result = $apiInstance->getMentionsByCitingDomain($project_id, $domains, $model, $collection_id, $country_code, $language_code, $prompt, $brand_kind, $from, $to);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SourcesCitationIntelligenceApi->getMentionsByCitingDomain: ', $e->getMessage(), PHP_EOL;
 }
@@ -413,7 +416,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\CitingDomainMentionShareResponse**](../Model/CitingDomainMentionShareResponse.md)
 
 ### Authorization
 
@@ -521,7 +524,7 @@ try {
 ## `listCitationGroups()`
 
 ```php
-listCitationGroups($project_id, $view, $page, $per_page, $order, $direction, $model, $collection_id, $country_code, $language_code, $prompt, $brand_kind, $from, $to, $key, $include_series, $query, $source_type, $sentiment, $content_gap)
+listCitationGroups($project_id, $view, $page, $per_page, $order, $direction, $model, $collection_id, $country_code, $language_code, $prompt, $brand_kind, $from, $to, $key, $include_series, $query, $source_type, $sentiment, $content_gap): \LLMPulse\Model\CitationGroupsResponse
 ```
 
 Grouped citation intelligence
@@ -567,7 +570,8 @@ $sentiment = 'sentiment_example'; // string | Keeps the citations of answers wit
 $content_gap = 'content_gap_example'; // string | mentioned: the cited page mentions your brand. gap: it mentions a competitor but not your brand. Only pages with usable content whose mention analysis has completed for this project match.
 
 try {
-    $apiInstance->listCitationGroups($project_id, $view, $page, $per_page, $order, $direction, $model, $collection_id, $country_code, $language_code, $prompt, $brand_kind, $from, $to, $key, $include_series, $query, $source_type, $sentiment, $content_gap);
+    $result = $apiInstance->listCitationGroups($project_id, $view, $page, $per_page, $order, $direction, $model, $collection_id, $country_code, $language_code, $prompt, $brand_kind, $from, $to, $key, $include_series, $query, $source_type, $sentiment, $content_gap);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SourcesCitationIntelligenceApi->listCitationGroups: ', $e->getMessage(), PHP_EOL;
 }
@@ -600,7 +604,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\CitationGroupsResponse**](../Model/CitationGroupsResponse.md)
 
 ### Authorization
 
@@ -618,7 +622,7 @@ void (empty response body)
 ## `listCitedUrlOccurrences()`
 
 ```php
-listCitedUrlOccurrences($project_id, $url_sha256, $page, $per_page, $sentiment)
+listCitedUrlOccurrences($project_id, $url_sha256, $page, $per_page, $sentiment): \LLMPulse\Model\CitedUrlOccurrencesResponse
 ```
 
 Cited URL occurrences
@@ -647,7 +651,8 @@ $per_page = 20; // int
 $sentiment = 'sentiment_example'; // string | Keeps the occurrences in answers with a negative brand sentiment. Needs the Growth plan or above: below it the filter answers 403 ERR_PLAN_REQUIRED.
 
 try {
-    $apiInstance->listCitedUrlOccurrences($project_id, $url_sha256, $page, $per_page, $sentiment);
+    $result = $apiInstance->listCitedUrlOccurrences($project_id, $url_sha256, $page, $per_page, $sentiment);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SourcesCitationIntelligenceApi->listCitedUrlOccurrences: ', $e->getMessage(), PHP_EOL;
 }
@@ -665,7 +670,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\CitedUrlOccurrencesResponse**](../Model/CitedUrlOccurrencesResponse.md)
 
 ### Authorization
 
@@ -683,7 +688,7 @@ void (empty response body)
 ## `listSources()`
 
 ```php
-listSources($project_id, $page, $per_page, $model, $collection_id, $country_code, $language_code, $prompt, $from, $to, $source_type, $mention_filter, $competitors, $output, $prompt_type, $brand_kind, $range)
+listSources($project_id, $page, $per_page, $model, $collection_id, $country_code, $language_code, $prompt, $from, $to, $source_type, $mention_filter, $competitors, $output, $prompt_type, $brand_kind, $range): \LLMPulse\Model\SourcesResponse
 ```
 
 List source URLs
@@ -724,7 +729,8 @@ $brand_kind = 'brand_kind_example'; // string | Filter by brand kind: brand (own
 $range = 56; // int | Number of days to look back (alternative to from/to, which win when both are given). A value that is not a plain positive number returns 422 ERR_INVALID_PARAM, even beside from/to.
 
 try {
-    $apiInstance->listSources($project_id, $page, $per_page, $model, $collection_id, $country_code, $language_code, $prompt, $from, $to, $source_type, $mention_filter, $competitors, $output, $prompt_type, $brand_kind, $range);
+    $result = $apiInstance->listSources($project_id, $page, $per_page, $model, $collection_id, $country_code, $language_code, $prompt, $from, $to, $source_type, $mention_filter, $competitors, $output, $prompt_type, $brand_kind, $range);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SourcesCitationIntelligenceApi->listSources: ', $e->getMessage(), PHP_EOL;
 }
@@ -754,7 +760,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\SourcesResponse**](../Model/SourcesResponse.md)
 
 ### Authorization
 

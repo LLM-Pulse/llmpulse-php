@@ -75,7 +75,7 @@ try {
 ## `deleteAnnotation()`
 
 ```php
-deleteAnnotation($project_id, $id)
+deleteAnnotation($project_id, $id): \LLMPulse\Model\AnnotationDeleteResponse
 ```
 
 Delete a timeline annotation
@@ -103,7 +103,8 @@ $project_id = 56; // int | Project ID
 $id = 56; // int
 
 try {
-    $apiInstance->deleteAnnotation($project_id, $id);
+    $result = $apiInstance->deleteAnnotation($project_id, $id);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnnotationsApi->deleteAnnotation: ', $e->getMessage(), PHP_EOL;
 }
@@ -118,7 +119,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\AnnotationDeleteResponse**](../Model/AnnotationDeleteResponse.md)
 
 ### Authorization
 
@@ -136,7 +137,7 @@ void (empty response body)
 ## `listAnnotations()`
 
 ```php
-listAnnotations($project_id, $from, $to, $annotation_category_id, $page, $per_page)
+listAnnotations($project_id, $from, $to, $annotation_category_id, $page, $per_page): \LLMPulse\Model\AnnotationsResponse
 ```
 
 List timeline annotations
@@ -168,7 +169,8 @@ $page = 1; // int
 $per_page = 20; // int
 
 try {
-    $apiInstance->listAnnotations($project_id, $from, $to, $annotation_category_id, $page, $per_page);
+    $result = $apiInstance->listAnnotations($project_id, $from, $to, $annotation_category_id, $page, $per_page);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnnotationsApi->listAnnotations: ', $e->getMessage(), PHP_EOL;
 }
@@ -187,7 +189,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\AnnotationsResponse**](../Model/AnnotationsResponse.md)
 
 ### Authorization
 
@@ -205,7 +207,7 @@ void (empty response body)
 ## `updateAnnotation()`
 
 ```php
-updateAnnotation($id, $update_annotation_request)
+updateAnnotation($id, $update_annotation_request): \LLMPulse\Model\AnnotationUpdateResponse
 ```
 
 Update a timeline annotation
@@ -233,7 +235,8 @@ $id = 56; // int
 $update_annotation_request = new \LLMPulse\Model\UpdateAnnotationRequest(); // \LLMPulse\Model\UpdateAnnotationRequest
 
 try {
-    $apiInstance->updateAnnotation($id, $update_annotation_request);
+    $result = $apiInstance->updateAnnotation($id, $update_annotation_request);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnnotationsApi->updateAnnotation: ', $e->getMessage(), PHP_EOL;
 }
@@ -248,7 +251,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\AnnotationUpdateResponse**](../Model/AnnotationUpdateResponse.md)
 
 ### Authorization
 

@@ -77,7 +77,7 @@ try {
 ## `deleteCompetitor()`
 
 ```php
-deleteCompetitor($project_id, $id)
+deleteCompetitor($project_id, $id): \LLMPulse\Model\CompetitorDeleteResponse
 ```
 
 Delete a competitor
@@ -105,7 +105,8 @@ $project_id = 56; // int | Project ID
 $id = 56; // int
 
 try {
-    $apiInstance->deleteCompetitor($project_id, $id);
+    $result = $apiInstance->deleteCompetitor($project_id, $id);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CompetitorsApi->deleteCompetitor: ', $e->getMessage(), PHP_EOL;
 }
@@ -120,7 +121,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\CompetitorDeleteResponse**](../Model/CompetitorDeleteResponse.md)
 
 ### Authorization
 
@@ -330,7 +331,7 @@ try {
 ## `updateCompetitor()`
 
 ```php
-updateCompetitor($id, $update_competitor_request)
+updateCompetitor($id, $update_competitor_request): \LLMPulse\Model\CompetitorUpdateResponse
 ```
 
 Update a competitor
@@ -358,7 +359,8 @@ $id = 56; // int
 $update_competitor_request = new \LLMPulse\Model\UpdateCompetitorRequest(); // \LLMPulse\Model\UpdateCompetitorRequest
 
 try {
-    $apiInstance->updateCompetitor($id, $update_competitor_request);
+    $result = $apiInstance->updateCompetitor($id, $update_competitor_request);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CompetitorsApi->updateCompetitor: ', $e->getMessage(), PHP_EOL;
 }
@@ -373,7 +375,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\CompetitorUpdateResponse**](../Model/CompetitorUpdateResponse.md)
 
 ### Authorization
 

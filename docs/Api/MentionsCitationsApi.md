@@ -17,7 +17,7 @@ All URIs are relative to https://api.llmpulse.ai/api/v1, except if the operation
 ## `listAllCitations()`
 
 ```php
-listAllCitations($project_id, $competitors, $page, $per_page, $model, $collection_id, $prompt, $from, $to, $output, $country_code, $language_code, $prompt_type, $brand_kind, $range)
+listAllCitations($project_id, $competitors, $page, $per_page, $model, $collection_id, $prompt, $from, $to, $output, $country_code, $language_code, $prompt_type, $brand_kind, $range): \LLMPulse\Model\AllCitationsResponse
 ```
 
 List all citations (brand + competitor)
@@ -58,7 +58,8 @@ $brand_kind = 'brand_kind_example'; // string | Filter by brand kind: brand (own
 $range = 56; // int | Number of days to look back (alternative to from/to, which win when both are given). A value that is not a plain positive number returns 422 ERR_INVALID_PARAM, even beside from/to.
 
 try {
-    $apiInstance->listAllCitations($project_id, $competitors, $page, $per_page, $model, $collection_id, $prompt, $from, $to, $output, $country_code, $language_code, $prompt_type, $brand_kind, $range);
+    $result = $apiInstance->listAllCitations($project_id, $competitors, $page, $per_page, $model, $collection_id, $prompt, $from, $to, $output, $country_code, $language_code, $prompt_type, $brand_kind, $range);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MentionsCitationsApi->listAllCitations: ', $e->getMessage(), PHP_EOL;
 }
@@ -86,7 +87,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\AllCitationsResponse**](../Model/AllCitationsResponse.md)
 
 ### Authorization
 
@@ -95,7 +96,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -104,7 +105,7 @@ void (empty response body)
 ## `listAllMentions()`
 
 ```php
-listAllMentions($project_id, $competitors, $page, $per_page, $model, $collection_id, $prompt, $from, $to, $output, $country_code, $language_code, $prompt_type, $brand_kind, $range)
+listAllMentions($project_id, $competitors, $page, $per_page, $model, $collection_id, $prompt, $from, $to, $output, $country_code, $language_code, $prompt_type, $brand_kind, $range): \LLMPulse\Model\AllMentionsResponse
 ```
 
 List all mentions (brand + competitor)
@@ -145,7 +146,8 @@ $brand_kind = 'brand_kind_example'; // string | Filter by brand kind: brand (own
 $range = 56; // int | Number of days to look back (alternative to from/to, which win when both are given). A value that is not a plain positive number returns 422 ERR_INVALID_PARAM, even beside from/to.
 
 try {
-    $apiInstance->listAllMentions($project_id, $competitors, $page, $per_page, $model, $collection_id, $prompt, $from, $to, $output, $country_code, $language_code, $prompt_type, $brand_kind, $range);
+    $result = $apiInstance->listAllMentions($project_id, $competitors, $page, $per_page, $model, $collection_id, $prompt, $from, $to, $output, $country_code, $language_code, $prompt_type, $brand_kind, $range);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MentionsCitationsApi->listAllMentions: ', $e->getMessage(), PHP_EOL;
 }
@@ -173,7 +175,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\AllMentionsResponse**](../Model/AllMentionsResponse.md)
 
 ### Authorization
 
@@ -182,7 +184,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -277,7 +279,7 @@ try {
 ## `listCompetitorCitations()`
 
 ```php
-listCompetitorCitations($project_id, $competitors, $page, $per_page, $model, $collection_id, $prompt, $from, $to, $output, $country_code, $language_code, $prompt_type, $brand_kind, $range)
+listCompetitorCitations($project_id, $competitors, $page, $per_page, $model, $collection_id, $prompt, $from, $to, $output, $country_code, $language_code, $prompt_type, $brand_kind, $range): \LLMPulse\Model\CompetitorCitationsResponse
 ```
 
 List competitor citations
@@ -318,7 +320,8 @@ $brand_kind = 'brand_kind_example'; // string | Filter by brand kind: brand (own
 $range = 56; // int | Number of days to look back (alternative to from/to, which win when both are given). A value that is not a plain positive number returns 422 ERR_INVALID_PARAM, even beside from/to.
 
 try {
-    $apiInstance->listCompetitorCitations($project_id, $competitors, $page, $per_page, $model, $collection_id, $prompt, $from, $to, $output, $country_code, $language_code, $prompt_type, $brand_kind, $range);
+    $result = $apiInstance->listCompetitorCitations($project_id, $competitors, $page, $per_page, $model, $collection_id, $prompt, $from, $to, $output, $country_code, $language_code, $prompt_type, $brand_kind, $range);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MentionsCitationsApi->listCompetitorCitations: ', $e->getMessage(), PHP_EOL;
 }
@@ -346,7 +349,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\CompetitorCitationsResponse**](../Model/CompetitorCitationsResponse.md)
 
 ### Authorization
 
@@ -355,7 +358,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

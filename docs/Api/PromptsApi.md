@@ -203,7 +203,7 @@ try {
 ## `deletePrompt()`
 
 ```php
-deletePrompt($project_id, $id)
+deletePrompt($project_id, $id): \LLMPulse\Model\PromptDeleteResponse
 ```
 
 Delete a prompt
@@ -231,7 +231,8 @@ $project_id = 56; // int | Project ID
 $id = 56; // int
 
 try {
-    $apiInstance->deletePrompt($project_id, $id);
+    $result = $apiInstance->deletePrompt($project_id, $id);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PromptsApi->deletePrompt: ', $e->getMessage(), PHP_EOL;
 }
@@ -246,7 +247,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\PromptDeleteResponse**](../Model/PromptDeleteResponse.md)
 
 ### Authorization
 
@@ -556,7 +557,7 @@ try {
 ## `listQueryFanOuts()`
 
 ```php
-listQueryFanOuts($project_id, $page, $per_page, $view, $order, $direction, $query, $model, $collection_id, $country_code, $language_code, $prompt, $prompt_type, $brand_kind, $range, $from, $to, $output)
+listQueryFanOuts($project_id, $page, $per_page, $view, $order, $direction, $query, $model, $collection_id, $country_code, $language_code, $prompt, $prompt_type, $brand_kind, $range, $from, $to, $output): \LLMPulse\Model\QueryFanOutsResponse
 ```
 
 List query fan-out
@@ -600,7 +601,8 @@ $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the wind
 $output = 'output_example'; // string | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
 
 try {
-    $apiInstance->listQueryFanOuts($project_id, $page, $per_page, $view, $order, $direction, $query, $model, $collection_id, $country_code, $language_code, $prompt, $prompt_type, $brand_kind, $range, $from, $to, $output);
+    $result = $apiInstance->listQueryFanOuts($project_id, $page, $per_page, $view, $order, $direction, $query, $model, $collection_id, $country_code, $language_code, $prompt, $prompt_type, $brand_kind, $range, $from, $to, $output);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PromptsApi->listQueryFanOuts: ', $e->getMessage(), PHP_EOL;
 }
@@ -631,7 +633,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\QueryFanOutsResponse**](../Model/QueryFanOutsResponse.md)
 
 ### Authorization
 

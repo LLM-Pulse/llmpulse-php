@@ -15,7 +15,7 @@ All URIs are relative to https://api.llmpulse.ai/api/v1, except if the operation
 ## `getRecommendation()`
 
 ```php
-getRecommendation($project_id, $id, $item_status, $resolve_source_refs)
+getRecommendation($project_id, $id, $item_status, $resolve_source_refs): \LLMPulse\Model\RecommendationDetailResponse
 ```
 
 Get recommendation run with items
@@ -43,7 +43,8 @@ $item_status = 'item_status_example'; // string
 $resolve_source_refs = true; // bool
 
 try {
-    $apiInstance->getRecommendation($project_id, $id, $item_status, $resolve_source_refs);
+    $result = $apiInstance->getRecommendation($project_id, $id, $item_status, $resolve_source_refs);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RecommendationsApi->getRecommendation: ', $e->getMessage(), PHP_EOL;
 }
@@ -60,7 +61,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\RecommendationDetailResponse**](../Model/RecommendationDetailResponse.md)
 
 ### Authorization
 
@@ -78,7 +79,7 @@ void (empty response body)
 ## `launchRecommendations()`
 
 ```php
-launchRecommendations($launch_recommendations_request)
+launchRecommendations($launch_recommendations_request): \LLMPulse\Model\RecommendationLaunchResponse
 ```
 
 Launch a recommendations generation
@@ -105,7 +106,8 @@ $apiInstance = new LLMPulse\Api\RecommendationsApi(
 $launch_recommendations_request = new \LLMPulse\Model\LaunchRecommendationsRequest(); // \LLMPulse\Model\LaunchRecommendationsRequest
 
 try {
-    $apiInstance->launchRecommendations($launch_recommendations_request);
+    $result = $apiInstance->launchRecommendations($launch_recommendations_request);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RecommendationsApi->launchRecommendations: ', $e->getMessage(), PHP_EOL;
 }
@@ -119,7 +121,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\RecommendationLaunchResponse**](../Model/RecommendationLaunchResponse.md)
 
 ### Authorization
 

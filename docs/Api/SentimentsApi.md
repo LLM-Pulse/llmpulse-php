@@ -203,7 +203,7 @@ try {
 ## `listSentimentCategories()`
 
 ```php
-listSentimentCategories($project_id, $output)
+listSentimentCategories($project_id, $output): \LLMPulse\Model\SentimentCategoriesResponse
 ```
 
 List sentiment categories (Growth plan or above)
@@ -231,7 +231,8 @@ $project_id = 56; // int | Project ID
 $output = 'output_example'; // string | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
 
 try {
-    $apiInstance->listSentimentCategories($project_id, $output);
+    $result = $apiInstance->listSentimentCategories($project_id, $output);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SentimentsApi->listSentimentCategories: ', $e->getMessage(), PHP_EOL;
 }
@@ -246,7 +247,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\SentimentCategoriesResponse**](../Model/SentimentCategoriesResponse.md)
 
 ### Authorization
 

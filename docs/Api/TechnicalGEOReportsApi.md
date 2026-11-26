@@ -16,7 +16,7 @@ All URIs are relative to https://api.llmpulse.ai/api/v1, except if the operation
 ## `createTechnicalGeoReports()`
 
 ```php
-createTechnicalGeoReports($create_technical_geo_reports_request)
+createTechnicalGeoReports($create_technical_geo_reports_request): \LLMPulse\Model\TechnicalGeoReportsCreateResponse
 ```
 
 Run technical GEO analysis
@@ -43,7 +43,8 @@ $apiInstance = new LLMPulse\Api\TechnicalGEOReportsApi(
 $create_technical_geo_reports_request = new \LLMPulse\Model\CreateTechnicalGeoReportsRequest(); // \LLMPulse\Model\CreateTechnicalGeoReportsRequest
 
 try {
-    $apiInstance->createTechnicalGeoReports($create_technical_geo_reports_request);
+    $result = $apiInstance->createTechnicalGeoReports($create_technical_geo_reports_request);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TechnicalGEOReportsApi->createTechnicalGeoReports: ', $e->getMessage(), PHP_EOL;
 }
@@ -57,7 +58,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\TechnicalGeoReportsCreateResponse**](../Model/TechnicalGeoReportsCreateResponse.md)
 
 ### Authorization
 
@@ -75,7 +76,7 @@ void (empty response body)
 ## `getTechnicalGeoReport()`
 
 ```php
-getTechnicalGeoReport($project_id, $report_type, $id)
+getTechnicalGeoReport($project_id, $report_type, $id): \LLMPulse\Model\TechnicalGeoReportResponse
 ```
 
 Get a technical GEO report
@@ -104,7 +105,8 @@ $report_type = 'report_type_example'; // string
 $id = 56; // int | Report id returned by POST /technical_geo_reports or GET /technical_geo_reports
 
 try {
-    $apiInstance->getTechnicalGeoReport($project_id, $report_type, $id);
+    $result = $apiInstance->getTechnicalGeoReport($project_id, $report_type, $id);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TechnicalGEOReportsApi->getTechnicalGeoReport: ', $e->getMessage(), PHP_EOL;
 }
@@ -120,7 +122,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\TechnicalGeoReportResponse**](../Model/TechnicalGeoReportResponse.md)
 
 ### Authorization
 
@@ -138,7 +140,7 @@ void (empty response body)
 ## `listTechnicalGeoReports()`
 
 ```php
-listTechnicalGeoReports($project_id, $report_type, $status, $batch_id, $page, $per_page)
+listTechnicalGeoReports($project_id, $report_type, $status, $batch_id, $page, $per_page): \LLMPulse\Model\TechnicalGeoReportsResponse
 ```
 
 List technical GEO reports
@@ -170,7 +172,8 @@ $page = 1; // int
 $per_page = 20; // int
 
 try {
-    $apiInstance->listTechnicalGeoReports($project_id, $report_type, $status, $batch_id, $page, $per_page);
+    $result = $apiInstance->listTechnicalGeoReports($project_id, $report_type, $status, $batch_id, $page, $per_page);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TechnicalGEOReportsApi->listTechnicalGeoReports: ', $e->getMessage(), PHP_EOL;
 }
@@ -189,7 +192,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\TechnicalGeoReportsResponse**](../Model/TechnicalGeoReportsResponse.md)
 
 ### Authorization
 

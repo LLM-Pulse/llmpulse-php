@@ -138,7 +138,7 @@ try {
 ## `deleteCollection()`
 
 ```php
-deleteCollection($project_id, $id)
+deleteCollection($project_id, $id): \LLMPulse\Model\CollectionDeleteResponse
 ```
 
 Delete a tag
@@ -166,7 +166,8 @@ $project_id = 56; // int | Project ID
 $id = 56; // int
 
 try {
-    $apiInstance->deleteCollection($project_id, $id);
+    $result = $apiInstance->deleteCollection($project_id, $id);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CollectionsTagsApi->deleteCollection: ', $e->getMessage(), PHP_EOL;
 }
@@ -181,7 +182,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\CollectionDeleteResponse**](../Model/CollectionDeleteResponse.md)
 
 ### Authorization
 
@@ -379,7 +380,7 @@ try {
 ## `updateCollection()`
 
 ```php
-updateCollection($id, $update_collection_request)
+updateCollection($id, $update_collection_request): \LLMPulse\Model\CollectionUpdateResponse
 ```
 
 Update a tag
@@ -407,7 +408,8 @@ $id = 56; // int
 $update_collection_request = new \LLMPulse\Model\UpdateCollectionRequest(); // \LLMPulse\Model\UpdateCollectionRequest
 
 try {
-    $apiInstance->updateCollection($id, $update_collection_request);
+    $result = $apiInstance->updateCollection($id, $update_collection_request);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CollectionsTagsApi->updateCollection: ', $e->getMessage(), PHP_EOL;
 }
@@ -422,7 +424,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\CollectionUpdateResponse**](../Model/CollectionUpdateResponse.md)
 
 ### Authorization
 

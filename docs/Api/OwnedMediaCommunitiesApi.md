@@ -333,7 +333,7 @@ try {
 ## `listRedditCitations()`
 
 ```php
-listRedditCitations($project_id, $page, $per_page, $view, $subreddit, $author, $status, $owned, $brand, $order, $direction, $model, $collection_id, $country_code, $language_code, $brand_kind, $range, $from, $to, $output)
+listRedditCitations($project_id, $page, $per_page, $view, $subreddit, $author, $status, $owned, $brand, $order, $direction, $model, $collection_id, $country_code, $language_code, $brand_kind, $range, $from, $to, $output): \LLMPulse\Model\RedditResponse
 ```
 
 List cited Reddit content
@@ -379,7 +379,8 @@ $to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End of the wind
 $output = 'output_example'; // string | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
 
 try {
-    $apiInstance->listRedditCitations($project_id, $page, $per_page, $view, $subreddit, $author, $status, $owned, $brand, $order, $direction, $model, $collection_id, $country_code, $language_code, $brand_kind, $range, $from, $to, $output);
+    $result = $apiInstance->listRedditCitations($project_id, $page, $per_page, $view, $subreddit, $author, $status, $owned, $brand, $order, $direction, $model, $collection_id, $country_code, $language_code, $brand_kind, $range, $from, $to, $output);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OwnedMediaCommunitiesApi->listRedditCitations: ', $e->getMessage(), PHP_EOL;
 }
@@ -412,7 +413,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\RedditResponse**](../Model/RedditResponse.md)
 
 ### Authorization
 

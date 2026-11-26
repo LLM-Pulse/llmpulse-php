@@ -90,7 +90,7 @@ try {
 ## `getAiTraffic()`
 
 ```php
-getAiTraffic($project_id, $range, $from, $to, $source, $granularity)
+getAiTraffic($project_id, $range, $from, $to, $source, $granularity): \LLMPulse\Model\AiTrafficResponse
 ```
 
 AI referral traffic (Scale plan or above)
@@ -122,7 +122,8 @@ $source = 'source_example'; // string | Filter by a single AI source slug (e.g. 
 $granularity = 'granularity_example'; // string
 
 try {
-    $apiInstance->getAiTraffic($project_id, $range, $from, $to, $source, $granularity);
+    $result = $apiInstance->getAiTraffic($project_id, $range, $from, $to, $source, $granularity);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AIAgentTrafficApi->getAiTraffic: ', $e->getMessage(), PHP_EOL;
 }
@@ -141,7 +142,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\LLMPulse\Model\AiTrafficResponse**](../Model/AiTrafficResponse.md)
 
 ### Authorization
 

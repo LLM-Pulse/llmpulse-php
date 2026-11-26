@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **updated_at** | **\DateTime** |  |
 **total_recommendations** | **int** |  |
 **high_priority_count** | **int** |  |
-**summary** | [**\LLMPulse\Model\RecommendationSummarySummary**](RecommendationSummarySummary.md) |  |
+**summary** | [**\LLMPulse\Model\RecommendationDetailResponseSummary**](RecommendationDetailResponseSummary.md) |  |
 **context** | **object** | Generation context and run diagnostics as stored; empty until the generation completes. Its keys are not a stable contract |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

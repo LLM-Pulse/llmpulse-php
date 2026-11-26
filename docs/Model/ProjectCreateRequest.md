@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **goals** | **string** | What the brand wants to achieve. Context for GEO Writer and prompt suggestions | [optional]
 **primary_products** | **string[]** | Main products or services | [optional]
 **matching_names** | **string[]** | Brand-name variants used to detect mentions. At most 50 names of up to 100 characters each; a longer list or name is refused with ERR_INVALID_PARAM (422) and nothing is created | [optional]
-**prompts** | **string[]** |  | [optional]
+**prompts** | **string[]** | Prompt texts (max 100), each up to 2,000 bytes of UTF-8 text (about 2,000 characters in English, fewer with accented letters or non-Latin scripts). A longer one returns ERR_INVALID_PARAM with error.meta.reason prompt_too_long before anything is created | [optional]
 **collections** | [**\LLMPulse\Model\ProjectCreateRequestCollectionsInner[]**](ProjectCreateRequestCollectionsInner.md) | Collections (prompt tags) created with the project, each tagging prompts of this request by their exact text, so no separate tagging calls are needed. A text that is not in prompts returns ERR_INVALID_PARAM. A team member also needs Tags: Create permission. | [optional]
 **competitors** | [**\LLMPulse\Model\ProjectCreateRequestCompetitorsInner[]**](ProjectCreateRequestCompetitorsInner.md) |  | [optional]
 **owned_media** | [**\LLMPulse\Model\ProjectCreateRequestOwnedMedia**](ProjectCreateRequestOwnedMedia.md) |  | [optional]

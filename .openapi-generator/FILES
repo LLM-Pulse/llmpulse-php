@@ -282,6 +282,7 @@ docs/Model/OwnedMediaSummaryResponse.md
 docs/Model/OwnedMediaSummaryResponsePrevious.md
 docs/Model/OwnedMediaWeek.md
 docs/Model/PaginatedEnvelope.md
+docs/Model/PeecExportImportResponse.md
 docs/Model/Ping200Response.md
 docs/Model/Project.md
 docs/Model/ProjectCreateRequest.md
@@ -332,6 +333,7 @@ docs/Model/PromptTagsRemoveResponse.md
 docs/Model/PromptsCreateRequest.md
 docs/Model/PromptsCreateResponse.md
 docs/Model/PromptsCreateResponseDataInner.md
+docs/Model/PromptsImportFileResponse.md
 docs/Model/PromptsImportRequest.md
 docs/Model/PromptsImportRequestRowsInner.md
 docs/Model/PromptsImportResponse.md
@@ -767,6 +769,7 @@ lib/Model/OwnedMediaSummaryResponse.php
 lib/Model/OwnedMediaSummaryResponsePrevious.php
 lib/Model/OwnedMediaWeek.php
 lib/Model/PaginatedEnvelope.php
+lib/Model/PeecExportImportResponse.php
 lib/Model/Ping200Response.php
 lib/Model/Project.php
 lib/Model/ProjectCreateRequest.php
@@ -817,6 +820,7 @@ lib/Model/PromptTagsRemoveResponse.php
 lib/Model/PromptsCreateRequest.php
 lib/Model/PromptsCreateResponse.php
 lib/Model/PromptsCreateResponseDataInner.php
+lib/Model/PromptsImportFileResponse.php
 lib/Model/PromptsImportRequest.php
 lib/Model/PromptsImportRequestRowsInner.php
 lib/Model/PromptsImportResponse.php

@@ -13,5 +13,6 @@ Name | Type | Description | Notes
 **geo_audit_manual_runs** | [**\LLMPulse\Model\AccountQuota**](AccountQuota.md) |  | [optional]
 **prompt_executions** | [**\LLMPulse\Model\AccountExecutionQuota**](AccountExecutionQuota.md) |  | [optional]
 **pitch_projects** | [**\LLMPulse\Model\AccountPitchQuota**](AccountPitchQuota.md) |  | [optional]
+**agent_usage** | [**\LLMPulse\Model\AccountAgentUsage**](AccountAgentUsage.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

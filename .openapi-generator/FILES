@@ -282,7 +282,6 @@ docs/Model/OwnedMediaSummaryResponse.md
 docs/Model/OwnedMediaSummaryResponsePrevious.md
 docs/Model/OwnedMediaWeek.md
 docs/Model/PaginatedEnvelope.md
-docs/Model/PeecExportImportResponse.md
 docs/Model/Ping200Response.md
 docs/Model/Project.md
 docs/Model/ProjectCreateRequest.md
@@ -769,7 +768,6 @@ lib/Model/OwnedMediaSummaryResponse.php
 lib/Model/OwnedMediaSummaryResponsePrevious.php
 lib/Model/OwnedMediaWeek.php
 lib/Model/PaginatedEnvelope.php
-lib/Model/PeecExportImportResponse.php
 lib/Model/Ping200Response.php
 lib/Model/Project.php
 lib/Model/ProjectCreateRequest.php

@@ -23,7 +23,7 @@ acceptCatalogPromptSuggestions($catalog_prompt_suggestion_ids_request): \LLMPuls
 
 Accept catalog prompt suggestions
 
-Starts tracking pending suggestions: each one becomes a prompt, tagged with a collection named after its product. Suggestions that are no longer pending come back in skipped, as does one that would be a new prompt over the 2,000-byte limit (reason prompt_too_long), which stays pending. All accepted suggestions must share one country and language. When the new prompts would exceed the plan, the call returns ERR_LIMIT_REACHED and accepts nothing. The prompts of a launched pitch project are fixed, so accepting a suggestion returns ERR_INVALID_PARAM with error.meta.reason pitch_prompts_frozen. Requires a `read_write` scope API key and, for team members, create access to Prompts. Not available to accounts with a white-label portal or an embed (ERR_INTEGRATION_UNAVAILABLE).
+Starts tracking pending suggestions: each one becomes a prompt, tagged with a collection named after its product. Suggestions that are no longer pending come back in skipped, as does one that would be a new prompt over the 2,000-byte limit (reason prompt_too_long), which stays pending. All accepted suggestions must share one country and language. When the new prompts would exceed the plan, the call returns ERR_LIMIT_REACHED and accepts nothing. On a pitch project, a prompt accepted after its run runs once, right away, up to 100 prompts in all. Requires a `read_write` scope API key and, for team members, create access to Prompts. Not available to accounts with a white-label portal or an embed (ERR_INTEGRATION_UNAVAILABLE).
 
 ### Example
 
